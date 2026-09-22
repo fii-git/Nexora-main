@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
 
@@ -75,9 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
     <header
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "px-4 sm:px-6 lg:px-8 pt-3"
-          : "px-0 pt-0"
+        isScrolled ? "px-4 sm:px-6 lg:px-8 pt-3" : "px-0 pt-0"
       }`}
     >
       <div
@@ -93,7 +91,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           }`}
         >
           <div className="flex items-center justify-between">
-
             {/* ================= LOGO ================= */}
             <a
               id="brand-logo"
@@ -111,9 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
               <span
                 className={`font-extrabold text-2xl tracking-tight transition-colors duration-300 ${
-                  isScrolled
-                    ? "text-white"
-                    : "text-neutral-900"
+                  isScrolled ? "text-white" : "text-neutral-900"
                 }`}
               >
                 NEXORA
@@ -134,17 +129,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                     key={item.label}
                     id={`nav-link-${targetId}`}
                     href={item.href}
-                    onClick={(e) =>
-                      handleNavClick(e, item.href)
-                    }
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className={`relative text-[13px] font-bold tracking-wider transition-colors duration-300 group ${
                       isActive
                         ? isScrolled
                           ? "text-[#5EA7FF]"
                           : "text-[#2587FF]"
                         : isScrolled
-                        ? "text-white/75 hover:text-white"
-                        : "text-neutral-700 hover:text-[#2587FF]"
+                          ? "text-white/75 hover:text-white"
+                          : "text-neutral-700 hover:text-[#2587FF]"
                     }`}
                   >
                     {item.label}
@@ -152,9 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                     {/* Active underline */}
                     <span
                       className={`absolute -bottom-2 left-0 h-[2px] rounded-full bg-gradient-to-r from-[#2587FF] to-[#8B3DFF] transition-all duration-300 ${
-                        isActive
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
                   </a>
@@ -164,7 +155,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
             {/* ================= SOCIAL + CTA ================= */}
             <div className="hidden md:flex items-center gap-4">
-
               <div className="flex items-center gap-2">
                 {/* Instagram */}
                 <a
@@ -222,9 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   onClick={onOpenContact}
                   className="ml-1 relative overflow-hidden group px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
-                  <span className="relative z-10">
-                    Let's Talk
-                  </span>
+                  <span className="relative z-10">Let's Talk</span>
 
                   <span className="absolute inset-0 bg-gradient-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
@@ -236,9 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               <button
                 id="mobile-menu-toggle-btn"
                 type="button"
-                onClick={() =>
-                  setMobileMenuOpen(!mobileMenuOpen)
-                }
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`p-2.5 rounded-xl transition-all duration-300 ${
                   isScrolled
                     ? "text-white hover:bg-white/10"
@@ -262,20 +248,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               className="lg:hidden mt-4 rounded-2xl border border-white/10 bg-[#18366B]/75 backdrop-blur-xl shadow-2xl overflow-hidden"
             >
               <div className="p-5 space-y-1">
-
                 {navItems.map((item) => {
                   const targetId = item.href.replace("#", "");
-                  const isActive =
-                    activeSection === targetId;
+                  const isActive = activeSection === targetId;
 
                   return (
                     <a
                       key={item.label}
                       id={`mobile-nav-link-${targetId}`}
                       href={item.href}
-                      onClick={(e) =>
-                        handleNavClick(e, item.href)
-                      }
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className={`block px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 ${
                         isActive
                           ? "text-white bg-gradient-to-r from-[#2587FF]/20 to-[#8B3DFF]/20 border border-[#2587FF]/20"
@@ -289,7 +271,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
                 {/* Mobile bottom section */}
                 <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between">
-
                   <div className="flex items-center gap-2">
                     <a
                       href="https://instagram.com"

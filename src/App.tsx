@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { VideoSection } from './components/VideoSection';
-import { Partners } from './components/Partners';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { Pricing } from './components/Pricing';
-import { Projects } from './components/Projects';
-import { Testimonials } from './components/Testimonials';
-import { Blog } from './components/Blog';
-import { Footer } from './components/Footer';
-import { VideoModal } from './components/VideoModal';
-import { ArticleModal } from './components/ArticleModal';
-import { ContactModal } from './components/ContactModal';
-import { ProjectModal } from './components/ProjectModal';
-import { BlogPost, ProjectItem } from './types';
+import React, { useState } from "react";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { Services } from "./components/Services";
+import { VideoSection } from "./components/VideoSection";
+import { Partners } from "./components/Partners";
+import { WhyChooseUs } from "./components/WhyChooseUs";
+import { Pricing } from "./components/Pricing";
+import { Projects } from "./components/Projects";
+import { Testimonials } from "./components/Testimonials";
+import { Blog } from "./components/Blog";
+import { Footer } from "./components/Footer";
+import { VideoModal } from "./components/VideoModal";
+import { ArticleModal } from "./components/ArticleModal";
+import { ContactModal } from "./components/ContactModal";
+import { ProjectModal } from "./components/ProjectModal";
+import { BlogPost, ProjectItem } from "./types";
 
 export function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -23,15 +23,13 @@ export function App() {
   // Service yang sedang dipilih
   const [selectedService, setSelectedService] = useState<string | null>(null);
 
-  const [selectedTopic, setSelectedTopic] = useState(
-    'General Consultation'
+  const [selectedTopic, setSelectedTopic] = useState("General Consultation");
+
+  const [selectedArticle, setSelectedArticle] = useState<BlogPost | null>(null);
+
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(
+    null,
   );
-
-  const [selectedArticle, setSelectedArticle] =
-    useState<BlogPost | null>(null);
-
-  const [selectedProject, setSelectedProject] =
-    useState<ProjectItem | null>(null);
 
   // =========================================================
   // CONTACT MODAL
@@ -47,7 +45,7 @@ export function App() {
   // =========================================================
 
   const handleGetStarted = () => {
-    handleOpenContactWithTopic('New Project Kickoff');
+    handleOpenContactWithTopic("New Project Kickoff");
   };
 
   // =========================================================
@@ -80,11 +78,11 @@ export function App() {
   // =========================================================
 
   const handleOurStory = () => {
-    const el = document.getElementById('why-us');
+    const el = document.getElementById("why-us");
 
     if (el) {
       el.scrollIntoView({
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -94,11 +92,11 @@ export function App() {
   // =========================================================
 
   const handleSeeDetail = () => {
-    const el = document.getElementById('why-us');
+    const el = document.getElementById("why-us");
 
     if (el) {
       el.scrollIntoView({
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -114,15 +112,12 @@ export function App() {
         selection:text-white
       "
     >
-
       {/* =====================================================
           NAVBAR
       ====================================================== */}
 
       <Navbar
-        onOpenContact={() =>
-          handleOpenContactWithTopic('General Inquiry')
-        }
+        onOpenContact={() => handleOpenContactWithTopic("General Inquiry")}
       />
 
       {/* =====================================================
@@ -130,11 +125,16 @@ export function App() {
       ====================================================== */}
 
       <main>
-
         {/* 1. HERO */}
         <Hero
           onWatchVideo={() => setIsVideoModalOpen(true)}
           onGetStarted={handleGetStarted}
+        />
+
+        {/* 3. ABOUT / VIDEO */}
+        <VideoSection
+          onPlayVideo={() => setIsVideoModalOpen(true)}
+          onOurStory={handleOurStory}
         />
 
         {/* 2. SERVICES */}
@@ -142,12 +142,6 @@ export function App() {
           selectedService={selectedService}
           onSelectService={handleSelectService}
           onSeeDetail={handleSeeDetail}
-        />
-
-        {/* 3. ABOUT / VIDEO */}
-        <VideoSection
-          onPlayVideo={() => setIsVideoModalOpen(true)}
-          onOurStory={handleOurStory}
         />
 
         {/* 4. PARTNERS */}
@@ -159,29 +153,18 @@ export function App() {
         {/* 6. PRICING */}
         <Pricing
           onSelectPlan={(plan) =>
-            handleOpenContactWithTopic(
-              `Selected Plan: ${plan}`
-            )
+            handleOpenContactWithTopic(`Selected Plan: ${plan}`)
           }
         />
 
         {/* 7. PROJECTS */}
-        <Projects
-          onSelectProject={(project) =>
-            setSelectedProject(project)
-          }
-        />
+        <Projects onSelectProject={(project) => setSelectedProject(project)} />
 
         {/* 8. TESTIMONIALS */}
         <Testimonials />
 
         {/* 9. BLOG */}
-        <Blog
-          onSelectArticle={(post) =>
-            setSelectedArticle(post)
-          }
-        />
-
+        <Blog onSelectArticle={(post) => setSelectedArticle(post)} />
       </main>
 
       {/* =====================================================
@@ -196,9 +179,7 @@ export function App() {
 
       <VideoModal
         isOpen={isVideoModalOpen}
-        onClose={() =>
-          setIsVideoModalOpen(false)
-        }
+        onClose={() => setIsVideoModalOpen(false)}
       />
 
       {/* =====================================================
@@ -207,9 +188,7 @@ export function App() {
 
       <ArticleModal
         post={selectedArticle}
-        onClose={() =>
-          setSelectedArticle(null)
-        }
+        onClose={() => setSelectedArticle(null)}
       />
 
       {/* =====================================================
@@ -218,13 +197,11 @@ export function App() {
 
       <ProjectModal
         project={selectedProject}
-        onClose={() =>
-          setSelectedProject(null)
-        }
+        onClose={() => setSelectedProject(null)}
         onConsult={() => {
           if (selectedProject) {
             handleOpenContactWithTopic(
-              `Case Study Inquiry: ${selectedProject.title}`
+              `Case Study Inquiry: ${selectedProject.title}`,
             );
           }
         }}
@@ -239,7 +216,6 @@ export function App() {
         onClose={handleCloseContact}
         initialTopic={selectedTopic}
       />
-
     </div>
   );
 }
