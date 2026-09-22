@@ -1,195 +1,263 @@
 import React, { useState } from 'react';
 import { pricingPlans } from '../data';
-import { Check, X } from 'lucide-react';
+import { Check, X, Sparkles } from 'lucide-react';
 
 interface PricingProps {
   onSelectPlan: (planName: string) => void;
 }
 
 export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annually'>('monthly');
+  const [billingCycle, setBillingCycle] =
+    useState<'monthly' | 'annually'>('monthly');
 
   return (
-    <section id="pricing" className="py-20 lg:py-28 bg-[#fafafa]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4 mb-12 sm:mb-16">
-          <div className="inline-flex items-center">
-            <span
-              id="pricing-tag-badge"
-              className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#f95700] bg-[#fff1ec] tracking-wide"
-            >
-              Pricing List
+    <section
+      id="pricing"
+      className="relative overflow-hidden bg-[#F8FAFF] py-20 sm:py-24 lg:py-28"
+    >
+      {/* Background Glow */}
+      <div className="absolute -left-40 top-20 w-96 h-96 rounded-full bg-[#2587FF]/10 blur-3xl pointer-events-none" />
+      <div className="absolute -right-40 bottom-0 w-[450px] h-[450px] rounded-full bg-[#8B3DFF]/10 blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ================= HEADER ================= */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+
+          <div className="inline-flex items-center gap-2 mb-5">
+            <span className="w-10 h-[2px] bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]" />
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-[#2587FF]">
+              Our Pricing
             </span>
           </div>
 
-          <h2
-            id="pricing-heading"
-            className="text-3xl sm:text-4xl lg:text-[44px] font-black text-neutral-900 tracking-tight leading-[1.2]"
-          >
-            Our Pricing Plan
+          <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-black text-[#111114] leading-[1.1]">
+            Flexible Packages
+            <br />
+            <span className="bg-gradient-to-r from-[#2587FF] via-[#4168FF] to-[#A52BFF] bg-clip-text text-transparent">
+              For Every Business.
+            </span>
           </h2>
 
-          <p
-            id="pricing-subtitle"
-            className="text-neutral-500 text-xs sm:text-sm sm:leading-relaxed"
-          >
-            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod
-            Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+          <p className="mt-5 text-sm sm:text-base text-[#667085] leading-7">
+            Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Semua paket dapat
+            dikustomisasi sesuai skala proyek dan tujuan digital Anda.
           </p>
 
-          {/* Interactive Billing Cycle Toggle */}
-          <div className="pt-2 flex items-center justify-center gap-3">
-            <span
-              className={`text-xs sm:text-sm font-bold cursor-pointer transition-colors ${
-                billingCycle === 'monthly' ? 'text-neutral-900' : 'text-neutral-400'
-              }`}
+          {/* Toggle */}
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-white border border-[#E3EAF6] p-2 shadow-sm">
+
+            <button
               onClick={() => setBillingCycle('monthly')}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition ${
+                billingCycle === 'monthly'
+                  ? 'bg-[#111114] text-white'
+                  : 'text-[#667085]'
+              }`}
             >
               Monthly
-            </span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={billingCycle === 'annually'}
-              onClick={() =>
-                setBillingCycle(billingCycle === 'monthly' ? 'annually' : 'monthly')
-              }
-              className="w-12 h-6 rounded-full bg-neutral-200 p-1 flex items-center transition-colors focus:outline-none"
-            >
-              <div
-                className={`w-4 h-4 rounded-full bg-[#f95700] shadow-sm transform transition-transform ${
-                  billingCycle === 'annually' ? 'translate-x-6' : 'translate-x-0'
-                }`}
-              />
             </button>
-            <span
-              className={`text-xs sm:text-sm font-bold cursor-pointer transition-colors flex items-center gap-1.5 ${
-                billingCycle === 'annually' ? 'text-neutral-900' : 'text-neutral-400'
-              }`}
+
+            <button
               onClick={() => setBillingCycle('annually')}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition flex items-center gap-2 ${
+                billingCycle === 'annually'
+                  ? 'bg-gradient-to-r from-[#2587FF] to-[#8B3DFF] text-white'
+                  : 'text-[#667085]'
+              }`}
             >
-              Annually <span className="text-[10px] bg-orange-100 text-[#f95700] px-2 py-0.5 rounded-full font-extrabold">-20%</span>
-            </span>
+              Project
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/20">
+                Save 20%
+              </span>
+            </button>
+
           </div>
+
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        {/* ================= CARDS ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch">
+
           {pricingPlans.map((plan) => {
-            const isHighlight = plan.highlighted;
+
+            const isPopular = plan.highlighted;
+
             const finalPrice =
               billingCycle === 'annually' && plan.price > 0
                 ? Math.round(plan.price * 0.8)
                 : plan.price;
 
             return (
+
               <div
                 key={plan.id}
-                id={`pricing-card-${plan.id}`}
-                className={`rounded-[32px] p-8 sm:p-9 transition-all duration-300 flex flex-col justify-between ${
-                  isHighlight
-                    ? 'bg-[#f95700] text-white shadow-2xl shadow-orange-500/35 transform lg:-translate-y-3 z-10'
-                    : 'bg-white text-neutral-900 border border-neutral-100 shadow-md shadow-neutral-100/60 hover:shadow-xl'
-                }`}
+                className={`
+                  relative overflow-hidden rounded-[32px] p-8 flex flex-col
+                  transition-all duration-500
+
+                  ${
+                    isPopular
+                      ? `
+                        bg-gradient-to-br
+                        from-[#2587FF]
+                        via-[#4168FF]
+                        to-[#8B3DFF]
+                        text-white
+                        shadow-[0_25px_60px_rgba(65,104,255,0.28)]
+                        lg:-translate-y-4
+                      `
+                      : `
+                        bg-white
+                        border border-[#E4EBF8]
+                        shadow-[0_12px_35px_rgba(25,55,100,0.06)]
+                        hover:-translate-y-2
+                        hover:shadow-[0_20px_45px_rgba(37,99,235,0.10)]
+                      `
+                  }
+                `}
               >
+
+                {/* Popular Badge */}
+                {isPopular && (
+                  <div className="absolute top-5 right-5 inline-flex items-center gap-1 rounded-full bg-white/15 backdrop-blur px-3 py-1 text-[11px] font-bold">
+                    <Sparkles className="w-3 h-3" />
+                    MOST POPULAR
+                  </div>
+                )}
+
+                {/* Plan */}
                 <div>
-                  {/* Plan Name & Tagline */}
-                  <h3
-                    className={`text-xl font-black mb-2 ${
-                      isHighlight ? 'text-white' : 'text-neutral-900'
-                    }`}
-                  >
+
+                  <h3 className={`text-2xl font-black ${isPopular ? 'text-white' : 'text-[#111114]'}`}>
                     {plan.name}
                   </h3>
 
-                  <p
-                    className={`text-xs leading-relaxed mb-6 ${
-                      isHighlight ? 'text-orange-100' : 'text-neutral-500'
-                    }`}
-                  >
+                  <p className={`mt-2 text-sm leading-6 ${isPopular ? 'text-white/75' : 'text-[#667085]'}`}>
                     {plan.tagline}
                   </p>
 
-                  {/* Price */}
-                  <div className="flex items-baseline gap-1.5 mb-8">
-                    <span
-                      className={`text-4xl sm:text-5xl font-black tracking-tight ${
-                        isHighlight ? 'text-white' : 'text-neutral-900'
-                      }`}
-                    >
+                </div>
+
+                {/* Price */}
+                <div className="my-8">
+
+                  <div className="flex items-end gap-1">
+
+                    <span className={`text-5xl font-black ${isPopular ? 'text-white' : 'text-[#111114]'}`}>
                       ${finalPrice}
                     </span>
-                    <span
-                      className={`text-xs font-semibold ${
-                        isHighlight ? 'text-orange-200' : 'text-neutral-400'
-                      }`}
-                    >
-                      / {billingCycle === 'annually' ? 'Month (Billed Annually)' : plan.period}
+
+                    <span className={`mb-2 text-sm ${isPopular ? 'text-white/70' : 'text-[#98A2B3]'}`}>
+                      /month
                     </span>
+
                   </div>
 
-                  {/* CTA Button */}
-                  <button
-                    id={`pricing-plan-btn-${plan.id}`}
-                    type="button"
-                    onClick={() => onSelectPlan(plan.name)}
-                    className={`w-full py-3.5 px-6 rounded-full font-bold text-sm tracking-wide transition-all transform hover:-translate-y-0.5 cursor-pointer shadow-md mb-8 ${
-                      isHighlight
-                        ? 'bg-white text-[#f95700] hover:bg-neutral-50 shadow-black/10'
-                        : 'bg-[#f95700] hover:bg-[#e44d00] text-white shadow-orange-500/20'
-                    }`}
-                  >
-                    Get Started Now
-                  </button>
+                  <p className={`mt-2 text-xs ${isPopular ? 'text-white/70' : 'text-[#98A2B3]'}`}>
+                    {billingCycle === 'annually'
+                      ? 'Billed as a complete project'
+                      : 'Monthly collaboration plan'}
+                  </p>
 
-                  {/* Features List */}
-                  <div className="space-y-3.5 pt-2">
-                    {plan.features.map((feat, idx) => {
-                      const isIncluded = feat.included;
-                      return (
-                        <div key={idx} className="flex items-center gap-3">
-                          {/* Check / Cross Icon */}
-                          <div
-                            className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                              isHighlight
-                                ? isIncluded
-                                  ? 'bg-white/20 text-white'
-                                  : 'bg-black/10 text-white/60'
-                                : isIncluded
-                                ? 'bg-orange-50 text-[#f95700]'
-                                : 'bg-neutral-100 text-neutral-400'
-                            }`}
-                          >
-                            {isIncluded ? (
-                              <Check className="w-3 h-3 stroke-[3]" />
-                            ) : (
-                              <X className="w-3 h-3 stroke-[2.5]" />
-                            )}
-                          </div>
-
-                          <span
-                            className={`text-xs leading-snug ${
-                              isHighlight
-                                ? isIncluded
-                                  ? 'text-white font-medium'
-                                  : 'text-orange-200/70'
-                                : isIncluded
-                                ? 'text-neutral-800 font-medium'
-                                : 'text-neutral-400'
-                            }`}
-                          >
-                            {feat.text}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
                 </div>
+
+                {/* Button */}
+                <button
+                  onClick={() => onSelectPlan(plan.name)}
+                  className={`
+                    w-full py-3.5 rounded-full font-bold text-sm transition-all
+
+                    ${
+                      isPopular
+                        ? `
+                          bg-white
+                          text-[#4168FF]
+                          hover:bg-[#F5F8FF]
+                        `
+                        : `
+                          bg-[#111114]
+                          text-white
+                          hover:bg-[#2587FF]
+                        `
+                    }
+                  `}
+                >
+                  Start This Plan
+                </button>
+
+                {/* Divider */}
+                <div className={`my-8 h-px ${isPopular ? 'bg-white/15' : 'bg-[#EDF2FA]'}`} />
+
+                {/* Features */}
+                <div className="space-y-4 flex-1">
+
+                  {plan.features.map((feature, index) => {
+
+                    const included = feature.included;
+
+                    return (
+
+                      <div key={index} className="flex items-start gap-3">
+
+                        <div
+                          className={`
+                            w-6 h-6 rounded-full flex items-center justify-center mt-0.5
+
+                            ${
+                              included
+                                ? isPopular
+                                  ? 'bg-white/15'
+                                  : 'bg-[#EAF3FF]'
+                                : isPopular
+                                  ? 'bg-white/10'
+                                  : 'bg-[#F4F6FA]'
+                            }
+                          `}
+                        >
+                          {included ? (
+                            <Check
+                              className={`w-3.5 h-3.5 ${
+                                isPopular ? 'text-white' : 'text-[#2587FF]'
+                              }`}
+                            />
+                          ) : (
+                            <X
+                              className={`w-3.5 h-3.5 ${
+                                isPopular ? 'text-white/40' : 'text-[#C2C8D3]'
+                              }`}
+                            />
+                          )}
+                        </div>
+
+                        <span
+                          className={`text-sm leading-6 ${
+                            included
+                              ? isPopular
+                                ? 'text-white'
+                                : 'text-[#344054]'
+                              : isPopular
+                                ? 'text-white/45'
+                                : 'text-[#98A2B3]'
+                          }`}
+                        >
+                          {feature.text}
+                        </span>
+
+                      </div>
+
+                    );
+                  })}
+
+                </div>
+
               </div>
+
             );
           })}
+
         </div>
+
       </div>
     </section>
   );

@@ -1,100 +1,627 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { projectItems } from '../data';
 import { ProjectItem } from '../types';
-import { ArrowUpRight } from 'lucide-react';
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
 
 interface ProjectsProps {
   onSelectProject?: (project: ProjectItem) => void;
 }
 
-export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
+export const Projects: React.FC<ProjectsProps> = ({
+  onSelectProject,
+}) => {
   const [activeFilter, setActiveFilter] = useState('All');
 
+  // =========================================================
+  // PROJECT CATEGORIES
+  // =========================================================
+
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(
+      new Set(projectItems.map((project) => project.category))
+    );
+
+    return ['All', ...uniqueCategories];
+  }, []);
+
+  // =========================================================
+  // FILTER PROJECTS
+  // =========================================================
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'All') {
+      return projectItems;
+    }
+
+    return projectItems.filter(
+      (project) => project.category === activeFilter
+    );
+  }, [activeFilter]);
+
   return (
-    <section id="projects" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="max-w-xl">
+    <section
+      id="projects"
+      className="
+        relative
+        overflow-hidden
+        bg-[#F8FAFF]
+        py-20
+        sm:py-24
+        lg:py-28
+      "
+    >
+
+      {/* =====================================================
+          BACKGROUND DECORATION
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-48
+          top-20
+          h-96
+          w-96
+          rounded-full
+          bg-[#2587FF]/10
+          blur-3xl
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-48
+          bottom-0
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#8B3DFF]/10
+          blur-3xl
+        "
+      />
+
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-7xl
+          px-4
+          sm:px-6
+          lg:px-8
+        "
+      >
+
+        {/* =====================================================
+            HEADER
+        ====================================================== */}
+
+        <div
+          className="
+            mb-12
+            grid
+            grid-cols-1
+            gap-8
+            lg:mb-14
+            lg:grid-cols-12
+            lg:items-end
+          "
+        >
+
+          {/* LEFT */}
+          <div className="lg:col-span-7">
+
+            {/* Label */}
+            <div
+              className="
+                mb-5
+                inline-flex
+                items-center
+                gap-2
+              "
+            >
+              <span
+                className="
+                  h-[2px]
+                  w-10
+                  bg-gradient-to-r
+                  from-[#2587FF]
+                  to-[#8B3DFF]
+                "
+              />
+
+              <span
+                className="
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.22em]
+                  text-[#2587FF]
+                  sm:text-sm
+                "
+              >
+                Our Projects
+              </span>
+            </div>
+
+            {/* Heading */}
             <h2
               id="projects-heading"
-              className="text-3xl sm:text-4xl lg:text-[42px] font-black text-neutral-900 tracking-tight leading-[1.2]"
+              className="
+                max-w-3xl
+                text-3xl
+                font-black
+                leading-[1.1]
+                tracking-tight
+                text-[#111114]
+                sm:text-4xl
+                lg:text-[52px]
+              "
             >
-              Awesome Project <br className="hidden sm:inline" />
-              We've Ever Worked On
+              Work That Speaks
+              <br className="hidden sm:block" />
+
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-[#2587FF]
+                  via-[#4168FF]
+                  to-[#A52BFF]
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                For Itself.
+              </span>
             </h2>
+
           </div>
 
-          <div className="max-w-md flex flex-col sm:items-start md:items-end gap-4">
-            <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed md:text-right">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod
-              Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
-            </p>
-            <a
-              id="all-projects-btn"
-              href="#projects"
-              className="px-6 py-2.5 rounded-full bg-[#f95700] hover:bg-[#e44d00] text-white text-xs sm:text-sm font-bold shadow-md shadow-orange-500/20 transition-all cursor-pointer inline-flex items-center gap-1.5"
+          {/* RIGHT */}
+          <div className="lg:col-span-5 lg:pb-1">
+
+            <p
+              className="
+                max-w-xl
+                text-sm
+                leading-7
+                text-[#667085]
+                sm:text-base
+              "
             >
-              <span>All Project</span>
-            </a>
+              Beberapa project yang kami kerjakan untuk membantu bisnis
+              membangun brand, website, dan pengalaman digital yang lebih
+              modern.
+            </p>
+
           </div>
+
         </div>
 
-        {/* 4 Vertical Gallery Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projectItems.map((project, index) => {
-            const isFirst = index === 0;
+        {/* =====================================================
+            FILTER
+        ====================================================== */}
+
+        <div
+          className="
+            mb-10
+            flex
+            flex-wrap
+            items-center
+            gap-2
+          "
+        >
+
+          {categories.map((category) => {
+            const isActive = activeFilter === category;
+
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveFilter(category)}
+                className={`
+                  cursor-pointer
+                  rounded-full
+                  px-5
+                  py-2.5
+                  text-xs
+                  font-bold
+                  transition-all
+                  duration-300
+                  sm:text-sm
+
+                  ${
+                    isActive
+                      ? `
+                        bg-[#111114]
+                        text-white
+                        shadow-lg
+                        shadow-black/10
+                      `
+                      : `
+                        border
+                        border-[#DFE7F4]
+                        bg-white
+                        text-[#667085]
+                        hover:border-[#BDD3FF]
+                        hover:bg-[#F4F8FF]
+                        hover:text-[#4168FF]
+                      `
+                  }
+                `}
+              >
+                {category}
+              </button>
+            );
+          })}
+
+        </div>
+
+        {/* =====================================================
+            PROJECT GRID
+        ====================================================== */}
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-6
+            sm:grid-cols-2
+            lg:grid-cols-4
+          "
+        >
+
+          {filteredProjects.map((project, index) => {
+
+            const projectNumber = String(index + 1).padStart(2, '0');
+
             return (
               <div
                 key={project.id}
                 id={`project-card-${project.id}`}
-                onClick={() => onSelectProject && onSelectProject(project)}
-                className="group relative rounded-3xl overflow-hidden shadow-lg border border-neutral-100 bg-neutral-900 cursor-pointer aspect-[3/4.6] transform hover:-translate-y-1.5 transition-all duration-300"
+                onClick={() => onSelectProject?.(project)}
+                className="
+                  group
+                  relative
+                  aspect-[3/4.4]
+                  cursor-pointer
+                  overflow-hidden
+                  rounded-[30px]
+                  border
+                  border-white
+                  bg-[#111827]
+                  shadow-[0_15px_40px_rgba(25,55,100,0.10)]
+                  transition-all
+                  duration-500
+                  hover:-translate-y-2
+                  hover:shadow-[0_25px_55px_rgba(37,99,235,0.16)]
+                "
               >
-                {/* Background Image */}
+
+                {/* =================================================
+                    IMAGE
+                ================================================== */}
+
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  className="
+                    h-full
+                    w-full
+                    object-cover
+                    transition-transform
+                    duration-700
+                    group-hover:scale-110
+                  "
                   loading="lazy"
                 />
 
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors" />
+                {/* =================================================
+                    GRADIENT OVERLAY
+                ================================================== */}
 
-                {/* Floating card content */}
-                {isFirst ? (
-                  /* First card has highlighted custom badge box matching image */
-                  <div className="absolute inset-x-4 bottom-4 bg-black/60 backdrop-blur-md p-4 rounded-2xl border border-white/20">
-                    <h3 className="text-base font-bold text-white mb-1">
-                      Web Design
-                    </h3>
-                    <p className="text-[11px] text-neutral-300 leading-tight">
-                      Lorem Ipsum Dolor Sit Amet, Consectetur
-                    </p>
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-t
+                    from-[#080B14]/95
+                    via-[#080B14]/25
+                    to-transparent
+                    transition-all
+                    duration-500
+                    group-hover:from-[#080B14]/90
+                    group-hover:via-[#4168FF]/20
+                  "
+                />
+
+                {/* =================================================
+                    TOP NUMBER
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    left-5
+                    top-5
+                    flex
+                    h-9
+                    min-w-9
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/20
+                    bg-black/20
+                    px-2
+                    text-xs
+                    font-bold
+                    text-white
+                    backdrop-blur-md
+                  "
+                >
+                  {projectNumber}
+                </div>
+
+                {/* =================================================
+                    TOP ARROW
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    right-5
+                    top-5
+                    flex
+                    h-10
+                    w-10
+                    translate-y-2
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-white
+                    text-[#111114]
+                    opacity-0
+                    shadow-xl
+                    transition-all
+                    duration-300
+                    group-hover:translate-y-0
+                    group-hover:opacity-100
+                  "
+                >
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
+
+                {/* =================================================
+                    CONTENT
+                ================================================== */}
+
+                <div
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    right-0
+                    p-5
+                    sm:p-6
+                  "
+                >
+
+                  {/* Category */}
+                  <div className="mb-2">
+
+                    <span
+                      className="
+                        inline-flex
+                        rounded-full
+                        border
+                        border-white/15
+                        bg-white/10
+                        px-3
+                        py-1
+                        text-[10px]
+                        font-bold
+                        uppercase
+                        tracking-[0.15em]
+                        text-white/80
+                        backdrop-blur-md
+                      "
+                    >
+                      {project.category}
+                    </span>
+
                   </div>
-                ) : (
-                  <div className="absolute inset-x-4 bottom-4 p-2 transition-transform duration-300">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#ff7a29] block mb-0.5">
-                          {project.category}
-                        </span>
-                        <h3 className="text-sm font-bold text-white leading-tight">
-                          {project.title}
-                        </h3>
-                      </div>
-                      <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ArrowUpRight className="w-4 h-4" />
-                      </span>
-                    </div>
+
+                  {/* Title */}
+                  <h3
+                    className="
+                      text-lg
+                      font-black
+                      leading-tight
+                      text-white
+                      transition-transform
+                      duration-300
+                      group-hover:-translate-y-0.5
+                    "
+                  >
+                    {project.title}
+                  </h3>
+
+                  {/* View Project */}
+                  <div
+                    className="
+                      mt-3
+                      flex
+                      items-center
+                      gap-2
+                      text-xs
+                      font-semibold
+                      text-white/60
+                      transition-all
+                      duration-300
+                      group-hover:text-white
+                    "
+                  >
+                    <span>View Project</span>
+
+                    <ArrowRight
+                      className="
+                        h-3.5
+                        w-3.5
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-1
+                      "
+                    />
                   </div>
-                )}
+
+                </div>
+
               </div>
             );
           })}
+
         </div>
+
+        {/* =====================================================
+            EMPTY STATE
+        ====================================================== */}
+
+        {filteredProjects.length === 0 && (
+          <div
+            className="
+              rounded-[28px]
+              border
+              border-[#E3EAF6]
+              bg-white
+              p-12
+              text-center
+              shadow-sm
+            "
+          >
+            <p className="text-sm font-semibold text-[#667085]">
+              Belum ada project pada kategori ini.
+            </p>
+          </div>
+        )}
+
+        {/* =====================================================
+            BOTTOM CTA
+        ====================================================== */}
+
+        <div
+          className="
+            mt-12
+            flex
+            flex-col
+            items-start
+            justify-between
+            gap-5
+            rounded-[28px]
+            border
+            border-[#E3EAF6]
+            bg-white/80
+            p-6
+            shadow-[0_15px_40px_rgba(25,55,100,0.05)]
+            backdrop-blur-xl
+            sm:flex-row
+            sm:items-center
+            sm:p-7
+          "
+        >
+
+          <div className="flex items-center gap-4">
+
+            <div
+              className="
+                flex
+                h-11
+                w-11
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                bg-gradient-to-br
+                from-[#2587FF]
+                to-[#8B3DFF]
+                text-white
+              "
+            >
+              <Sparkles className="h-5 w-5" />
+            </div>
+
+            <div>
+
+              <h3
+                className="
+                  text-sm
+                  font-extrabold
+                  text-[#111114]
+                  sm:text-base
+                "
+              >
+                Punya project seperti ini?
+              </h3>
+
+              <p
+                className="
+                  mt-1
+                  text-xs
+                  text-[#7A8496]
+                  sm:text-sm
+                "
+              >
+                Mari buat solusi digital untuk bisnis Anda.
+              </p>
+
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              const firstProject = projectItems[0];
+
+              if (firstProject) {
+                onSelectProject?.(firstProject);
+              }
+            }}
+            className="
+              inline-flex
+              cursor-pointer
+              items-center
+              gap-2
+              rounded-full
+              bg-[#111114]
+              px-6
+              py-3
+              text-sm
+              font-bold
+              text-white
+              shadow-lg
+              shadow-black/10
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:bg-[#2587FF]
+            "
+          >
+            <span>Explore Projects</span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
+
+        </div>
+
       </div>
+
     </section>
   );
 };

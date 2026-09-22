@@ -1,183 +1,682 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, ArrowUp } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  Linkedin,
+  Twitter,
+  ArrowUp,
+  ArrowRight,
+} from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
   };
 
   return (
-    <footer id="contact" className="bg-[#f95700] text-white pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/20">
-          {/* Column 1: Brand & Bio (4 cols) */}
-          <div className="lg:col-span-4 space-y-5">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#f95700] shadow-sm">
-                <div className="w-3.5 h-3.5 rounded-tr-xl rounded-bl-xl bg-[#f95700] rotate-45" />
-              </div>
-              <span className="font-extrabold text-2xl tracking-tight text-white">
-                Lumos
+    <footer
+      id="contact"
+      className="
+        relative
+        overflow-hidden
+        bg-[#0B1020]
+        text-white
+      "
+    >
+      {/* Background Glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          -top-40
+          h-96
+          w-96
+          rounded-full
+          bg-[#2587FF]/10
+          blur-3xl
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -bottom-40
+          left-1/4
+          h-96
+          w-96
+          rounded-full
+          bg-[#8B3DFF]/10
+          blur-3xl
+        "
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* =========================================
+            TOP CTA
+        ========================================== */}
+        <div
+          className="
+            border-b
+            border-white/10
+            py-12
+            sm:py-14
+          "
+        >
+          <div
+            className="
+              flex
+              flex-col
+              gap-6
+              lg:flex-row
+              lg:items-center
+              lg:justify-between
+            "
+          >
+            <div className="max-w-2xl">
+              <span
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-[#6EA8FF]
+                "
+              >
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]" />
+                Let's Work Together
               </span>
+
+              <h2
+                className="
+                  mt-3
+                  text-3xl
+                  font-bold
+                  leading-tight
+                  tracking-tight
+                  sm:text-4xl
+                "
+              >
+                Let's build something{' '}
+                <span
+                  className="
+                    bg-gradient-to-r
+                    from-[#4CA0FF]
+                    via-[#6878FF]
+                    to-[#A855F7]
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
+                  great together.
+                </span>
+              </h2>
+
+              <p
+                className="
+                  mt-3
+                  max-w-xl
+                  text-sm
+                  leading-6
+                  text-slate-400
+                "
+              >
+                Punya ide, project, atau bisnis yang ingin dikembangkan secara
+                digital? Mari wujudkan bersama NEXORA.
+              </p>
             </div>
 
-            <p className="text-xs sm:text-sm text-orange-100/90 leading-relaxed max-w-sm">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-              sint. Velit officia consequat duis enim velit mollit.
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="
+                group
+                inline-flex
+                w-fit
+                items-center
+                gap-3
+                rounded-full
+                bg-gradient-to-r
+                from-[#2587FF]
+                to-[#8B3DFF]
+                px-6
+                py-3
+                text-sm
+                font-bold
+                text-white
+                shadow-[0_12px_30px_rgba(65,104,255,0.25)]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_18px_40px_rgba(65,104,255,0.35)]
+              "
+            >
+              Start a Project
+
+              <ArrowRight
+                className="
+                  h-4
+                  w-4
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* =========================================
+            MAIN FOOTER
+        ========================================== */}
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-10
+            py-12
+            sm:grid-cols-2
+            lg:grid-cols-12
+            lg:gap-8
+            lg:py-14
+          "
+        >
+
+          {/* =====================================
+              BRAND
+          ====================================== */}
+          <div className="sm:col-span-2 lg:col-span-5">
+
+            {/* Logo */}
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="group inline-flex items-center"
+              aria-label="Back to homepage"
+            >
+              <img
+                src="/src/assets/LOGO3.png"
+                alt="NEXORA Digital Agency"
+                className="
+                  h-10
+                  w-auto
+                  object-contain
+                  transition-transform
+                  duration-300
+                  group-hover:scale-105
+                "
+              />
+            </button>
+
+            <p
+              className="
+                mt-5
+                max-w-md
+                text-sm
+                leading-7
+                text-slate-400
+              "
+            >
+              NEXORA Digital Agency membantu bisnis membangun digital
+              presence melalui strategi, desain, teknologi, dan solusi
+              digital yang berorientasi pada pertumbuhan.
             </p>
 
-            {/* Social media icons */}
-            <div className="flex items-center gap-4 pt-2">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#f95700] flex items-center justify-center text-white transition-all"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Twitter"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#f95700] flex items-center justify-center text-white transition-all"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
+            {/* Social Media */}
+            <div className="mt-6 flex items-center gap-3">
+
+              {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#f95700] flex items-center justify-center text-white transition-all"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-white/[0.04]
+                  text-slate-400
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-[#2587FF]/40
+                  hover:bg-[#2587FF]/10
+                  hover:text-white
+                "
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="h-4 w-4" />
               </a>
+
+              {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#f95700] flex items-center justify-center text-white transition-all"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-white/[0.04]
+                  text-slate-400
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-[#2587FF]/40
+                  hover:bg-[#2587FF]/10
+                  hover:text-white
+                "
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="h-4 w-4" />
               </a>
+
+              {/* Twitter / X */}
               <a
-                href="https://youtube.com"
+                href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="YouTube"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#f95700] flex items-center justify-center text-white transition-all"
+                aria-label="Twitter"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-white/[0.04]
+                  text-slate-400
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-[#2587FF]/40
+                  hover:bg-[#2587FF]/10
+                  hover:text-white
+                "
               >
-                <Youtube className="w-4 h-4" />
+                <Twitter className="h-4 w-4" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Contact Info (3 cols) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-base font-bold text-white mb-4">Contact</h4>
-            <ul className="space-y-3.5 text-xs sm:text-sm text-orange-100">
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-white flex-shrink-0" />
-                <a
-                  href="mailto:lms@domain.com"
-                  className="hover:text-white transition-colors"
+          {/* =====================================
+              COMPANY
+          ====================================== */}
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-bold text-white">
+              Company
+            </h3>
+
+            <ul className="mt-5 space-y-3 text-sm text-slate-400">
+
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('about')}
+                  className="
+                    transition-colors
+                    hover:text-white
+                  "
                 >
-                  lms@domain.com
-                </a>
+                  About Us
+                </button>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-white flex-shrink-0" />
-                <a
-                  href="tel:+02115803658"
-                  className="hover:text-white transition-colors"
+
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('why-us')}
+                  className="
+                    transition-colors
+                    hover:text-white
+                  "
                 >
-                  (+021) 1580 3658
-                </a>
+                  Why NEXORA
+                </button>
               </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-white flex-shrink-0" />
-                <span>Keramat jati 468</span>
+
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('projects')}
+                  className="
+                    transition-colors
+                    hover:text-white
+                  "
+                >
+                  Projects
+                </button>
               </li>
+
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('blog')}
+                  className="
+                    transition-colors
+                    hover:text-white
+                  "
+                >
+                  Blog
+                </button>
+              </li>
+
             </ul>
           </div>
 
-          {/* Column 3: Company (2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-base font-bold text-white mb-4">Company</h4>
-            <ul className="space-y-3 text-xs sm:text-sm text-orange-100">
+          {/* =====================================
+              SERVICES
+          ====================================== */}
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-bold text-white">
+              Services
+            </h3>
+
+            <ul className="mt-5 space-y-3 text-sm text-slate-400">
+
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Terms Conditions
-                </a>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('services')}
+                  className="
+                    text-left
+                    transition-colors
+                    hover:text-white
+                  "
+                >
+                  Web Development
+                </button>
               </li>
+
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Privacy Policy
-                </a>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('services')}
+                  className="
+                    text-left
+                    transition-colors
+                    hover:text-white
+                  "
+                >
+                  Social Media
+                </button>
               </li>
+
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Cookies
-                </a>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('services')}
+                  className="
+                    text-left
+                    transition-colors
+                    hover:text-white
+                  "
+                >
+                  Content Writing
+                </button>
               </li>
+
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Careers
-                </a>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('services')}
+                  className="
+                    text-left
+                    transition-colors
+                    hover:text-white
+                  "
+                >
+                  SEO Management
+                </button>
               </li>
+
             </ul>
           </div>
 
-          {/* Column 4: Other Pages (3 cols) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-base font-bold text-white mb-4">Other Pages</h4>
-            <ul className="space-y-3 text-xs sm:text-sm text-orange-100">
-              <li>
-                <a href="#home" className="hover:text-white transition-colors">
-                  Home
-                </a>
+          {/* =====================================
+              CONTACT
+          ====================================== */}
+          <div className="lg:col-span-3">
+            <h3 className="text-sm font-bold text-white">
+              Get In Touch
+            </h3>
+
+            <ul className="mt-5 space-y-4 text-sm text-slate-400">
+
+              {/* Email */}
+              <li className="flex items-start gap-3">
+                <span
+                  className="
+                    mt-0.5
+                    flex
+                    h-8
+                    w-8
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-[#2587FF]/10
+                    text-[#6EA8FF]
+                  "
+                >
+                  <Mail className="h-4 w-4" />
+                </span>
+
+                <div>
+                  <span className="block text-xs text-slate-500">
+                    Email
+                  </span>
+
+                  <a
+                    href="mailto:hello@nexora.id"
+                    className="
+                      mt-0.5
+                      block
+                      transition-colors
+                      hover:text-white
+                    "
+                  >
+                    hello@nexora.id
+                  </a>
+                </div>
               </li>
-              <li>
-                <a href="#projects" className="hover:text-white transition-colors">
-                  Portfolios
-                </a>
+
+              {/* Phone */}
+              <li className="flex items-start gap-3">
+                <span
+                  className="
+                    mt-0.5
+                    flex
+                    h-8
+                    w-8
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-[#8B3DFF]/10
+                    text-[#A855F7]
+                  "
+                >
+                  <Phone className="h-4 w-4" />
+                </span>
+
+                <div>
+                  <span className="block text-xs text-slate-500">
+                    Phone
+                  </span>
+
+                  <a
+                    href="tel:+6280000000000"
+                    className="
+                      mt-0.5
+                      block
+                      transition-colors
+                      hover:text-white
+                    "
+                  >
+                    +62 800 0000 0000
+                  </a>
+                </div>
               </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Services
-                </a>
+
+              {/* Location */}
+              <li className="flex items-start gap-3">
+                <span
+                  className="
+                    mt-0.5
+                    flex
+                    h-8
+                    w-8
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-[#2587FF]/10
+                    text-[#6EA8FF]
+                  "
+                >
+                  <MapPin className="h-4 w-4" />
+                </span>
+
+                <div>
+                  <span className="block text-xs text-slate-500">
+                    Location
+                  </span>
+
+                  <span className="mt-0.5 block">
+                    Indonesia
+                  </span>
+                </div>
               </li>
-              <li>
-                <a href="#why-us" className="hover:text-white transition-colors">
-                  Works
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-white transition-colors">
-                  Career
-                </a>
-              </li>
+
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-orange-100">
-          <p>© {new Date().getFullYear()} Lumos Agency. All rights reserved.</p>
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer"
-          >
-            <span>Back to top</span>
-            <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-              <ArrowUp className="w-3.5 h-3.5 text-white" />
-            </div>
-          </button>
+        {/* =========================================
+            BOTTOM BAR
+        ========================================== */}
+        <div
+          className="
+            flex
+            flex-col
+            gap-5
+            border-t
+            border-white/10
+            py-6
+            text-xs
+            text-slate-500
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
+          <p>
+            © {new Date().getFullYear()} NEXORA Digital Agency.
+            All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-5">
+            <button
+              type="button"
+              className="
+                transition-colors
+                hover:text-white
+              "
+            >
+              Privacy Policy
+            </button>
+
+            <button
+              type="button"
+              className="
+                transition-colors
+                hover:text-white
+              "
+            >
+              Terms
+            </button>
+
+            {/* Back To Top */}
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="
+                group
+                flex
+                items-center
+                gap-2
+                text-slate-400
+                transition-colors
+                hover:text-white
+              "
+            >
+              <span>Back to top</span>
+
+              <span
+                className="
+                  flex
+                  h-8
+                  w-8
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-white/[0.04]
+                  transition-all
+                  duration-300
+                  group-hover:border-[#2587FF]/40
+                  group-hover:bg-[#2587FF]/10
+                "
+              >
+                <ArrowUp
+                  className="
+                    h-3.5
+                    w-3.5
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-0.5
+                  "
+                />
+              </span>
+            </button>
+          </div>
         </div>
+
       </div>
     </footer>
   );
