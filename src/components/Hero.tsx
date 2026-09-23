@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, Play, Music2, Instagram, BarChart3 } from "lucide-react";
-import heroImage1 from "../assets/image/heroImage1.avif";
-import heroImage2 from "../assets/image/heroImage2.avif";
+import heroImage1 from "../assets/image/hero-image1.png";
+import heroImage2 from "../assets/image/hero-image2.png";
 import logo from "../assets/LOGO3.png";
 
 interface HeroProps {
