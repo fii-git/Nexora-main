@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Mail,
   Phone,
@@ -8,13 +8,13 @@ import {
   Twitter,
   ArrowUp,
   ArrowRight,
-} from 'lucide-react';
+} from "lucide-react";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -23,8 +23,8 @@ export const Footer: React.FC = () => {
 
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -69,7 +69,6 @@ export const Footer: React.FC = () => {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* =========================================
             TOP CTA
         ========================================== */}
@@ -118,7 +117,7 @@ export const Footer: React.FC = () => {
                   sm:text-4xl
                 "
               >
-                Let's build something{' '}
+                Let's build something{" "}
                 <span
                   className="
                     bg-gradient-to-r
@@ -149,15 +148,16 @@ export const Footer: React.FC = () => {
 
             <button
               type="button"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               className="
+                overflow-hidden
                 group
                 inline-flex
                 w-fit
                 items-center
                 gap-3
                 rounded-full
-                bg-gradient-to-r
+                bg-linear-to-r
                 from-[#2587FF]
                 to-[#8B3DFF]
                 px-6
@@ -172,8 +172,8 @@ export const Footer: React.FC = () => {
                 hover:shadow-[0_18px_40px_rgba(65,104,255,0.35)]
               "
             >
-              Start a Project
-
+              <span className="relative z-10"> Start a Project</span>
+              <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <ArrowRight
                 className="
                   h-4
@@ -202,12 +202,10 @@ export const Footer: React.FC = () => {
             lg:py-14
           "
         >
-
           {/* =====================================
               BRAND
           ====================================== */}
           <div className="sm:col-span-2 lg:col-span-5">
-
             {/* Logo */}
             <button
               type="button"
@@ -238,14 +236,13 @@ export const Footer: React.FC = () => {
                 text-slate-400
               "
             >
-              NEXORA Digital Agency membantu bisnis membangun digital
-              presence melalui strategi, desain, teknologi, dan solusi
-              digital yang berorientasi pada pertumbuhan.
+              NEXORA Digital Agency membantu bisnis membangun digital presence
+              melalui strategi, desain, teknologi, dan solusi digital yang
+              berorientasi pada pertumbuhan.
             </p>
 
             {/* Social Media */}
             <div className="mt-6 flex items-center gap-3">
-
               {/* Instagram */}
               <a
                 href="https://instagram.com"
@@ -336,16 +333,13 @@ export const Footer: React.FC = () => {
               COMPANY
           ====================================== */}
           <div className="lg:col-span-2">
-            <h3 className="text-sm font-bold text-white">
-              Company
-            </h3>
+            <h3 className="text-sm font-bold text-white">Company</h3>
 
             <ul className="mt-5 space-y-3 text-sm text-slate-400">
-
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('about')}
+                  onClick={() => scrollToSection("about")}
                   className="
                     transition-colors
                     hover:text-white
@@ -358,7 +352,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('why-us')}
+                  onClick={() => scrollToSection("why-us")}
                   className="
                     transition-colors
                     hover:text-white
@@ -371,7 +365,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('projects')}
+                  onClick={() => scrollToSection("projects")}
                   className="
                     transition-colors
                     hover:text-white
@@ -384,7 +378,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('blog')}
+                  onClick={() => scrollToSection("blog")}
                   className="
                     transition-colors
                     hover:text-white
@@ -393,7 +387,6 @@ export const Footer: React.FC = () => {
                   Blog
                 </button>
               </li>
-
             </ul>
           </div>
 
@@ -401,16 +394,13 @@ export const Footer: React.FC = () => {
               SERVICES
           ====================================== */}
           <div className="lg:col-span-2">
-            <h3 className="text-sm font-bold text-white">
-              Services
-            </h3>
+            <h3 className="text-sm font-bold text-white">Services</h3>
 
             <ul className="mt-5 space-y-3 text-sm text-slate-400">
-
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection("services")}
                   className="
                     text-left
                     transition-colors
@@ -424,7 +414,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection("services")}
                   className="
                     text-left
                     transition-colors
@@ -438,7 +428,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection("services")}
                   className="
                     text-left
                     transition-colors
@@ -452,7 +442,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection("services")}
                   className="
                     text-left
                     transition-colors
@@ -462,7 +452,6 @@ export const Footer: React.FC = () => {
                   SEO Management
                 </button>
               </li>
-
             </ul>
           </div>
 
@@ -470,12 +459,9 @@ export const Footer: React.FC = () => {
               CONTACT
           ====================================== */}
           <div className="lg:col-span-3">
-            <h3 className="text-sm font-bold text-white">
-              Get In Touch
-            </h3>
+            <h3 className="text-sm font-bold text-white">Get In Touch</h3>
 
             <ul className="mt-5 space-y-4 text-sm text-slate-400">
-
               {/* Email */}
               <li className="flex items-start gap-3">
                 <span
@@ -496,9 +482,7 @@ export const Footer: React.FC = () => {
                 </span>
 
                 <div>
-                  <span className="block text-xs text-slate-500">
-                    Email
-                  </span>
+                  <span className="block text-xs text-slate-500">Email</span>
 
                   <a
                     href="mailto:hello@nexora.id"
@@ -534,9 +518,7 @@ export const Footer: React.FC = () => {
                 </span>
 
                 <div>
-                  <span className="block text-xs text-slate-500">
-                    Phone
-                  </span>
+                  <span className="block text-xs text-slate-500">Phone</span>
 
                   <a
                     href="tel:+6280000000000"
@@ -572,16 +554,11 @@ export const Footer: React.FC = () => {
                 </span>
 
                 <div>
-                  <span className="block text-xs text-slate-500">
-                    Location
-                  </span>
+                  <span className="block text-xs text-slate-500">Location</span>
 
-                  <span className="mt-0.5 block">
-                    Indonesia
-                  </span>
+                  <span className="mt-0.5 block">Indonesia</span>
                 </div>
               </li>
-
             </ul>
           </div>
         </div>
@@ -605,8 +582,8 @@ export const Footer: React.FC = () => {
           "
         >
           <p>
-            © {new Date().getFullYear()} NEXORA Digital Agency.
-            All rights reserved.
+            © {new Date().getFullYear()} NEXORA Digital Agency. All rights
+            reserved.
           </p>
 
           <div className="flex items-center gap-5">
@@ -676,7 +653,6 @@ export const Footer: React.FC = () => {
             </button>
           </div>
         </div>
-
       </div>
     </footer>
   );

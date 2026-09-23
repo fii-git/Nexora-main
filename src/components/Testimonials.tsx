@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { testimonialsData } from '../data';
-import {
-  Star,
-  Quote,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { testimonialsData } from "../data";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Testimonials: React.FC = () => {
   const totalItems = testimonialsData.length;
@@ -31,7 +26,7 @@ export const Testimonials: React.FC = () => {
    * Desktop : 3 cards
    */
   const getTranslateValue = () => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return currentIndex * 100;
     }
 
@@ -46,9 +41,7 @@ export const Testimonials: React.FC = () => {
     return currentIndex * 100;
   };
 
-  const [translateValue, setTranslateValue] = useState(
-    getTranslateValue()
-  );
+  const [translateValue, setTranslateValue] = useState(getTranslateValue());
 
   /*
    * Update posisi ketika index berubah.
@@ -65,10 +58,10 @@ export const Testimonials: React.FC = () => {
       setTranslateValue(getTranslateValue());
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [currentIndex]);
 
@@ -138,16 +131,12 @@ export const Testimonials: React.FC = () => {
    * Indicator index.
    */
   const activeDot =
-    ((currentIndex - totalItems) % totalItems + totalItems) %
-    totalItems;
+    (((currentIndex - totalItems) % totalItems) + totalItems) % totalItems;
 
   /*
    * Render testimonial card.
    */
-  const renderCard = (
-    item: typeof testimonialsData[0],
-    index: number
-  ) => {
+  const renderCard = (item: (typeof testimonialsData)[0], index: number) => {
     return (
       <div
         key={`${item.id}-${index}`}
@@ -218,10 +207,7 @@ export const Testimonials: React.FC = () => {
               text-[#4168FF]
             "
           >
-            <Quote
-              className="h-5 w-5"
-              strokeWidth={2.2}
-            />
+            <Quote className="h-5 w-5" strokeWidth={2.2} />
           </div>
 
           {/* Client */}
@@ -389,7 +375,6 @@ export const Testimonials: React.FC = () => {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* =========================================
             HEADER
         ========================================== */}
@@ -432,7 +417,6 @@ export const Testimonials: React.FC = () => {
                   to-[#8B3DFF]
                 "
               />
-
               Client Stories
             </span>
           </div>
@@ -449,7 +433,7 @@ export const Testimonials: React.FC = () => {
               lg:text-[46px]
             "
           >
-            What Our Clients{' '}
+            What Our Clients{" "}
             <span
               className="
                 bg-gradient-to-r
@@ -476,9 +460,8 @@ export const Testimonials: React.FC = () => {
               sm:text-base
             "
           >
-            Pengalaman dan cerita dari mereka yang telah bekerja
-            bersama NEXORA untuk membangun solusi digital yang
-            lebih baik.
+            Pengalaman dan cerita dari mereka yang telah bekerja bersama NEXORA
+            untuk membangun solusi digital yang lebih baik.
           </p>
         </div>
 
@@ -569,14 +552,12 @@ export const Testimonials: React.FC = () => {
               style={{
                 transform: `translate3d(-${translateValue}%, 0, 0)`,
                 transition: isTransitioning
-                  ? 'transform 850ms cubic-bezier(0.22, 1, 0.36, 1)'
-                  : 'none',
-                willChange: 'transform',
+                  ? "transform 850ms cubic-bezier(0.22, 1, 0.36, 1)"
+                  : "none",
+                willChange: "transform",
               }}
             >
-              {sliderItems.map((item, index) =>
-                renderCard(item, index)
-              )}
+              {sliderItems.map((item, index) => renderCard(item, index))}
             </div>
           </div>
         </div>
@@ -585,7 +566,6 @@ export const Testimonials: React.FC = () => {
             NAVIGATION
         ========================================== */}
         <div className="mt-8 flex items-center justify-center gap-4">
-
           {/* Mobile Previous */}
           <button
             type="button"
@@ -631,8 +611,8 @@ export const Testimonials: React.FC = () => {
                   duration-500
                   ${
                     activeDot === index
-                      ? 'w-7 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]'
-                      : 'w-2 bg-slate-200 hover:bg-slate-300'
+                      ? "w-7 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]"
+                      : "w-2 bg-slate-200 hover:bg-slate-300"
                   }
                 `}
               />
@@ -670,9 +650,7 @@ export const Testimonials: React.FC = () => {
         {/* Auto Slide Status */}
         <div className="mt-4 text-center">
           <span className="text-[11px] font-medium text-slate-400">
-            {isPaused
-              ? 'Slider dijeda'
-              : 'Testimonial bergerak otomatis'}
+            {isPaused ? "Slider dijeda" : "Testimonial bergerak otomatis"}
           </span>
         </div>
       </div>
