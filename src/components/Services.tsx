@@ -1,5 +1,5 @@
-import React from 'react';
-import { servicesData } from '../data';
+import React from "react";
+import { servicesData } from "../data";
 import {
   Laptop,
   Instagram,
@@ -7,7 +7,7 @@ import {
   Search,
   ArrowRight,
   Sparkles,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface ServicesProps {
   selectedService?: string | null;
@@ -20,21 +20,20 @@ export const Services: React.FC<ServicesProps> = ({
   onSelectService,
   onSeeDetail,
 }) => {
-
   const getIcon = (name: string) => {
-    const iconClass = 'w-6 h-6';
+    const iconClass = "w-6 h-6";
 
     switch (name) {
-      case 'Laptop':
+      case "Laptop":
         return <Laptop className={iconClass} />;
 
-      case 'Instagram':
+      case "Instagram":
         return <Instagram className={iconClass} />;
 
-      case 'PenLine':
+      case "PenLine":
         return <PenLine className={iconClass} />;
 
-      case 'Search':
+      case "Search":
         return <Search className={iconClass} />;
 
       default:
@@ -54,7 +53,6 @@ export const Services: React.FC<ServicesProps> = ({
         lg:py-28
       "
     >
-
       {/* =====================================================
           DECORATIVE BACKGROUND
       ====================================================== */}
@@ -97,7 +95,6 @@ export const Services: React.FC<ServicesProps> = ({
           lg:px-8
         "
       >
-
         {/* =====================================================
             SECTION HEADER
         ====================================================== */}
@@ -113,10 +110,8 @@ export const Services: React.FC<ServicesProps> = ({
             lg:items-end
           "
         >
-
           {/* LEFT */}
           <div className="lg:col-span-7">
-
             {/* Label */}
             <div
               id="services-tag-badge"
@@ -166,9 +161,7 @@ export const Services: React.FC<ServicesProps> = ({
               "
             >
               Digital Solutions
-
               <br className="hidden sm:block" />
-
               <span
                 className="
                   bg-gradient-to-r
@@ -182,12 +175,10 @@ export const Services: React.FC<ServicesProps> = ({
                 Built For Your Growth.
               </span>
             </h2>
-
           </div>
 
           {/* RIGHT */}
           <div className="lg:col-span-5 lg:pb-1">
-
             <p
               id="services-description"
               className="
@@ -202,9 +193,7 @@ export const Services: React.FC<ServicesProps> = ({
               membangun pengalaman digital yang modern, efektif, dan siap
               berkembang.
             </p>
-
           </div>
-
         </div>
 
         {/* =====================================================
@@ -220,20 +209,15 @@ export const Services: React.FC<ServicesProps> = ({
             lg:grid-cols-4
           "
         >
-
           {servicesData.map((service, index) => {
-
             // Apakah card sedang dipilih?
-            const isSelected =
-              selectedService === service.title;
+            const isSelected = selectedService === service.title;
 
             return (
               <div
                 key={service.id}
                 id={`service-card-${service.id}`}
-                onClick={() =>
-                  onSelectService?.(service.title)
-                }
+                onClick={() => onSelectService?.(service.title)}
                 className={`
                   group
                   relative
@@ -270,7 +254,6 @@ export const Services: React.FC<ServicesProps> = ({
                   }
                 `}
               >
-
                 {/* =================================================
                     ACTIVE CARD DECORATION
                 ================================================== */}
@@ -323,8 +306,8 @@ export const Services: React.FC<ServicesProps> = ({
 
                     ${
                       isSelected
-                        ? 'scale-110 text-white/15'
-                        : 'text-[#EAF1FF] group-hover:text-[#DDE9FF]'
+                        ? "scale-110 text-white/15"
+                        : "text-[#EAF1FF] group-hover:text-[#DDE9FF]"
                     }
                   `}
                 >
@@ -378,7 +361,6 @@ export const Services: React.FC<ServicesProps> = ({
                 ================================================== */}
 
                 <div className="relative">
-
                   <h3
                     className={`
                       mb-3
@@ -387,11 +369,7 @@ export const Services: React.FC<ServicesProps> = ({
                       transition-colors
                       duration-300
 
-                      ${
-                        isSelected
-                          ? 'text-white'
-                          : 'text-[#111114]'
-                      }
+                      ${isSelected ? "text-white" : "text-[#111114]"}
                     `}
                   >
                     {service.title}
@@ -404,16 +382,11 @@ export const Services: React.FC<ServicesProps> = ({
                       transition-colors
                       duration-300
 
-                      ${
-                        isSelected
-                          ? 'text-white/80'
-                          : 'text-[#737B8C]'
-                      }
+                      ${isSelected ? "text-white/80" : "text-[#737B8C]"}
                     `}
                   >
                     {service.description}
                   </p>
-
                 </div>
 
                 {/* =================================================
@@ -471,11 +444,9 @@ export const Services: React.FC<ServicesProps> = ({
                     "
                   />
                 )}
-
               </div>
             );
           })}
-
         </div>
 
         {/* =====================================================
@@ -502,10 +473,8 @@ export const Services: React.FC<ServicesProps> = ({
             sm:p-7
           "
         >
-
           {/* CTA TEXT */}
           <div className="flex items-center gap-4">
-
             <div
               className="
                 flex
@@ -525,7 +494,6 @@ export const Services: React.FC<ServicesProps> = ({
             </div>
 
             <div>
-
               <h3
                 className="
                   text-sm
@@ -547,9 +515,7 @@ export const Services: React.FC<ServicesProps> = ({
               >
                 Mari diskusikan bagaimana NEXORA bisa membantu.
               </p>
-
             </div>
-
           </div>
 
           {/* CTA BUTTON */}
@@ -563,27 +529,22 @@ export const Services: React.FC<ServicesProps> = ({
               items-center
               gap-2
               rounded-full
-              bg-[#111114]
+              
               px-6
               py-3
               text-sm
               font-bold
-              text-white
-              shadow-lg
-              shadow-black/10
-              transition-all
-              duration-300
-              hover:-translate-y-0.5
+              overflow-hidden group
+              text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer
               hover:bg-[#2587FF]
             "
           >
-            <span>See Our Services</span>
+            <span className="relative z-10">See Our Services</span>
+            <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 relative z-10" />
           </button>
-
         </div>
-
       </div>
     </section>
   );

@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       <div
         className={`mx-auto transition-all duration-500 ${
           isScrolled
-            ? "max-w-7xl rounded-2xl border border-white/15 bg-[#10204A]/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(15,35,80,0.22)]"
+            ? "max-w-7xl rounded-2xl border-white/15 bg-[#10204A]/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(15,35,80,0.22)]"
             : "max-w-7xl"
         }`}
       >
@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
                     {/* Active underline */}
                     <span
-                      className={`absolute -bottom-2 left-0 h-[2px] rounded-full bg-gradient-to-r from-[#2587FF] to-[#8B3DFF] transition-all duration-300 ${
+                      className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-linear-to-r from-[#2587FF] to-[#8B3DFF] transition-all duration-300 ${
                         isActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -210,11 +210,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 <button
                   id="nav-contact-btn"
                   onClick={onOpenContact}
-                  className="ml-1 relative overflow-hidden group px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                  className="ml-1 relative overflow-hidden group px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <span className="relative z-10">Let's Talk</span>
-
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               )}
             </div>
@@ -260,7 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={`block px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 ${
                         isActive
-                          ? "text-white bg-gradient-to-r from-[#2587FF]/20 to-[#8B3DFF]/20 border border-[#2587FF]/20"
+                          ? "text-white bg-linear-to-r from-[#2587FF]/20 to-[#8B3DFF]/20 border border-[#2587FF]/20"
                           : "text-white/70 hover:text-white hover:bg-white/5"
                       }`}
                     >
@@ -309,7 +308,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                         setMobileMenuOpen(false);
                         onOpenContact();
                       }}
-                      className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20"
+                      className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20"
                     >
                       Let's Talk
                     </button>

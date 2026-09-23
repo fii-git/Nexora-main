@@ -1,20 +1,14 @@
-import React, { useMemo, useState } from 'react';
-import { projectItems } from '../data';
-import { ProjectItem } from '../types';
-import {
-  ArrowUpRight,
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react';
+import React, { useMemo, useState } from "react";
+import { projectItems } from "../data";
+import { ProjectItem } from "../types";
+import { ArrowUpRight, ArrowRight, Sparkles } from "lucide-react";
 
 interface ProjectsProps {
   onSelectProject?: (project: ProjectItem) => void;
 }
 
-export const Projects: React.FC<ProjectsProps> = ({
-  onSelectProject,
-}) => {
-  const [activeFilter, setActiveFilter] = useState('All');
+export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
+  const [activeFilter, setActiveFilter] = useState("All");
 
   // =========================================================
   // PROJECT CATEGORIES
@@ -22,10 +16,10 @@ export const Projects: React.FC<ProjectsProps> = ({
 
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(
-      new Set(projectItems.map((project) => project.category))
+      new Set(projectItems.map((project) => project.category)),
     );
 
-    return ['All', ...uniqueCategories];
+    return ["All", ...uniqueCategories];
   }, []);
 
   // =========================================================
@@ -33,13 +27,11 @@ export const Projects: React.FC<ProjectsProps> = ({
   // =========================================================
 
   const filteredProjects = useMemo(() => {
-    if (activeFilter === 'All') {
+    if (activeFilter === "All") {
       return projectItems;
     }
 
-    return projectItems.filter(
-      (project) => project.category === activeFilter
-    );
+    return projectItems.filter((project) => project.category === activeFilter);
   }, [activeFilter]);
 
   return (
@@ -54,7 +46,6 @@ export const Projects: React.FC<ProjectsProps> = ({
         lg:py-28
       "
     >
-
       {/* =====================================================
           BACKGROUND DECORATION
       ====================================================== */}
@@ -97,7 +88,6 @@ export const Projects: React.FC<ProjectsProps> = ({
           lg:px-8
         "
       >
-
         {/* =====================================================
             HEADER
         ====================================================== */}
@@ -113,10 +103,8 @@ export const Projects: React.FC<ProjectsProps> = ({
             lg:items-end
           "
         >
-
           {/* LEFT */}
           <div className="lg:col-span-7">
-
             {/* Label */}
             <div
               className="
@@ -166,7 +154,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             >
               Work That Speaks
               <br className="hidden sm:block" />
-
               <span
                 className="
                   bg-gradient-to-r
@@ -180,12 +167,10 @@ export const Projects: React.FC<ProjectsProps> = ({
                 For Itself.
               </span>
             </h2>
-
           </div>
 
           {/* RIGHT */}
           <div className="lg:col-span-5 lg:pb-1">
-
             <p
               className="
                 max-w-xl
@@ -199,9 +184,7 @@ export const Projects: React.FC<ProjectsProps> = ({
               membangun brand, website, dan pengalaman digital yang lebih
               modern.
             </p>
-
           </div>
-
         </div>
 
         {/* =====================================================
@@ -217,7 +200,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             gap-2
           "
         >
-
           {categories.map((category) => {
             const isActive = activeFilter === category;
 
@@ -261,7 +243,6 @@ export const Projects: React.FC<ProjectsProps> = ({
               </button>
             );
           })}
-
         </div>
 
         {/* =====================================================
@@ -277,10 +258,8 @@ export const Projects: React.FC<ProjectsProps> = ({
             lg:grid-cols-4
           "
         >
-
           {filteredProjects.map((project, index) => {
-
-            const projectNumber = String(index + 1).padStart(2, '0');
+            const projectNumber = String(index + 1).padStart(2, "0");
 
             return (
               <div
@@ -304,7 +283,6 @@ export const Projects: React.FC<ProjectsProps> = ({
                   hover:shadow-[0_25px_55px_rgba(37,99,235,0.16)]
                 "
               >
-
                 {/* =================================================
                     IMAGE
                 ================================================== */}
@@ -413,10 +391,8 @@ export const Projects: React.FC<ProjectsProps> = ({
                     sm:p-6
                   "
                 >
-
                   {/* Category */}
                   <div className="mb-2">
-
                     <span
                       className="
                         inline-flex
@@ -436,7 +412,6 @@ export const Projects: React.FC<ProjectsProps> = ({
                     >
                       {project.category}
                     </span>
-
                   </div>
 
                   {/* Title */}
@@ -481,13 +456,10 @@ export const Projects: React.FC<ProjectsProps> = ({
                       "
                     />
                   </div>
-
                 </div>
-
               </div>
             );
           })}
-
         </div>
 
         {/* =====================================================
@@ -536,9 +508,7 @@ export const Projects: React.FC<ProjectsProps> = ({
             sm:p-7
           "
         >
-
           <div className="flex items-center gap-4">
-
             <div
               className="
                 flex
@@ -558,7 +528,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             </div>
 
             <div>
-
               <h3
                 className="
                   text-sm
@@ -580,9 +549,7 @@ export const Projects: React.FC<ProjectsProps> = ({
               >
                 Mari buat solusi digital untuk bisnis Anda.
               </p>
-
             </div>
-
           </div>
 
           <button
@@ -600,28 +567,21 @@ export const Projects: React.FC<ProjectsProps> = ({
               items-center
               gap-2
               rounded-full
-              bg-[#111114]
               px-6
               py-3
               text-sm
               font-bold
-              text-white
-              shadow-lg
-              shadow-black/10
-              transition-all
-              duration-300
-              hover:-translate-y-0.5
-              hover:bg-[#2587FF]
+              group
+              overflow-hidden
+              text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300
             "
           >
-            <span>Explore Projects</span>
-            <ArrowRight className="h-4 w-4" />
+            <span className="relative z-10">Explore Projects</span>
+            <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <ArrowRight className="h-4 w-4 relative z-10" />
           </button>
-
         </div>
-
       </div>
-
     </section>
   );
 };

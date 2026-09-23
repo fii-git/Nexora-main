@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { testimonialsData } from '../data';
-import { Star, Quote } from 'lucide-react';
+import React, { useState } from "react";
+import { testimonialsData } from "../data";
+import { Star, Quote } from "lucide-react";
 
 export const Testimonials: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -8,7 +8,7 @@ export const Testimonials: React.FC = () => {
   const topRow = testimonialsData.slice(0, 3);
   const bottomRow = testimonialsData.slice(3, 5);
 
-  const renderCard = (item: typeof testimonialsData[0]) => {
+  const renderCard = (item: (typeof testimonialsData)[0]) => {
     const isSelected = selectedId === item.id;
     return (
       <div
@@ -17,8 +17,8 @@ export const Testimonials: React.FC = () => {
         onClick={() => setSelectedId(isSelected ? null : item.id)}
         className={`bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 shadow-sm hover:shadow-lg flex items-center gap-4 cursor-pointer max-w-sm ${
           isSelected
-            ? 'border-[#f95700] ring-2 ring-orange-200 shadow-md'
-            : 'border-neutral-100 hover:border-orange-200'
+            ? "border-[#f95700] ring-2 ring-orange-200 shadow-md"
+            : "border-neutral-100 hover:border-orange-200"
         }`}
       >
         {/* Avatar */}
@@ -39,10 +39,7 @@ export const Testimonials: React.FC = () => {
           {/* Star Rating */}
           <div className="flex items-center gap-0.5 my-1">
             {[...Array(item.rating)].map((_, i) => (
-              <Star
-                key={i}
-                className="w-3 h-3 fill-amber-400 text-amber-400"
-              />
+              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
             ))}
           </div>
 
@@ -62,7 +59,7 @@ export const Testimonials: React.FC = () => {
           <div className="inline-flex items-center">
             <span
               id="testimonial-badge"
-              className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#f95700] bg-[#fff1ec] tracking-wide"
+              className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] tracking-wide"
             >
               Testimonial
             </span>
@@ -79,20 +76,20 @@ export const Testimonials: React.FC = () => {
             id="testimonial-subtitle"
             className="text-neutral-500 text-xs sm:text-sm leading-relaxed"
           >
-            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod
-            Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do
+            Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
           </p>
         </div>
 
         {/* Testimonials staggered layout */}
-        <div className="space-y-6 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-6 md:gap-8 max-w-5xl mx-auto px-4 sm:px-6">
           {/* Top row with 3 cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full">
             {topRow.map((item) => renderCard(item))}
           </div>
 
           {/* Bottom row with 2 centered cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center max-w-2xl mx-auto justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 w-full max-w-2xl mx-auto">
             {bottomRow.map((item) => renderCard(item))}
           </div>
         </div>

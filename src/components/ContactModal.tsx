@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Send, CheckCircle2 } from 'lucide-react';
+import React, { useState } from "react";
+import { X, Send, CheckCircle2 } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -10,21 +10,21 @@ interface ContactModalProps {
 export const ContactModal: React.FC<ContactModalProps> = ({
   isOpen,
   onClose,
-  initialTopic = 'General Inquiry',
+  initialTopic = "General Inquiry",
 }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    name: "",
+    email: "",
     subject: initialTopic,
-    message: '',
+    message: "",
   });
 
   if (!isOpen) return null;
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
 
@@ -44,10 +44,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     setSubmitted(false);
 
     setFormData({
-      name: '',
-      email: '',
+      name: "",
+      email: "",
       subject: initialTopic,
-      message: '',
+      message: "",
     });
 
     onClose();
@@ -86,21 +86,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         "
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Gradient Accent */}
-        <div
-          className="
-            absolute
-            left-0
-            right-0
-            top-0
-            h-1
-            bg-gradient-to-r
-            from-[#2587FF]
-            via-[#5B6CFF]
-            to-[#8B3DFF]
-          "
-        />
-
         {/* Close Button */}
         <button
           type="button"
@@ -174,8 +159,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               </h2>
 
               <p className="mt-3 max-w-md text-sm leading-6 text-slate-500">
-                Thank you for contacting NEXORA. We have received your
-                message and will get back to you as soon as possible.
+                Thank you for contacting NEXORA. We have received your message
+                and will get back to you as soon as possible.
               </p>
 
               <button
@@ -184,7 +169,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 className="
                   mt-6
                   rounded-full
-                  bg-gradient-to-r
+                  bg-linear-to-r
                   from-[#2587FF]
                   to-[#8B3DFF]
                   px-7
@@ -235,7 +220,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     sm:text-[34px]
                   "
                 >
-                  Let's Build Something{' '}
+                  Let's Build Something{" "}
                   <span
                     className="
                       bg-gradient-to-r
@@ -264,10 +249,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               </div>
 
               {/* Form */}
-              <form
-                onSubmit={handleSubmit}
-                className="mt-6 space-y-4"
-              >
+              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                 {/* Name + Email */}
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {/* Name */}
@@ -484,8 +466,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     text-slate-400
                   "
                 >
-                  We respect your privacy. Your information will only be used
-                  to respond to your inquiry.
+                  We respect your privacy. Your information will only be used to
+                  respond to your inquiry.
                 </p>
               </form>
             </>
