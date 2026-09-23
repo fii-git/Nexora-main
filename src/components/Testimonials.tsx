@@ -142,9 +142,11 @@ export const Testimonials: React.FC = () => {
         key={`${item.id}-${index}`}
         className="
           box-border
+        
           w-full
-          flex-shrink-0
+          shrink-0
           px-2
+          py-6
           sm:w-1/2
           lg:w-1/3
         "

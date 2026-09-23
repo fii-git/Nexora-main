@@ -1,13 +1,16 @@
-import React from 'react';
-import { BlogPost } from '../types';
-import { X, Calendar, Tag } from 'lucide-react';
+import React from "react";
+import { BlogPost } from "../types";
+import { X, Calendar, Tag } from "lucide-react";
 
 interface ArticleModalProps {
   post: BlogPost | null;
   onClose: () => void;
 }
 
-export const ArticleModal: React.FC<ArticleModalProps> = ({ post, onClose }) => {
+export const ArticleModal: React.FC<ArticleModalProps> = ({
+  post,
+  onClose,
+}) => {
   if (!post) return null;
 
   return (
