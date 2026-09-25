@@ -22,7 +22,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "web-dev",
     title: "Web Developer",
-    description: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit.",
+    description: "P.",
     iconName: "Laptop",
     highlighted: false,
   },
