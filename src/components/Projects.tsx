@@ -675,7 +675,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             }}
             className="
               inline-flex
-              w-full
               cursor-pointer
               items-center
               justify-center
@@ -694,7 +693,6 @@ export const Projects: React.FC<ProjectsProps> = ({
               duration-300
               hover:-translate-y-0.5
               hover:shadow-[0_14px_30px_rgba(65,104,255,0.28)]
-              sm:w-auto
             "
           >
             <span className="relative z-10">Explore Projects</span>
