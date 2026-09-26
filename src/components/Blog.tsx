@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   Sparkles,
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface BlogProps {
   onSelectArticle: (post: BlogPost) => void;
@@ -86,8 +87,15 @@ export const Blog: React.FC<BlogProps> = ({
           "
         >
 
-          {/* LEFT */}
-          <div className="lg:col-span-7">
+          {/* =================================================
+              LEFT HEADER
+          ================================================== */}
+
+          <ScrollReveal
+            className="lg:col-span-7"
+            y={25}
+            duration={1000}
+          >
 
             {/* Label */}
             <div
@@ -154,11 +162,18 @@ export const Blog: React.FC<BlogProps> = ({
               </span>
             </h2>
 
-          </div>
+          </ScrollReveal>
 
-          {/* RIGHT */}
-          <div className="lg:col-span-5 lg:pb-1">
+          {/* =================================================
+              RIGHT HEADER
+          ================================================== */}
 
+          <ScrollReveal
+            className="lg:col-span-5 lg:pb-1"
+            delay={150}
+            y={25}
+            duration={1000}
+          >
             <p
               id="blog-subtitle"
               className="
@@ -172,8 +187,7 @@ export const Blog: React.FC<BlogProps> = ({
               Temukan insight, strategi, dan cerita seputar dunia digital
               untuk membantu bisnis Anda terus berkembang dan beradaptasi.
             </p>
-
-          </div>
+          </ScrollReveal>
 
         </div>
 
@@ -192,268 +206,278 @@ export const Blog: React.FC<BlogProps> = ({
 
           {blogPostsData.map((post, index) => (
 
-            <article
+            <ScrollReveal
               key={post.id}
-              id={`blog-card-${post.id}`}
-              className="
-                group
-                flex
-                cursor-pointer
-                flex-col
-                overflow-hidden
-                rounded-[28px]
-                border
-                border-[#E3EAF6]
-                bg-white
-                shadow-[0_12px_35px_rgba(25,55,100,0.05)]
-                transition-all
-                duration-500
-                hover:-translate-y-2
-                hover:border-[#CFE0FF]
-                hover:shadow-[0_22px_50px_rgba(37,99,235,0.12)]
-              "
-              onClick={() => onSelectArticle(post)}
+              delay={index * 150}
+              y={25}
+              duration={1000}
             >
 
-              {/* =================================================
-                  IMAGE
-              ================================================== */}
-
-              <div
+              <article
+                id={`blog-card-${post.id}`}
                 className="
-                  relative
-                  aspect-[16/10]
+                  group
+                  flex
+                  cursor-pointer
+                  flex-col
                   overflow-hidden
-                  bg-[#EEF3FA]
+                  rounded-[28px]
+                  border
+                  border-[#E3EAF6]
+                  bg-white
+                  shadow-[0_12px_35px_rgba(25,55,100,0.05)]
+                  transition-all
+                  duration-500
+                  hover:-translate-y-2
+                  hover:border-[#CFE0FF]
+                  hover:shadow-[0_22px_50px_rgba(37,99,235,0.12)]
                 "
+                onClick={() => onSelectArticle(post)}
               >
 
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="
-                    h-full
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-700
-                    group-hover:scale-105
-                  "
-                  loading="lazy"
-                />
+                {/* =================================================
+                    IMAGE
+                ================================================== */}
 
-                {/* Image Overlay */}
                 <div
                   className="
-                    absolute
-                    inset-0
-                    bg-gradient-to-t
-                    from-black/40
-                    via-transparent
-                    to-transparent
-                    opacity-60
-                    transition-opacity
-                    duration-500
-                    group-hover:opacity-80
-                  "
-                />
-
-                {/* Article Number */}
-                <div
-                  className="
-                    absolute
-                    left-4
-                    top-4
-                    flex
-                    h-9
-                    min-w-9
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/25
-                    bg-black/20
-                    px-2
-                    text-xs
-                    font-bold
-                    text-white
-                    backdrop-blur-md
+                    relative
+                    aspect-[16/10]
+                    overflow-hidden
+                    bg-[#EEF3FA]
                   "
                 >
-                  0{index + 1}
+
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="
+                      h-full
+                      w-full
+                      object-cover
+                      transition-transform
+                      duration-700
+                      group-hover:scale-105
+                    "
+                    loading="lazy"
+                  />
+
+                  {/* Image Overlay */}
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-gradient-to-t
+                      from-black/40
+                      via-transparent
+                      to-transparent
+                      opacity-60
+                      transition-opacity
+                      duration-500
+                      group-hover:opacity-80
+                    "
+                  />
+
+                  {/* Article Number */}
+                  <div
+                    className="
+                      absolute
+                      left-4
+                      top-4
+                      flex
+                      h-9
+                      min-w-9
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/25
+                      bg-black/20
+                      px-2
+                      text-xs
+                      font-bold
+                      text-white
+                      backdrop-blur-md
+                    "
+                  >
+                    0{index + 1}
+                  </div>
+
+                  {/* Category */}
+                  <div
+                    className="
+                      absolute
+                      bottom-4
+                      left-4
+                      rounded-full
+                      border
+                      border-white/20
+                      bg-white/15
+                      px-3
+                      py-1.5
+                      text-[10px]
+                      font-bold
+                      uppercase
+                      tracking-[0.12em]
+                      text-white
+                      backdrop-blur-md
+                    "
+                  >
+                    {post.category}
+                  </div>
+
+                  {/* Open Icon */}
+                  <div
+                    className="
+                      absolute
+                      right-4
+                      top-4
+                      flex
+                      h-10
+                      w-10
+                      translate-y-2
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-white
+                      text-[#111114]
+                      opacity-0
+                      shadow-xl
+                      transition-all
+                      duration-300
+                      group-hover:translate-y-0
+                      group-hover:opacity-100
+                    "
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+
                 </div>
 
-                {/* Category */}
-                <div
-                  className="
-                    absolute
-                    bottom-4
-                    left-4
-                    rounded-full
-                    border
-                    border-white/20
-                    bg-white/15
-                    px-3
-                    py-1.5
-                    text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-[0.12em]
-                    text-white
-                    backdrop-blur-md
-                  "
-                >
-                  {post.category}
-                </div>
+                {/* =================================================
+                    CONTENT
+                ================================================== */}
 
-                {/* Open Icon */}
-                <div
-                  className="
-                    absolute
-                    right-4
-                    top-4
-                    flex
-                    h-10
-                    w-10
-                    translate-y-2
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-white
-                    text-[#111114]
-                    opacity-0
-                    shadow-xl
-                    transition-all
-                    duration-300
-                    group-hover:translate-y-0
-                    group-hover:opacity-100
-                  "
-                >
-                  <ArrowUpRight className="h-4 w-4" />
-                </div>
+                <div className="flex flex-1 flex-col p-6">
 
-              </div>
+                  {/* Title */}
+                  <h3
+                    className="
+                      text-lg
+                      font-extrabold
+                      leading-snug
+                      tracking-tight
+                      text-[#111114]
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#4168FF]
+                      sm:text-xl
+                    "
+                  >
+                    {post.title}
+                  </h3>
 
-              {/* =================================================
-                  CONTENT
-              ================================================== */}
+                  {/* Excerpt */}
+                  <p
+                    className="
+                      mt-3
+                      line-clamp-3
+                      text-sm
+                      leading-6
+                      text-[#737B8C]
+                    "
+                  >
+                    {post.excerpt}
+                  </p>
 
-              <div className="flex flex-1 flex-col p-6">
+                  {/* Read More */}
+                  <div
+                    className="
+                      mt-auto
+                      flex
+                      items-center
+                      justify-between
+                      border-t
+                      border-[#EDF1F7]
+                      pt-5
+                      mt-6
+                    "
+                  >
 
-                {/* Title */}
-                <h3
-                  className="
-                    text-lg
-                    font-extrabold
-                    leading-snug
-                    tracking-tight
-                    text-[#111114]
-                    transition-colors
-                    duration-300
-                    group-hover:text-[#4168FF]
-                    sm:text-xl
-                  "
-                >
-                  {post.title}
-                </h3>
+                    {/* NEXORA */}
+                    <div className="flex items-center gap-2">
 
-                {/* Excerpt */}
-                <p
-                  className="
-                    mt-3
-                    line-clamp-3
-                    text-sm
-                    leading-6
-                    text-[#737B8C]
-                  "
-                >
-                  {post.excerpt}
-                </p>
+                      <div
+                        className="
+                          flex
+                          h-8
+                          w-8
+                          items-center
+                          justify-center
+                          rounded-full
+                          bg-gradient-to-br
+                          from-[#2587FF]
+                          to-[#8B3DFF]
+                          text-white
+                        "
+                      >
+                        <Sparkles className="h-3.5 w-3.5" />
+                      </div>
 
-                {/* Read More */}
-                <div
-                  className="
-                    mt-auto
-                    flex
-                    items-center
-                    justify-between
-                    border-t
-                    border-[#EDF1F7]
-                    pt-5
-                    mt-6
-                  "
-                >
+                      <span
+                        className="
+                          text-[10px]
+                          font-bold
+                          uppercase
+                          tracking-[0.1em]
+                          text-[#98A2B3]
+                        "
+                      >
+                        NEXORA
+                      </span>
 
-                  <div className="flex items-center gap-2">
-
-                    <div
-                      className="
-                        flex
-                        h-8
-                        w-8
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-gradient-to-br
-                        from-[#2587FF]
-                        to-[#8B3DFF]
-                        text-white
-                      "
-                    >
-                      <Sparkles className="h-3.5 w-3.5" />
                     </div>
 
-                    <span
+                    {/* Read More Button */}
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onSelectArticle(post);
+                      }}
                       className="
-                        text-[10px]
+                        inline-flex
+                        cursor-pointer
+                        items-center
+                        gap-1.5
+                        text-xs
                         font-bold
-                        uppercase
-                        tracking-[0.1em]
-                        text-[#98A2B3]
+                        text-[#4168FF]
+                        transition-colors
+                        duration-300
+                        hover:text-[#8B3DFF]
                       "
                     >
-                      NEXORA
-                    </span>
+                      <span>Read More</span>
+
+                      <ArrowRight
+                        className="
+                          h-3.5
+                          w-3.5
+                          transition-transform
+                          duration-300
+                          group-hover:translate-x-1
+                        "
+                      />
+                    </button>
 
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      onSelectArticle(post);
-                    }}
-                    className="
-                      inline-flex
-                      cursor-pointer
-                      items-center
-                      gap-1.5
-                      text-xs
-                      font-bold
-                      text-[#4168FF]
-                      transition-colors
-                      duration-300
-                      hover:text-[#8B3DFF]
-                    "
-                  >
-                    <span>Read More</span>
-
-                    <ArrowRight
-                      className="
-                        h-3.5
-                        w-3.5
-                        transition-transform
-                        duration-300
-                        group-hover:translate-x-1
-                      "
-                    />
-                  </button>
-
                 </div>
 
-              </div>
+              </article>
 
-            </article>
+            </ScrollReveal>
 
           ))}
 
@@ -463,7 +487,10 @@ export const Blog: React.FC<BlogProps> = ({
             BOTTOM CTA
         ====================================================== */}
 
-        <div
+        <ScrollReveal
+          delay={150}
+          y={20}
+          duration={1000}
           className="
             mt-10
             flex
@@ -511,7 +538,7 @@ export const Blog: React.FC<BlogProps> = ({
 
           </div>
 
-        </div>
+        </ScrollReveal>
 
       </div>
 

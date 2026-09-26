@@ -16,60 +16,186 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({
   return (
     <div
       id="article-modal-backdrop"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs overflow-y-auto"
+      className="
+        fixed inset-0 z-50
+        flex items-center justify-center
+        overflow-hidden
+        bg-black/75
+        p-4
+        backdrop-blur-sm
+        sm:p-6
+      "
       onClick={onClose}
     >
       <div
         id="article-modal-container"
-        className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl my-8 border border-neutral-100"
+        className="
+          relative
+          flex
+          w-full
+          max-w-2xl
+          max-h-[78vh]
+          flex-col
+          overflow-hidden
+          rounded-[26px]
+          border
+          border-white/60
+          bg-white
+          shadow-[0_30px_80px_rgba(0,0,0,0.25)]
+        "
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
+        {/* =====================================================
+            CLOSE BUTTON
+        ====================================================== */}
+
         <button
           id="close-article-modal-btn"
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+          className="
+            absolute
+            right-4
+            top-4
+            z-30
+            flex
+            h-9
+            w-9
+            cursor-pointer
+            items-center
+            justify-center
+            rounded-full
+            bg-black/60
+            text-white
+            transition-all
+            duration-300
+            hover:bg-black
+            hover:scale-105
+          "
         >
-          <X className="w-5 h-5" />
+          <X className="h-5 w-5" />
         </button>
 
-        {/* Article Featured Image */}
-        <div className="relative aspect-[16/9] w-full bg-neutral-100">
+        {/* =====================================================
+            ARTICLE FEATURED IMAGE
+        ====================================================== */}
+
+        <div
+          className="
+            relative
+            h-[180px]
+            w-full
+            shrink-0
+            bg-neutral-100
+            sm:h-[210px]
+          "
+        >
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
-          <div className="absolute top-4 left-4 bg-[#f95700] text-white text-xs font-bold px-3 py-1 rounded-full">
+
+          {/* Image Overlay */}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+
+          {/* Category */}
+
+          <div
+            className="
+              absolute
+              left-4
+              top-4
+              rounded-full
+              bg-[#2587FF]
+              px-3
+              py-1
+              text-xs
+              font-bold
+              text-white
+              shadow-lg
+            "
+          >
             {post.category}
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 sm:p-8 space-y-4">
-          <div className="flex items-center gap-4 text-xs text-neutral-400">
+        {/* =====================================================
+            CONTENT
+        ====================================================== */}
+
+        <div
+          className="
+            article-modal-scroll
+            min-h-0
+            flex-1
+            overflow-y-auto
+            px-6
+            pb-6
+            pt-6
+            sm:px-8
+            sm:pb-7
+            sm:pt-7
+          "
+        >
+          {/* Meta */}
+
+          <div className="mb-3 flex items-center gap-4 text-xs text-neutral-400">
             <span className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="h-3.5 w-3.5" />
               {post.date}
             </span>
+
             <span className="flex items-center gap-1.5">
-              <Tag className="w-3.5 h-3.5" />
+              <Tag className="h-3.5 w-3.5" />
               Lumos Insights
             </span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black text-neutral-900 leading-snug">
+          {/* Title */}
+
+          <h2
+            className="
+              text-xl
+              font-black
+              leading-snug
+              text-neutral-900
+              sm:text-2xl
+            "
+          >
             {post.title}
           </h2>
 
-          <p className="text-neutral-600 text-sm leading-relaxed">
+          {/* Excerpt */}
+
+          <p
+            className="
+              mt-3
+              text-sm
+              leading-relaxed
+              text-neutral-600
+            "
+          >
             {post.excerpt}
           </p>
 
-          <div className="pt-2 text-neutral-700 text-sm leading-relaxed space-y-3 border-t border-neutral-100">
+          {/* Article Content */}
+
+          <div
+            className="
+              mt-4
+              border-t
+              border-neutral-100
+              pt-4
+              text-sm
+              leading-relaxed
+              text-neutral-700
+            "
+          >
             <p>{post.content}</p>
-            <p>
+
+            <p className="mt-3">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae ab illo inventore veritatis et quasi architecto beatae vitae
@@ -77,17 +203,63 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({
             </p>
           </div>
 
-          <div className="pt-4 flex justify-end">
+          {/* Done Reading */}
+
+          <div className="flex justify-end pt-5">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2.5 rounded-full bg-[#f95700] hover:bg-[#e44d00] text-white text-xs font-bold transition-colors cursor-pointer"
+              className="
+                cursor-pointer
+                rounded-full
+                bg-gradient-to-r
+                from-[#2587FF]
+                to-[#8B3DFF]
+                px-6
+                py-2.5
+                text-xs
+                font-bold
+                text-white
+                shadow-[0_10px_25px_rgba(65,104,255,0.20)]
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:shadow-[0_14px_30px_rgba(65,104,255,0.28)]
+              "
             >
               Done Reading
             </button>
           </div>
         </div>
       </div>
+
+      {/* =====================================================
+          SCROLLBAR
+      ====================================================== */}
+
+      <style>{`
+        .article-modal-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: #cbd5e1 transparent;
+        }
+
+        .article-modal-scroll::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        .article-modal-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .article-modal-scroll::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 999px;
+        }
+
+        .article-modal-scroll::-webkit-scrollbar-thumb:hover {
+          background: #94a3b8;
+        }
+      `}</style>
     </div>
   );
 };

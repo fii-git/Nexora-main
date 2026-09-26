@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { testimonialsData } from "../data";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
 export const Testimonials: React.FC = () => {
   const totalItems = testimonialsData.length;
@@ -41,7 +42,9 @@ export const Testimonials: React.FC = () => {
     return currentIndex * 100;
   };
 
-  const [translateValue, setTranslateValue] = useState(getTranslateValue());
+  const [translateValue, setTranslateValue] = useState(
+    getTranslateValue()
+  );
 
   /*
    * Update posisi ketika index berubah.
@@ -131,18 +134,21 @@ export const Testimonials: React.FC = () => {
    * Indicator index.
    */
   const activeDot =
-    (((currentIndex - totalItems) % totalItems) + totalItems) % totalItems;
+    (((currentIndex - totalItems) % totalItems) + totalItems) %
+    totalItems;
 
   /*
    * Render testimonial card.
    */
-  const renderCard = (item: (typeof testimonialsData)[0], index: number) => {
+  const renderCard = (
+    item: (typeof testimonialsData)[0],
+    index: number
+  ) => {
     return (
       <div
         key={`${item.id}-${index}`}
         className="
           box-border
-        
           w-full
           shrink-0
           px-2
@@ -209,7 +215,10 @@ export const Testimonials: React.FC = () => {
               text-[#4168FF]
             "
           >
-            <Quote className="h-5 w-5" strokeWidth={2.2} />
+            <Quote
+              className="h-5 w-5"
+              strokeWidth={2.2}
+            />
           </div>
 
           {/* Client */}
@@ -377,284 +386,319 @@ export const Testimonials: React.FC = () => {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
         {/* =========================================
             HEADER
         ========================================== */}
-        <div
-          className="
-            mx-auto
-            mb-12
-            max-w-3xl
-            text-center
-            sm:mb-14
-          "
+
+        <ScrollReveal
+          y={25}
+          duration={1000}
         >
-          {/* Badge */}
-          <div className="mb-4 inline-flex items-center">
-            <span
-              className="
-                inline-flex
-                items-center
-                gap-2
-                rounded-full
-                border
-                border-[#D9E6FF]
-                bg-[#F5F8FF]
-                px-4
-                py-1.5
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.12em]
-                text-[#4168FF]
-              "
-            >
-              <span
-                className="
-                  h-1.5
-                  w-1.5
-                  rounded-full
-                  bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
-                "
-              />
-              Client Stories
-            </span>
-          </div>
-
-          {/* Heading */}
-          <h2
-            className="
-              text-3xl
-              font-black
-              leading-tight
-              tracking-tight
-              text-slate-900
-              sm:text-4xl
-              lg:text-[46px]
-            "
-          >
-            What Our Clients{" "}
-            <span
-              className="
-                bg-gradient-to-r
-                from-[#2587FF]
-                via-[#5B6CFF]
-                to-[#8B3DFF]
-                bg-clip-text
-                text-transparent
-              "
-            >
-              Say.
-            </span>
-          </h2>
-
-          {/* Subtitle */}
-          <p
+          <div
             className="
               mx-auto
-              mt-4
-              max-w-2xl
-              text-sm
-              leading-7
-              text-slate-500
-              sm:text-base
+              mb-12
+              max-w-3xl
+              text-center
+              sm:mb-14
             "
           >
-            Pengalaman dan cerita dari mereka yang telah bekerja bersama NEXORA
-            untuk membangun solusi digital yang lebih baik.
-          </p>
-        </div>
+            {/* Badge */}
+            <div className="mb-4 inline-flex items-center">
+              <span
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-[#D9E6FF]
+                  bg-[#F5F8FF]
+                  px-4
+                  py-1.5
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.12em]
+                  text-[#4168FF]
+                "
+              >
+                <span
+                  className="
+                    h-1.5
+                    w-1.5
+                    rounded-full
+                    bg-gradient-to-r
+                    from-[#2587FF]
+                    to-[#8B3DFF]
+                  "
+                />
+
+                Client Stories
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2
+              className="
+                text-3xl
+                font-black
+                leading-tight
+                tracking-tight
+                text-slate-900
+                sm:text-4xl
+                lg:text-[46px]
+              "
+            >
+              What Our Clients{" "}
+
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-[#2587FF]
+                  via-[#5B6CFF]
+                  to-[#8B3DFF]
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                Say.
+              </span>
+            </h2>
+
+            {/* Subtitle */}
+            <p
+              className="
+                mx-auto
+                mt-4
+                max-w-2xl
+                text-sm
+                leading-7
+                text-slate-500
+                sm:text-base
+              "
+            >
+              Pengalaman dan cerita dari mereka yang telah bekerja bersama
+              NEXORA untuk membangun solusi digital yang lebih baik.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* =========================================
             CAROUSEL
         ========================================== */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+
+        <ScrollReveal
+          delay={150}
+          y={25}
+          duration={1000}
         >
-          {/* Left Arrow */}
-          <button
-            type="button"
-            onClick={handlePrevious}
-            aria-label="Previous testimonial"
-            className="
-              absolute
-              left-0
-              top-1/2
-              z-20
-              hidden
-              h-11
-              w-11
-              -translate-x-1/2
-              -translate-y-1/2
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-slate-200
-              bg-white
-              text-slate-600
-              shadow-[0_10px_25px_rgba(15,23,42,0.10)]
-              transition-all
-              duration-300
-              hover:border-[#C9D8FF]
-              hover:bg-[#F5F8FF]
-              hover:text-[#4168FF]
-              lg:flex
-            "
+          <div
+            className="relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            type="button"
-            onClick={handleNext}
-            aria-label="Next testimonial"
-            className="
-              absolute
-              right-0
-              top-1/2
-              z-20
-              hidden
-              h-11
-              w-11
-              translate-x-1/2
-              -translate-y-1/2
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-slate-200
-              bg-white
-              text-slate-600
-              shadow-[0_10px_25px_rgba(15,23,42,0.10)]
-              transition-all
-              duration-300
-              hover:border-[#C9D8FF]
-              hover:bg-[#F5F8FF]
-              hover:text-[#4168FF]
-              lg:flex
-            "
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-
-          {/* Viewport */}
-          <div className="overflow-hidden px-0 sm:px-1">
-            {/* Track */}
-            <div
+            {/* Left Arrow */}
+            <button
+              type="button"
+              onClick={handlePrevious}
+              aria-label="Previous testimonial"
               className="
-                -mx-2
-                flex
+                absolute
+                left-0
+                top-1/2
+                z-20
+                hidden
+                h-11
+                w-11
+                -translate-x-1/2
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                text-slate-600
+                shadow-[0_10px_25px_rgba(15,23,42,0.10)]
+                transition-all
+                duration-300
+                hover:border-[#C9D8FF]
+                hover:bg-[#F5F8FF]
+                hover:text-[#4168FF]
+                lg:flex
               "
-              style={{
-                transform: `translate3d(-${translateValue}%, 0, 0)`,
-                transition: isTransitioning
-                  ? "transform 850ms cubic-bezier(0.22, 1, 0.36, 1)"
-                  : "none",
-                willChange: "transform",
-              }}
             >
-              {sliderItems.map((item, index) => renderCard(item, index))}
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next testimonial"
+              className="
+                absolute
+                right-0
+                top-1/2
+                z-20
+                hidden
+                h-11
+                w-11
+                translate-x-1/2
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                text-slate-600
+                shadow-[0_10px_25px_rgba(15,23,42,0.10)]
+                transition-all
+                duration-300
+                hover:border-[#C9D8FF]
+                hover:bg-[#F5F8FF]
+                hover:text-[#4168FF]
+                lg:flex
+              "
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Viewport */}
+            <div className="overflow-hidden px-0 sm:px-1">
+
+              {/* Track */}
+              <div
+                className="-mx-2 flex"
+                style={{
+                  transform: `translate3d(-${translateValue}%, 0, 0)`,
+                  transition: isTransitioning
+                    ? "transform 850ms cubic-bezier(0.22, 1, 0.36, 1)"
+                    : "none",
+                  willChange: "transform",
+                }}
+              >
+                {sliderItems.map((item, index) =>
+                  renderCard(item, index)
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* =========================================
             NAVIGATION
         ========================================== */}
-        <div className="mt-8 flex items-center justify-center gap-4">
-          {/* Mobile Previous */}
-          <button
-            type="button"
-            onClick={handlePrevious}
-            aria-label="Previous testimonial"
-            className="
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-slate-200
-              bg-white
-              text-slate-500
-              shadow-sm
-              transition-all
-              hover:border-[#C9D8FF]
-              hover:bg-[#F5F8FF]
-              hover:text-[#4168FF]
-              lg:hidden
-            "
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
 
-          {/* Dots */}
-          <div className="flex items-center gap-1.5">
-            {testimonialsData.map((item, index) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  setIsTransitioning(true);
-                  setCurrentIndex(totalItems + index);
-                }}
-                aria-label={`Go to testimonial ${index + 1}`}
-                className={`
-                  h-2
-                  rounded-full
-                  transition-all
-                  duration-500
-                  ${
-                    activeDot === index
-                      ? "w-7 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]"
-                      : "w-2 bg-slate-200 hover:bg-slate-300"
-                  }
-                `}
-              />
-            ))}
+        <ScrollReveal
+          delay={250}
+          y={20}
+          duration={1000}
+        >
+          <div className="mt-8 flex items-center justify-center gap-4">
+
+            {/* Mobile Previous */}
+            <button
+              type="button"
+              onClick={handlePrevious}
+              aria-label="Previous testimonial"
+              className="
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                text-slate-500
+                shadow-sm
+                transition-all
+                hover:border-[#C9D8FF]
+                hover:bg-[#F5F8FF]
+                hover:text-[#4168FF]
+                lg:hidden
+              "
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+
+            {/* Dots */}
+            <div className="flex items-center gap-1.5">
+              {testimonialsData.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => {
+                    setIsTransitioning(true);
+                    setCurrentIndex(totalItems + index);
+                  }}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  className={`
+                    h-2
+                    rounded-full
+                    transition-all
+                    duration-500
+
+                    ${
+                      activeDot === index
+                        ? "w-7 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]"
+                        : "w-2 bg-slate-200 hover:bg-slate-300"
+                    }
+                  `}
+                />
+              ))}
+            </div>
+
+            {/* Mobile Next */}
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next testimonial"
+              className="
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                text-slate-500
+                shadow-sm
+                transition-all
+                hover:border-[#C9D8FF]
+                hover:bg-[#F5F8FF]
+                hover:text-[#4168FF]
+                lg:hidden
+              "
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
           </div>
-
-          {/* Mobile Next */}
-          <button
-            type="button"
-            onClick={handleNext}
-            aria-label="Next testimonial"
-            className="
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-slate-200
-              bg-white
-              text-slate-500
-              shadow-sm
-              transition-all
-              hover:border-[#C9D8FF]
-              hover:bg-[#F5F8FF]
-              hover:text-[#4168FF]
-              lg:hidden
-            "
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
+        </ScrollReveal>
 
         {/* Auto Slide Status */}
-        <div className="mt-4 text-center">
-          <span className="text-[11px] font-medium text-slate-400">
-            {isPaused ? "Slider dijeda" : "Testimonial bergerak otomatis"}
-          </span>
-        </div>
+        <ScrollReveal
+          delay={350}
+          y={15}
+          duration={1000}
+        >
+          <div className="mt-4 text-center">
+            <span className="text-[11px] font-medium text-slate-400">
+              {isPaused
+                ? "Slider dijeda"
+                : "Testimonial bergerak otomatis"}
+            </span>
+          </div>
+        </ScrollReveal>
+
       </div>
     </section>
   );
