@@ -1,4 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import { HelmetProvider } from "react-helmet-async";
+
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Services } from "./components/Services";
@@ -9,73 +17,66 @@ import { Pricing } from "./components/Pricing";
 import { Projects } from "./components/Projects";
 import { Testimonials } from "./components/Testimonials";
 import { Blog } from "./components/Blog";
+import { BlogArticle } from "./components/BlogArticle";
 import { Footer } from "./components/Footer";
+
 import { VideoModal } from "./components/VideoModal";
-import { ArticleModal } from "./components/ArticleModal";
 import { ContactModal } from "./components/ContactModal";
 import { ProjectModal } from "./components/ProjectModal";
-import { BlogPost, ProjectItem } from "./types";
 
-export function App() {
+import { ProjectItem } from "./types";
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+interface HomePageProps {
+  onOpenContactWithTopic: (topic: string) => void;
+  onCloseContact: () => void;
+  isContactModalOpen: boolean;
+}
+
+function HomePage({
+  onOpenContactWithTopic,
+  onCloseContact,
+  isContactModalOpen,
+}: HomePageProps) {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-  // Service yang sedang dipilih
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-
-  const [selectedTopic, setSelectedTopic] = useState("General Consultation");
-
-  const [selectedArticle, setSelectedArticle] = useState<BlogPost | null>(null);
-
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(
+  const [selectedService, setSelectedService] = useState<string | null>(
     null,
   );
 
-  // =========================================================
-  // CONTACT MODAL
-  // =========================================================
+  const [selectedProject, setSelectedProject] =
+    useState<ProjectItem | null>(null);
 
-  const handleOpenContactWithTopic = (topic: string) => {
-    setSelectedTopic(topic);
-    setIsContactModalOpen(true);
-  };
+  useEffect(() => {
+    if (!isContactModalOpen) {
+    setSelectedService(null);
+    }
+  }, [isContactModalOpen]);
 
-  // =========================================================
-  // GET STARTED
-  // =========================================================
+  /* =======================================================
+     CONTACT
+  ======================================================== */
 
   const handleGetStarted = () => {
-    handleOpenContactWithTopic("New Project Kickoff");
+    onOpenContactWithTopic("New Project Kickoff");
   };
 
-  // =========================================================
-  // SERVICE
-  // =========================================================
+  /* =======================================================
+     SERVICES
+  ======================================================== */
 
   const handleSelectService = (service: string) => {
-    // Simpan service yang dipilih
     setSelectedService(service);
 
-    // Buka contact modal
-    handleOpenContactWithTopic(`Service: ${service}`);
+    onOpenContactWithTopic(`Service: ${service}`);
   };
 
-  // =========================================================
-  // CLOSE CONTACT MODAL
-  // =========================================================
-
-  const handleCloseContact = () => {
-    // Tutup modal
-    setIsContactModalOpen(false);
-
-    // Reset service yang dipilih
-    // sehingga card kembali putih
-    setSelectedService(null);
-  };
-
-  // =========================================================
-  // OUR STORY
-  // =========================================================
+  /* =======================================================
+     ABOUT / STORY
+  ======================================================== */
 
   const handleOurStory = () => {
     const el = document.getElementById("why-us");
@@ -86,10 +87,6 @@ export function App() {
       });
     }
   };
-
-  // =========================================================
-  // SEE DETAIL
-  // =========================================================
 
   const handleSeeDetail = () => {
     const el = document.getElementById("why-us");
@@ -102,121 +99,224 @@ export function App() {
   };
 
   return (
-    <div
-      className="
-        min-h-screen
-        bg-white
-        font-sans
-        text-neutral-900
-        selection:bg-[#2587FF]
-        selection:text-white
-      "
-    >
+    <>
       {/* =====================================================
           NAVBAR
       ====================================================== */}
 
       <Navbar
-        onOpenContact={() => handleOpenContactWithTopic("General Inquiry")}
+        onOpenContact={() =>
+          onOpenContactWithTopic("General Inquiry")
+        }
       />
 
-      {/* =====================================================
-          MAIN CONTENT
-      ====================================================== */}
-
       <main>
-        {/* 1. HERO */}
+
+        {/* =================================================
+            HERO
+        ================================================== */}
+
         <Hero
           onWatchVideo={() => setIsVideoModalOpen(true)}
           onGetStarted={handleGetStarted}
         />
 
-        {/* 3. ABOUT / VIDEO */}
+        {/* =================================================
+            ABOUT
+        ================================================== */}
+
         <VideoSection
           onPlayVideo={() => setIsVideoModalOpen(true)}
           onOurStory={handleOurStory}
         />
 
-        {/* 2. SERVICES */}
+        {/* =================================================
+            SERVICES
+        ================================================== */}
+
         <Services
           selectedService={selectedService}
           onSelectService={handleSelectService}
           onSeeDetail={handleSeeDetail}
         />
 
-        {/* 4. PARTNERS */}
+        {/* =================================================
+            PARTNERS
+        ================================================== */}
+
         <Partners />
 
-        {/* 5. WHY CHOOSE US */}
+        {/* =================================================
+            WHY CHOOSE US
+        ================================================== */}
+
         <WhyChooseUs />
 
-        {/* 6. PRICING */}
+        {/* =================================================
+            PRICING
+        ================================================== */}
+
         <Pricing
           onSelectPlan={(plan) =>
-            handleOpenContactWithTopic(`Selected Plan: ${plan}`)
+            onOpenContactWithTopic(
+              `Selected Plan: ${plan}`,
+            )
           }
         />
 
-        {/* 7. PROJECTS */}
-        <Projects onSelectProject={(project) => setSelectedProject(project)} />
+        {/* =================================================
+            PROJECTS
+        ================================================== */}
 
-        {/* 8. TESTIMONIALS */}
+        <Projects
+          onSelectProject={(project) =>
+            setSelectedProject(project)
+          }
+        />
+
+        {/* =================================================
+            TESTIMONIALS
+        ================================================== */}
+
         <Testimonials />
 
-        {/* 9. BLOG */}
-        <Blog onSelectArticle={(post) => setSelectedArticle(post)} />
+        {/* =================================================
+            BLOG
+        ================================================== */}
+
+        <Blog />
+
       </main>
 
-      {/* =====================================================
+      {/* ===================================================
           FOOTER
-      ====================================================== */}
+      ==================================================== */}
 
       <Footer />
 
-      {/* =====================================================
+      {/* ===================================================
           VIDEO MODAL
-      ====================================================== */}
+      ==================================================== */}
 
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
       />
 
-      {/* =====================================================
-          ARTICLE MODAL
-      ====================================================== */}
-
-      <ArticleModal
-        post={selectedArticle}
-        onClose={() => setSelectedArticle(null)}
-      />
-
-      {/* =====================================================
+      {/* ===================================================
           PROJECT MODAL
-      ====================================================== */}
+      ==================================================== */}
 
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
         onConsult={() => {
           if (selectedProject) {
-            handleOpenContactWithTopic(
+            onOpenContactWithTopic(
               `Case Study Inquiry: ${selectedProject.title}`,
             );
           }
         }}
       />
 
-      {/* =====================================================
-          CONTACT MODAL
-      ====================================================== */}
+    </>
+  );
+}
 
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={handleCloseContact}
-        initialTopic={selectedTopic}
-      />
-    </div>
+/* =========================================================
+   APP
+========================================================= */
+
+export function App() {
+  /* =======================================================
+     GLOBAL CONTACT STATE
+  ======================================================== */
+
+  const [isContactModalOpen, setIsContactModalOpen] =
+    useState(false);
+
+  const [selectedTopic, setSelectedTopic] = useState(
+    "General Consultation",
+  );
+
+  /* =======================================================
+     OPEN CONTACT
+  ======================================================== */
+
+  const handleOpenContactWithTopic = (topic: string) => {
+    setSelectedTopic(topic);
+    setIsContactModalOpen(true);
+  };
+
+  /* =======================================================
+     CLOSE CONTACT
+  ======================================================== */
+
+  const handleCloseContact = () => {
+    setIsContactModalOpen(false);
+  };
+
+  return (
+   <HelmetProvider>
+    <BrowserRouter>
+      <div className="min-h-screen bg-white font-sans text-neutral-900 selection:bg-[#2587FF] selection:text-white">
+
+        <Routes>
+
+          {/* ===============================================
+              HOME
+          ================================================ */}
+
+          <Route
+            path="/"
+            element={
+              <HomePage
+                onOpenContactWithTopic={
+                  handleOpenContactWithTopic
+                }
+                onCloseContact={
+                  handleCloseContact
+                }
+                isContactModalOpen={isContactModalOpen}
+              />
+            }
+          />
+
+          {/* ===============================================
+              BLOG ARTICLE
+          ================================================ */}
+
+          <Route
+            path="/blog/:id"
+            element={
+              <BlogArticle
+                onOpenContact={() =>
+                  handleOpenContactWithTopic(
+                    "General Inquiry",
+                  )
+                }
+              />
+            }
+          />
+
+        </Routes>
+
+        {/* =================================================
+            GLOBAL CONTACT MODAL
+
+            Modal berada di luar Routes sehingga dapat
+            dibuka dari homepage maupun halaman artikel.
+        ================================================== */}
+
+        <ContactModal
+          isOpen={isContactModalOpen}
+          onClose={handleCloseContact}
+          initialTopic={selectedTopic}
+        />
+
+      </div>
+    </BrowserRouter>
+   </HelmetProvider>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { blogPostsData } from '../data';
-import { BlogPost } from '../types';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -8,13 +8,7 @@ import {
 } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 
-interface BlogProps {
-  onSelectArticle: (post: BlogPost) => void;
-}
-
-export const Blog: React.FC<BlogProps> = ({
-  onSelectArticle,
-}) => {
+export const Blog: React.FC = () => {
   return (
     <section
       id="blog"
@@ -213,8 +207,9 @@ export const Blog: React.FC<BlogProps> = ({
               duration={1000}
             >
 
-              <article
+              <Link
                 id={`blog-card-${post.id}`}
+                to={`/blog/${post.id}`}
                 className="
                   group
                   flex
@@ -232,7 +227,6 @@ export const Blog: React.FC<BlogProps> = ({
                   hover:border-[#CFE0FF]
                   hover:shadow-[0_22px_50px_rgba(37,99,235,0.12)]
                 "
-                onClick={() => onSelectArticle(post)}
               >
 
                 {/* =================================================
@@ -438,13 +432,8 @@ export const Blog: React.FC<BlogProps> = ({
 
                     </div>
 
-                    {/* Read More Button */}
-                    <button
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        onSelectArticle(post);
-                      }}
+                    {/* Read More */}
+                    <span
                       className="
                         inline-flex
                         cursor-pointer
@@ -455,7 +444,7 @@ export const Blog: React.FC<BlogProps> = ({
                         text-[#4168FF]
                         transition-colors
                         duration-300
-                        hover:text-[#8B3DFF]
+                        group-hover:text-[#8B3DFF]
                       "
                     >
                       <span>Read More</span>
@@ -469,13 +458,13 @@ export const Blog: React.FC<BlogProps> = ({
                           group-hover:translate-x-1
                         "
                       />
-                    </button>
+                    </span>
 
                   </div>
 
                 </div>
 
-              </article>
+              </Link>
 
             </ScrollReveal>
 

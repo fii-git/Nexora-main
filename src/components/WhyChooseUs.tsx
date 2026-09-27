@@ -402,9 +402,7 @@ export const WhyChooseUs: React.FC = () => {
                   sm:text-base
                 "
               >
-                Kami menggabungkan strategi, desain, teknologi, dan pemahaman
-                bisnis untuk menciptakan solusi digital yang bukan hanya terlihat
-                bagus, tetapi juga memberikan nilai nyata bagi bisnis Anda.
+                Kami bukan hanya membangun produk digital. Kami membantu bisnis menemukan strategi, menciptakan pengalaman, dan menghadirkan solusi digital yang memberikan dampak nyata.
               </p>
             </ScrollReveal>
 

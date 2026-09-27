@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { navItems } from "../data";
-import { Menu, X, Instagram, Linkedin, Twitter } from "lucide-react";
+import {
+  Menu,
+  X,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/LOGO3.png";
 
 interface NavbarProps {
   onOpenContact?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenContact,
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  /* =========================================================
+     SCROLL DETECTION
+  ========================================================== */
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Hanya cek section jika sedang berada di homepage
+      if (location.pathname !== "/") {
+        return;
+      }
 
       const sections = [
         "home",
@@ -37,7 +58,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           const top = el.offsetTop;
           const height = el.offsetHeight;
 
-          if (scrollPos >= top && scrollPos < top + height) {
+          if (
+            scrollPos >= top &&
+            scrollPos < top + height
+          ) {
             setActiveSection(section);
             break;
           }
@@ -45,12 +69,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       }
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll,
+      );
     };
-  }, []);
+  }, [location.pathname]);
+
+  /* =========================================================
+     NAVIGATION HANDLER
+  ========================================================== */
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -61,21 +94,92 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
     setMobileMenuOpen(false);
 
     const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
 
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    /*
+      Jika sedang di homepage,
+      langsung scroll ke section.
+    */
+    if (location.pathname === "/") {
+      const element =
+        document.getElementById(targetId);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      return;
     }
+
+    /*
+      Jika sedang berada di halaman lain
+      seperti /blog/b1, kembali ke homepage.
+    */
+    navigate(`/${href}`);
+
+    /*
+      Tunggu homepage selesai dirender,
+      kemudian scroll ke section tujuan.
+    */
+    setTimeout(() => {
+      const element =
+        document.getElementById(targetId);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 150);
   };
+
+  /* =========================================================
+     LOGO CLICK
+  ========================================================== */
+
+  const handleLogoClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+  ) => {
+    e.preventDefault();
+
+    setMobileMenuOpen(false);
+
+    if (location.pathname === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    navigate("/");
+  };
+
+  /* =========================================================
+     BLOG ACTIVE STATE
+  ========================================================== */
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/blog/")) {
+      setActiveSection("blog");
+    }
+  }, [location.pathname]);
+
+  /* =========================================================
+     RENDER
+  ========================================================== */
 
   return (
     <header
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "px-4 sm:px-6 lg:px-8 pt-3" : "px-0 pt-0"
+        isScrolled
+          ? "px-4 sm:px-6 lg:px-8 pt-3"
+          : "px-0 pt-0"
       }`}
     >
       <div
@@ -91,11 +195,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           }`}
         >
           <div className="flex items-center justify-between">
+
             {/* ================= LOGO ================= */}
+
             <a
               id="brand-logo"
-              href="#home"
-              onClick={(e) => handleNavClick(e, "#home")}
+              href="/"
+              onClick={handleLogoClick}
               className="flex items-center gap-2 group cursor-pointer shrink-0"
             >
               <div className="w-9 h-9 flex items-center justify-center">
@@ -108,7 +214,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
               <span
                 className={`font-extrabold text-2xl tracking-tight transition-colors duration-300 ${
-                  isScrolled ? "text-white" : "text-neutral-900"
+                  isScrolled
+                    ? "text-white"
+                    : "text-neutral-900"
                 }`}
               >
                 NEXORA
@@ -116,20 +224,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             </a>
 
             {/* ================= DESKTOP NAVIGATION ================= */}
+
             <nav
               id="desktop-nav"
               className="hidden lg:flex items-center gap-7 xl:gap-8"
             >
               {navItems.map((item) => {
-                const targetId = item.href.replace("#", "");
-                const isActive = activeSection === targetId;
+                const targetId =
+                  item.href.replace("#", "");
+
+                const isActive =
+                  activeSection === targetId;
 
                 return (
                   <a
                     key={item.label}
                     id={`nav-link-${targetId}`}
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    onClick={(e) =>
+                      handleNavClick(
+                        e,
+                        item.href,
+                      )
+                    }
                     className={`relative text-[13px] font-bold tracking-wider transition-colors duration-300 group ${
                       isActive
                         ? isScrolled
@@ -145,7 +262,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                     {/* Active underline */}
                     <span
                       className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-linear-to-r from-[#2587FF] to-[#8B3DFF] transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                        isActive
+                          ? "w-full"
+                          : "w-0 group-hover:w-full"
                       }`}
                     />
                   </a>
@@ -154,8 +273,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             </nav>
 
             {/* ================= SOCIAL + CTA ================= */}
+
             <div className="hidden md:flex items-center gap-4">
+
               <div className="flex items-center gap-2">
+
                 {/* Instagram */}
                 <a
                   id="social-instagram-nav"
@@ -203,6 +325,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 >
                   <Twitter className="w-4 h-4" />
                 </a>
+
               </div>
 
               {/* Let's Talk */}
@@ -212,18 +335,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   onClick={onOpenContact}
                   className="ml-1 relative overflow-hidden group px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
-                  <span className="relative z-10">Let's Talk</span>
+                  <span className="relative z-10">
+                    Let's Talk
+                  </span>
+
                   <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               )}
+
             </div>
 
             {/* ================= MOBILE TOGGLE ================= */}
+
             <div className="flex items-center gap-2 lg:hidden">
+
               <button
                 id="mobile-menu-toggle-btn"
                 type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                onClick={() =>
+                  setMobileMenuOpen(
+                    !mobileMenuOpen,
+                  )
+                }
                 className={`p-2.5 rounded-xl transition-all duration-300 ${
                   isScrolled
                     ? "text-white hover:bg-white/10"
@@ -237,26 +370,38 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   <Menu className="w-6 h-6" />
                 )}
               </button>
+
             </div>
+
           </div>
 
           {/* ================= MOBILE MENU ================= */}
+
           {mobileMenuOpen && (
             <div
               id="mobile-menu-drawer"
               className="lg:hidden mt-4 rounded-2xl border border-white/10 bg-[#18366B]/75 backdrop-blur-xl shadow-2xl overflow-hidden"
             >
               <div className="p-5 space-y-1">
+
                 {navItems.map((item) => {
-                  const targetId = item.href.replace("#", "");
-                  const isActive = activeSection === targetId;
+                  const targetId =
+                    item.href.replace("#", "");
+
+                  const isActive =
+                    activeSection === targetId;
 
                   return (
                     <a
                       key={item.label}
                       id={`mobile-nav-link-${targetId}`}
                       href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
+                      onClick={(e) =>
+                        handleNavClick(
+                          e,
+                          item.href,
+                        )
+                      }
                       className={`block px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 ${
                         isActive
                           ? "text-white bg-linear-to-r from-[#2587FF]/20 to-[#8B3DFF]/20 border border-[#2587FF]/20"
@@ -269,8 +414,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 })}
 
                 {/* Mobile bottom section */}
+
                 <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between">
+
                   <div className="flex items-center gap-2">
+
                     <a
                       href="https://instagram.com"
                       target="_blank"
@@ -300,6 +448,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                     >
                       <Twitter className="w-4 h-4" />
                     </a>
+
                   </div>
 
                   {onOpenContact && (
@@ -313,10 +462,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                       Let's Talk
                     </button>
                   )}
+
                 </div>
+
               </div>
             </div>
           )}
+
         </div>
       </div>
     </header>

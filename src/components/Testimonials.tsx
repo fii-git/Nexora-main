@@ -7,6 +7,23 @@ export const Testimonials: React.FC = () => {
   const totalItems = testimonialsData.length;
 
   /*
+   * Mengambil inisial dari nama client.
+   *
+   * Contoh:
+   * Andi Pratama   -> AP
+   * Sarah Wijaya   -> SW
+   * Rizky Maulana  -> RM
+   */
+  const getInitials = (name: string) => {
+    return name
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((word) => word.charAt(0).toUpperCase())
+      .join("");
+  };
+
+  /*
    * Duplicate data untuk membuat infinite carousel.
    */
   const sliderItems = [
@@ -177,7 +194,10 @@ export const Testimonials: React.FC = () => {
             hover:shadow-[0_20px_45px_rgba(37,99,235,0.10)]
           "
         >
-          {/* Decorative Glow */}
+          {/* =================================================
+              DECORATIVE GLOW
+          ================================================== */}
+
           <div
             className="
               pointer-events-none
@@ -197,7 +217,10 @@ export const Testimonials: React.FC = () => {
             "
           />
 
-          {/* Quote Icon */}
+          {/* =================================================
+              QUOTE ICON
+          ================================================== */}
+
           <div
             className="
               absolute
@@ -221,10 +244,16 @@ export const Testimonials: React.FC = () => {
             />
           </div>
 
-          {/* Client */}
+          {/* =================================================
+              CLIENT
+          ================================================== */}
+
           <div className="relative flex items-center gap-4">
-            {/* Avatar */}
+
+            {/* Avatar Initial */}
             <div className="relative flex-shrink-0">
+
+              {/* Avatar Glow */}
               <div
                 className="
                   absolute
@@ -238,23 +267,40 @@ export const Testimonials: React.FC = () => {
                 "
               />
 
-              <img
-                src={item.avatar}
-                alt={item.name}
+              {/* Avatar */}
+              <div
                 className="
                   relative
+                  flex
                   h-14
                   w-14
+                  items-center
+                  justify-center
                   rounded-full
-                  object-cover
+                  bg-gradient-to-br
+                  from-[#2587FF]
+                  to-[#8B3DFF]
+                  text-sm
+                  font-extrabold
+                  tracking-wide
+                  text-white
                   ring-2
                   ring-white
+                  shadow-[0_8px_20px_rgba(65,104,255,0.20)]
+                  transition-transform
+                  duration-300
+                  group-hover:scale-105
                 "
-              />
+                aria-label={`Avatar ${item.name}`}
+              >
+                {getInitials(item.name)}
+              </div>
+
             </div>
 
             {/* Name */}
             <div className="min-w-0 pr-10">
+
               <h3
                 className="
                   truncate
@@ -276,11 +322,17 @@ export const Testimonials: React.FC = () => {
               >
                 NEXORA Client
               </p>
+
             </div>
+
           </div>
 
-          {/* Rating */}
+          {/* =================================================
+              RATING
+          ================================================== */}
+
           <div className="mt-5 flex items-center gap-1">
+
             {[...Array(item.rating)].map((_, i) => (
               <Star
                 key={i}
@@ -303,9 +355,13 @@ export const Testimonials: React.FC = () => {
             >
               {item.rating}.0
             </span>
+
           </div>
 
-          {/* Comment */}
+          {/* =================================================
+              COMMENT
+          ================================================== */}
+
           <p
             className="
               mt-4
@@ -318,8 +374,12 @@ export const Testimonials: React.FC = () => {
             “{item.comment}”
           </p>
 
-          {/* Bottom Accent */}
+          {/* =================================================
+              BOTTOM ACCENT
+          ================================================== */}
+
           <div className="mt-5 flex items-center gap-2">
+
             <span
               className="
                 h-1.5
@@ -339,7 +399,9 @@ export const Testimonials: React.FC = () => {
                 to-transparent
               "
             />
+
           </div>
+
         </article>
       </div>
     );
@@ -356,7 +418,11 @@ export const Testimonials: React.FC = () => {
         lg:py-28
       "
     >
-      {/* Background Glow */}
+
+      {/* =====================================================
+          BACKGROUND GLOW
+      ====================================================== */}
+
       <div
         className="
           pointer-events-none
@@ -387,9 +453,9 @@ export const Testimonials: React.FC = () => {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* =========================================
+        {/* =================================================
             HEADER
-        ========================================== */}
+        ================================================== */}
 
         <ScrollReveal
           y={25}
@@ -404,8 +470,10 @@ export const Testimonials: React.FC = () => {
               sm:mb-14
             "
           >
+
             {/* Badge */}
             <div className="mb-4 inline-flex items-center">
+
               <span
                 className="
                   inline-flex
@@ -437,6 +505,7 @@ export const Testimonials: React.FC = () => {
 
                 Client Stories
               </span>
+
             </div>
 
             {/* Heading */}
@@ -482,12 +551,13 @@ export const Testimonials: React.FC = () => {
               Pengalaman dan cerita dari mereka yang telah bekerja bersama
               NEXORA untuk membangun solusi digital yang lebih baik.
             </p>
+
           </div>
         </ScrollReveal>
 
-        {/* =========================================
+        {/* =================================================
             CAROUSEL
-        ========================================== */}
+        ================================================== */}
 
         <ScrollReveal
           delay={150}
@@ -499,6 +569,7 @@ export const Testimonials: React.FC = () => {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
+
             {/* Left Arrow */}
             <button
               type="button"
@@ -585,13 +656,15 @@ export const Testimonials: React.FC = () => {
                   renderCard(item, index)
                 )}
               </div>
+
             </div>
+
           </div>
         </ScrollReveal>
 
-        {/* =========================================
+        {/* =================================================
             NAVIGATION
-        ========================================== */}
+        ================================================== */}
 
         <ScrollReveal
           delay={250}
@@ -629,6 +702,7 @@ export const Testimonials: React.FC = () => {
 
             {/* Dots */}
             <div className="flex items-center gap-1.5">
+
               {testimonialsData.map((item, index) => (
                 <button
                   key={item.id}
@@ -652,6 +726,7 @@ export const Testimonials: React.FC = () => {
                   `}
                 />
               ))}
+
             </div>
 
             {/* Mobile Next */}
@@ -684,7 +759,10 @@ export const Testimonials: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Auto Slide Status */}
+        {/* =================================================
+            AUTO SLIDE STATUS
+        ================================================== */}
+
         <ScrollReveal
           delay={350}
           y={15}

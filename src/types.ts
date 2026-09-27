@@ -47,6 +47,12 @@ export interface TestimonialItem {
   comment: string;
 }
 
+export interface BlogSection {
+  type: "paragraph" | "heading" | "list" | "quote";
+  content: string;
+  items?: string[];
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -55,4 +61,5 @@ export interface BlogPost {
   date: string;
   image: string;
   category: string;
+  sections?: BlogSection[];
 }
