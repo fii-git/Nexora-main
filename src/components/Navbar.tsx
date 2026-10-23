@@ -281,7 +281,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {/* Instagram */}
                 <a
                   id="social-instagram-nav"
-                  href="https://instagram.com"
+                  href="https://instagram.com/yankidigital_"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -420,7 +420,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <div className="flex items-center gap-2">
 
                     <a
-                      href="https://instagram.com"
+                      href="https://instagram.com/yankidigital_"
                       target="_blank"
                       rel="noreferrer"
                       aria-label="Instagram"

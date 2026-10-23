@@ -363,7 +363,7 @@ export const Footer: React.FC = () => {
 
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/yankidigital_"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -655,7 +655,7 @@ export const Footer: React.FC = () => {
                     </span>
 
                     <a
-                      href="tel:+6280000000000"
+                      href="tel:+6285220526112"
                       className="
                         mt-0.5
                         block
@@ -663,7 +663,7 @@ export const Footer: React.FC = () => {
                         hover:text-white
                       "
                     >
-                      +62 800 0000 0000
+                      +62 852 2052 6112
                     </a>
                   </div>
 
