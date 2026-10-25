@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ProjectItem } from '../types';
 import {
@@ -30,12 +31,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         items-center
         justify-center
         overflow-hidden
-      bg-black/65
+        bg-black/65
         p-4
         backdrop-blur-sm
         sm:p-6
       "
-        onClick={onClose}
+      onClick={onClose}
     >
       <div
         id="project-modal-container"
@@ -46,13 +47,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           overflow-hidden
           rounded-[28px]
           border
-        border-white/60
-        bg-white
+          border-white/60
+          bg-white
           shadow-[0_30px_80px_rgba(0,0,0,0.25)]
         "
-          onClick={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
-
         {/* =====================================================
             CLOSE BUTTON
         ====================================================== */}
@@ -101,7 +101,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             bg-[#111827]
           "
         >
-
           <img
             src={project.image}
             alt={project.title}
@@ -149,7 +148,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           >
             {project.category}
           </div>
-
         </div>
 
         {/* =====================================================
@@ -157,7 +155,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         ====================================================== */}
 
         <div className="p-5 sm:p-6">
-
           {/* Title */}
           <h3
             className="
@@ -224,10 +221,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               sm:justify-between
             "
           >
-
             {/* Case Study Label */}
             <div className="flex items-center gap-2">
-
               <div
                 className="
                   flex
@@ -237,8 +232,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   justify-center
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   text-white
                 "
               >
@@ -270,7 +265,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   Agency Case Study
                 </span>
               </div>
-
             </div>
 
             {/* Buttons */}
@@ -281,7 +275,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 gap-2
               "
             >
-
               {/* Close */}
               <button
                 type="button"
@@ -297,7 +290,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   transition-all
                   duration-300
                   hover:bg-[#F2F5FA]
-                  hover:text-[#111114]
+                  hover:text-[#121E36]
                 "
               >
                 Close
@@ -317,33 +310,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   gap-1.5
                   rounded-full
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   px-4
                   py-2.5
                   text-xs
                   font-bold
                   text-white
                   shadow-lg
-                  shadow-[#4168FF]/20
+                  shadow-[#E26D13]/20
                   transition-all
                   duration-300
                   hover:-translate-y-0.5
                   hover:shadow-xl
-                  hover:shadow-[#4168FF]/25
+                  hover:shadow-[#E26D13]/25
                 "
               >
                 <span>Request Similar Project</span>
 
                 <ExternalLink className="h-3.5 w-3.5" />
               </button>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
     </div>
   );

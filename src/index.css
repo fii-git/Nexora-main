@@ -1,8 +1,34 @@
 @import "tailwindcss";
 
+/* =========================================================
+   BRAND COLORS
+   ========================================================= */
+
+:root {
+  --nexora-navy: #121E36;
+  --nexora-blue: #1E3A5F;
+  --nexora-orange: #E26D13;
+  --nexora-amber: #EAA412;
+  --nexora-gray: #7F8793;
+  --nexora-light-gray: #F3F4F6;
+
+  /* Background putih */
+  --nexora-background: #FFFFFF;
+}
+
+/* =========================================================
+   BASE STYLES
+   ========================================================= */
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, sans-serif;
+  }
+
+  body {
+    background-color: var(--nexora-background);
   }
 }

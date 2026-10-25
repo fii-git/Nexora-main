@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { blogPostsData } from '../data';
@@ -21,7 +22,6 @@ export const Blog: React.FC = () => {
         lg:py-28
       "
     >
-
       {/* =====================================================
           BACKGROUND DECORATION
       ====================================================== */}
@@ -35,7 +35,7 @@ export const Blog: React.FC = () => {
           h-96
           w-96
           rounded-full
-          bg-[#2587FF]/10
+          bg-[#1E3A5F]/10
           blur-3xl
         "
       />
@@ -49,7 +49,7 @@ export const Blog: React.FC = () => {
           h-[450px]
           w-[450px]
           rounded-full
-          bg-[#8B3DFF]/10
+          bg-[#E26D13]/10
           blur-3xl
         "
       />
@@ -64,7 +64,6 @@ export const Blog: React.FC = () => {
           lg:px-8
         "
       >
-
         {/* =====================================================
             HEADER
         ====================================================== */}
@@ -80,7 +79,6 @@ export const Blog: React.FC = () => {
             lg:items-end
           "
         >
-
           {/* =================================================
               LEFT HEADER
           ================================================== */}
@@ -90,7 +88,6 @@ export const Blog: React.FC = () => {
             y={25}
             duration={1000}
           >
-
             {/* Label */}
             <div
               id="blog-tag-badge"
@@ -106,8 +103,8 @@ export const Blog: React.FC = () => {
                   h-[2px]
                   w-10
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                 "
               />
 
@@ -117,7 +114,7 @@ export const Blog: React.FC = () => {
                   font-bold
                   uppercase
                   tracking-[0.22em]
-                  text-[#2587FF]
+                  text-[#1E3A5F]
                   sm:text-sm
                 "
               >
@@ -145,9 +142,9 @@ export const Blog: React.FC = () => {
               <span
                 className="
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  via-[#4168FF]
-                  to-[#A52BFF]
+                  from-[#121E36]
+                  via-[#1E3A5F]
+                  to-[#E26D13]
                   bg-clip-text
                   text-transparent
                 "
@@ -155,7 +152,6 @@ export const Blog: React.FC = () => {
                 Digital Stories.
               </span>
             </h2>
-
           </ScrollReveal>
 
           {/* =================================================
@@ -182,7 +178,6 @@ export const Blog: React.FC = () => {
               untuk membantu bisnis Anda terus berkembang dan beradaptasi.
             </p>
           </ScrollReveal>
-
         </div>
 
         {/* =====================================================
@@ -197,16 +192,13 @@ export const Blog: React.FC = () => {
             md:grid-cols-3
           "
         >
-
           {blogPostsData.map((post, index) => (
-
             <ScrollReveal
               key={post.id}
               delay={index * 150}
               y={25}
               duration={1000}
             >
-
               <Link
                 id={`blog-card-${post.id}`}
                 to={`/blog/${post.id}`}
@@ -224,11 +216,10 @@ export const Blog: React.FC = () => {
                   transition-all
                   duration-500
                   hover:-translate-y-2
-                  hover:border-[#CFE0FF]
-                  hover:shadow-[0_22px_50px_rgba(37,99,235,0.12)]
+                  hover:border-[#E26D13]/30
+                  hover:shadow-[0_22px_50px_rgba(226,109,19,0.12)]
                 "
               >
-
                 {/* =================================================
                     IMAGE
                 ================================================== */}
@@ -241,7 +232,6 @@ export const Blog: React.FC = () => {
                     bg-[#EEF3FA]
                   "
                 >
-
                   <img
                     src={post.image}
                     alt={post.title}
@@ -334,7 +324,7 @@ export const Blog: React.FC = () => {
                       justify-center
                       rounded-full
                       bg-white
-                      text-[#111114]
+                      text-[#121E36]
                       opacity-0
                       shadow-xl
                       transition-all
@@ -345,7 +335,6 @@ export const Blog: React.FC = () => {
                   >
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
-
                 </div>
 
                 {/* =================================================
@@ -353,7 +342,6 @@ export const Blog: React.FC = () => {
                 ================================================== */}
 
                 <div className="flex flex-1 flex-col p-6">
-
                   {/* Title */}
                   <h3
                     className="
@@ -364,7 +352,7 @@ export const Blog: React.FC = () => {
                       text-[#111114]
                       transition-colors
                       duration-300
-                      group-hover:text-[#4168FF]
+                      group-hover:text-[#E26D13]
                       sm:text-xl
                     "
                   >
@@ -397,10 +385,8 @@ export const Blog: React.FC = () => {
                       mt-6
                     "
                   >
-
                     {/* NEXORA */}
                     <div className="flex items-center gap-2">
-
                       <div
                         className="
                           flex
@@ -410,8 +396,8 @@ export const Blog: React.FC = () => {
                           justify-center
                           rounded-full
                           bg-gradient-to-br
-                          from-[#2587FF]
-                          to-[#8B3DFF]
+                          from-[#E26D13]
+                          to-[#EAA412]
                           text-white
                         "
                       >
@@ -429,7 +415,6 @@ export const Blog: React.FC = () => {
                       >
                         NEXORA
                       </span>
-
                     </div>
 
                     {/* Read More */}
@@ -441,10 +426,10 @@ export const Blog: React.FC = () => {
                         gap-1.5
                         text-xs
                         font-bold
-                        text-[#4168FF]
+                        text-[#1E3A5F]
                         transition-colors
                         duration-300
-                        group-hover:text-[#8B3DFF]
+                        group-hover:text-[#E26D13]
                       "
                     >
                       <span>Read More</span>
@@ -459,17 +444,11 @@ export const Blog: React.FC = () => {
                         "
                       />
                     </span>
-
                   </div>
-
                 </div>
-
               </Link>
-
             </ScrollReveal>
-
           ))}
-
         </div>
 
         {/* =====================================================
@@ -487,7 +466,6 @@ export const Blog: React.FC = () => {
             justify-center
           "
         >
-
           <div
             className="
               inline-flex
@@ -502,15 +480,14 @@ export const Blog: React.FC = () => {
               shadow-[0_8px_25px_rgba(25,55,100,0.05)]
             "
           >
-
             <span
               className="
                 h-2
                 w-2
                 rounded-full
                 bg-gradient-to-r
-                from-[#2587FF]
-                to-[#8B3DFF]
+                from-[#E26D13]
+                to-[#EAA412]
               "
             />
 
@@ -524,13 +501,9 @@ export const Blog: React.FC = () => {
             >
               Stay curious. Keep growing.
             </span>
-
           </div>
-
         </ScrollReveal>
-
       </div>
-
     </section>
   );
 };

@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const Partners: React.FC = () => {
@@ -67,7 +68,7 @@ export const Partners: React.FC = () => {
             text-slate-500
             transition-all
             duration-300
-            hover:text-slate-900
+            hover:text-[#121E36]
           "
         >
           {/* Logo 1 */}
@@ -221,16 +222,13 @@ export const Partners: React.FC = () => {
           w-96
           -translate-x-1/2
           rounded-full
-          bg-[#2587FF]/5
+          bg-[#E26D13]/5
           blur-3xl
         "
       />
 
       <div className="relative">
-
-        {/* =========================================
-            HEADING
-        ========================================== */}
+        {/* HEADING */}
         <div className="mx-auto mb-9 max-w-7xl px-4 sm:px-6 lg:px-8">
           <h3
             id="partners-heading"
@@ -239,7 +237,7 @@ export const Partners: React.FC = () => {
               text-xl
               font-black
               tracking-tight
-              text-slate-900
+              text-[#121E36]
               sm:text-2xl
             "
           >
@@ -247,8 +245,8 @@ export const Partners: React.FC = () => {
             <span
               className="
                 bg-gradient-to-r
-                from-[#2587FF]
-                to-[#8B3DFF]
+                from-[#E26D13]
+                to-[#EAA412]
                 bg-clip-text
                 text-transparent
               "
@@ -258,9 +256,7 @@ export const Partners: React.FC = () => {
           </h3>
         </div>
 
-        {/* =========================================
-            MARQUEE
-        ========================================== */}
+        {/* MARQUEE */}
         <div
           className="
             relative
@@ -320,9 +316,7 @@ export const Partners: React.FC = () => {
         </div>
       </div>
 
-      {/* =========================================
-          MARQUEE ANIMATION
-      ========================================== */}
+      {/* MARQUEE ANIMATION */}
       <style>{`
         @keyframes partners-marquee {
           from {

@@ -1,3 +1,4 @@
+
 import React, { useMemo, useRef, useState } from 'react';
 import { projectItems } from '../data';
 import { ProjectItem } from '../types';
@@ -110,7 +111,7 @@ export const Projects: React.FC<ProjectsProps> = ({
           h-96
           w-96
           rounded-full
-          bg-[#2587FF]/10
+          bg-[#1E3A5F]/10
           blur-3xl
         "
       />
@@ -124,7 +125,7 @@ export const Projects: React.FC<ProjectsProps> = ({
           h-[450px]
           w-[450px]
           rounded-full
-          bg-[#8B3DFF]/10
+          bg-[#E26D13]/10
           blur-3xl
         "
       />
@@ -143,7 +144,6 @@ export const Projects: React.FC<ProjectsProps> = ({
           lg:px-8
         "
       >
-
         {/* =====================================================
             HEADER
         ====================================================== */}
@@ -159,7 +159,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             lg:items-end
           "
         >
-
           {/* LEFT SIDE */}
 
           <ScrollReveal
@@ -182,8 +181,8 @@ export const Projects: React.FC<ProjectsProps> = ({
                   h-[2px]
                   w-10
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                 "
               />
 
@@ -193,7 +192,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                   font-bold
                   uppercase
                   tracking-[0.22em]
-                  text-[#2587FF]
+                  text-[#1E3A5F]
                   sm:text-sm
                 "
               >
@@ -223,9 +222,9 @@ export const Projects: React.FC<ProjectsProps> = ({
               <span
                 className="
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  via-[#4168FF]
-                  to-[#A52BFF]
+                  from-[#121E36]
+                  via-[#1E3A5F]
+                  to-[#E26D13]
                   bg-clip-text
                   text-transparent
                 "
@@ -309,23 +308,22 @@ export const Projects: React.FC<ProjectsProps> = ({
                       transition-all
                       duration-300
                       sm:text-sm
-
                       ${
                         isActive
                           ? `
-                            bg-[#111114]
+                            bg-[#121E36]
                             text-white
                             shadow-lg
-                            shadow-black/10
+                            shadow-[#121E36]/10
                           `
                           : `
                             border
                             border-[#DFE7F4]
                             bg-white
                             text-[#667085]
-                            hover:border-[#BDD3FF]
-                            hover:bg-[#F4F8FF]
-                            hover:text-[#4168FF]
+                            hover:border-[#E26D13]/40
+                            hover:bg-[#FFF7F0]
+                            hover:text-[#E26D13]
                           `
                       }
                     `}
@@ -379,12 +377,11 @@ export const Projects: React.FC<ProjectsProps> = ({
                     transition-all
                     duration-500
                     hover:-translate-y-2
-                    hover:shadow-[0_25px_55px_rgba(37,99,235,0.16)]
+                    hover:shadow-[0_25px_55px_rgba(226,109,19,0.16)]
                     sm:aspect-[3/4]
                     sm:rounded-[30px]
                   "
                 >
-
                   {/* =================================================
                       PROJECT IMAGE
                   ================================================== */}
@@ -418,7 +415,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                       transition-all
                       duration-500
                       group-hover:from-[#080B14]/90
-                      group-hover:via-[#4168FF]/20
+                      group-hover:via-[#1E3A5F]/20
                     "
                   />
 
@@ -469,7 +466,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                       justify-center
                       rounded-full
                       bg-white
-                      text-[#111114]
+                      text-[#121E36]
                       opacity-0
                       shadow-xl
                       transition-all
@@ -638,7 +635,6 @@ export const Projects: React.FC<ProjectsProps> = ({
               sm:p-7
             "
           >
-
             {/* CTA TEXT */}
 
             <div className="flex items-center gap-4">
@@ -652,8 +648,8 @@ export const Projects: React.FC<ProjectsProps> = ({
                   justify-center
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   text-white
                   sm:h-11
                   sm:w-11
@@ -709,18 +705,18 @@ export const Projects: React.FC<ProjectsProps> = ({
                 overflow-hidden
                 rounded-full
                 bg-gradient-to-r
-                from-[#2587FF]
-                to-[#8B3DFF]
+                from-[#E26D13]
+                to-[#EAA412]
                 px-6
                 py-3
                 text-sm
                 font-bold
                 text-white
-                shadow-[0_10px_25px_rgba(65,104,255,0.20)]
+                shadow-[0_10px_25px_rgba(226,109,19,0.20)]
                 transition-all
                 duration-300
                 hover:-translate-y-0.5
-                hover:shadow-[0_14px_30px_rgba(65,104,255,0.28)]
+                hover:shadow-[0_14px_30px_rgba(226,109,19,0.28)]
               "
             >
               <span className="relative z-10">
@@ -732,8 +728,8 @@ export const Projects: React.FC<ProjectsProps> = ({
                   absolute
                   inset-0
                   bg-gradient-to-r
-                  from-[#8B3DFF]
-                  to-[#2587FF]
+                  from-[#EAA412]
+                  to-[#E26D13]
                   opacity-0
                   transition-opacity
                   duration-300
@@ -745,7 +741,6 @@ export const Projects: React.FC<ProjectsProps> = ({
             </button>
           </div>
         </ScrollReveal>
-
       </div>
     </section>
   );

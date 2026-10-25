@@ -1,3 +1,4 @@
+
 import React from "react";
 import { servicesData } from "../data";
 import {
@@ -67,7 +68,7 @@ export const Services: React.FC<ServicesProps> = ({
           h-80
           w-80
           rounded-full
-          bg-[#2587FF]/10
+          bg-[#1E3A5F]/10
           blur-3xl
         "
       />
@@ -81,7 +82,7 @@ export const Services: React.FC<ServicesProps> = ({
           h-96
           w-96
           rounded-full
-          bg-[#8B3DFF]/10
+          bg-[#E26D13]/10
           blur-3xl
         "
       />
@@ -130,8 +131,8 @@ export const Services: React.FC<ServicesProps> = ({
                   h-[2px]
                   w-10
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                 "
               />
 
@@ -141,7 +142,7 @@ export const Services: React.FC<ServicesProps> = ({
                   font-bold
                   uppercase
                   tracking-[0.22em]
-                  text-[#2587FF]
+                  text-[#1E3A5F]
                   sm:text-sm
                 "
               >
@@ -170,9 +171,9 @@ export const Services: React.FC<ServicesProps> = ({
               <span
                 className="
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  via-[#4168FF]
-                  to-[#A52BFF]
+                  from-[#121E36]
+                  via-[#1E3A5F]
+                  to-[#E26D13]
                   bg-clip-text
                   text-transparent
                 "
@@ -249,11 +250,11 @@ export const Services: React.FC<ServicesProps> = ({
                         ? `
                           -translate-y-2
                           bg-gradient-to-br
-                          from-[#2587FF]
-                          via-[#4168FF]
-                          to-[#8B3DFF]
+                          from-[#121E36]
+                          via-[#1E3A5F]
+                          to-[#E26D13]
                           text-white
-                          shadow-[0_20px_50px_rgba(65,104,255,0.30)]
+                          shadow-[0_20px_50px_rgba(18,30,54,0.25)]
                         `
                         : `
                           border
@@ -262,8 +263,8 @@ export const Services: React.FC<ServicesProps> = ({
                           text-[#111114]
                           shadow-[0_12px_35px_rgba(25,55,100,0.06)]
                           hover:-translate-y-1
-                          hover:border-[#CFE0FF]
-                          hover:shadow-[0_20px_45px_rgba(37,99,235,0.12)]
+                          hover:border-[#E26D13]/40
+                          hover:shadow-[0_20px_45px_rgba(226,109,19,0.12)]
                         `
                     }
                   `}
@@ -321,7 +322,7 @@ export const Services: React.FC<ServicesProps> = ({
                       ${
                         isSelected
                           ? "scale-110 text-white/15"
-                          : "text-[#EAF1FF] group-hover:text-[#DDE9FF]"
+                          : "text-[#EAA412]/15 group-hover:text-[#E26D13]/25"
                       }
                     `}
                   >
@@ -358,9 +359,9 @@ export const Services: React.FC<ServicesProps> = ({
                           `
                           : `
                             bg-gradient-to-br
-                            from-[#EAF3FF]
-                            to-[#F3ECFF]
-                            text-[#4168FF]
+                            from-[#F3F4F6]
+                            to-[#EAA412]/15
+                            text-[#1E3A5F]
                             group-hover:scale-105
                             group-hover:rotate-2
                           `
@@ -437,10 +438,10 @@ export const Services: React.FC<ServicesProps> = ({
                             text-white
                           `
                           : `
-                            bg-[#F1F5FF]
-                            text-[#4168FF]
+                            bg-[#F3F4F6]
+                            text-[#1E3A5F]
                             group-hover:translate-x-1
-                            group-hover:bg-[#4168FF]
+                            group-hover:bg-[#E26D13]
                             group-hover:text-white
                           `
                       }
@@ -513,8 +514,8 @@ export const Services: React.FC<ServicesProps> = ({
                   justify-center
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   text-white
                 "
               >
@@ -566,15 +567,14 @@ export const Services: React.FC<ServicesProps> = ({
                 group
                 text-white
                 bg-linear-to-r
-                from-[#2587FF]
-                to-[#8B3DFF]
+                from-[#E26D13]
+                to-[#EAA412]
                 shadow-lg
-                shadow-[#2587FF]/20
-                hover:shadow-[#8B3DFF]/30
+                shadow-[#E26D13]/20
+                hover:shadow-[#EAA412]/30
                 hover:-translate-y-0.5
                 transition-all
                 duration-300
-                hover:bg-[#2587FF]
               "
             >
               <span className="relative z-10">
@@ -586,8 +586,8 @@ export const Services: React.FC<ServicesProps> = ({
                   absolute
                   inset-0
                   bg-linear-to-r
-                  from-[#8B3DFF]
-                  to-[#2587FF]
+                  from-[#EAA412]
+                  to-[#E26D13]
                   opacity-0
                   group-hover:opacity-100
                   transition-opacity

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { whyChooseUsFeatures } from '../data';
 import {
@@ -55,7 +56,7 @@ export const WhyChooseUs: React.FC = () => {
           h-96
           w-96
           rounded-full
-          bg-[#2587FF]/10
+          bg-[#1E3A5F]/10
           blur-3xl
         "
       />
@@ -69,7 +70,7 @@ export const WhyChooseUs: React.FC = () => {
           h-[450px]
           w-[450px]
           rounded-full
-          bg-[#8B3DFF]/10
+          bg-[#E26D13]/10
           blur-3xl
         "
       />
@@ -116,8 +117,8 @@ export const WhyChooseUs: React.FC = () => {
                   -inset-5
                   rounded-[40px]
                   bg-gradient-to-br
-                  from-[#2587FF]/20
-                  to-[#8B3DFF]/20
+                  from-[#1E3A5F]/20
+                  to-[#E26D13]/20
                   blur-2xl
                 "
               />
@@ -163,7 +164,7 @@ export const WhyChooseUs: React.FC = () => {
                       absolute
                       inset-0
                       bg-gradient-to-t
-                      from-[#111827]/60
+                      from-[#121E36]/60
                       via-transparent
                       to-transparent
                     "
@@ -194,8 +195,8 @@ export const WhyChooseUs: React.FC = () => {
                           justify-center
                           rounded-full
                           bg-gradient-to-br
-                          from-[#2587FF]
-                          to-[#8B3DFF]
+                          from-[#E26D13]
+                          to-[#EAA412]
                           text-white
                         "
                       >
@@ -241,15 +242,15 @@ export const WhyChooseUs: React.FC = () => {
                     DIGITAL FOCUS
                   </span>
 
-                  <ArrowUpRight className="h-4 w-4 text-[#4168FF]" />
+                  <ArrowUpRight className="h-4 w-4 text-[#E26D13]" />
                 </div>
 
                 <div className="flex items-end gap-1">
                   <span
                     className="
                       bg-gradient-to-r
-                      from-[#2587FF]
-                      to-[#8B3DFF]
+                      from-[#121E36]
+                      to-[#E26D13]
                       bg-clip-text
                       text-2xl
                       font-black
@@ -271,8 +272,8 @@ export const WhyChooseUs: React.FC = () => {
                       w-full
                       rounded-full
                       bg-gradient-to-r
-                      from-[#2587FF]
-                      to-[#8B3DFF]
+                      from-[#E26D13]
+                      to-[#EAA412]
                     "
                   />
                 </div>
@@ -288,7 +289,7 @@ export const WhyChooseUs: React.FC = () => {
                   w-12
                   rounded-full
                   border
-                  border-[#D9E6FF]
+                  border-[#EAA412]/30
                   bg-white
                   shadow-lg
                 "
@@ -303,8 +304,8 @@ export const WhyChooseUs: React.FC = () => {
                   w-6
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                 "
               />
             </div>
@@ -335,8 +336,8 @@ export const WhyChooseUs: React.FC = () => {
                     h-[2px]
                     w-10
                     bg-gradient-to-r
-                    from-[#2587FF]
-                    to-[#8B3DFF]
+                    from-[#E26D13]
+                    to-[#EAA412]
                   "
                 />
 
@@ -346,7 +347,7 @@ export const WhyChooseUs: React.FC = () => {
                     font-bold
                     uppercase
                     tracking-[0.22em]
-                    text-[#2587FF]
+                    text-[#1E3A5F]
                     sm:text-sm
                   "
                 >
@@ -380,9 +381,9 @@ export const WhyChooseUs: React.FC = () => {
                 <span
                   className="
                     bg-gradient-to-r
-                    from-[#2587FF]
-                    via-[#4168FF]
-                    to-[#A52BFF]
+                    from-[#121E36]
+                    via-[#1E3A5F]
+                    to-[#E26D13]
                     bg-clip-text
                     text-transparent
                   "
@@ -440,8 +441,8 @@ export const WhyChooseUs: React.FC = () => {
                       transition-all
                       duration-300
                       hover:-translate-y-1
-                      hover:border-[#CFE0FF]
-                      hover:shadow-[0_15px_35px_rgba(37,99,235,0.10)]
+                      hover:border-[#E26D13]/40
+                      hover:shadow-[0_15px_35px_rgba(226,109,19,0.10)]
                     "
                   >
                     {/* Number */}
@@ -452,10 +453,10 @@ export const WhyChooseUs: React.FC = () => {
                         top-3
                         text-4xl
                         font-black
-                        text-[#F0F4FB]
+                        text-[#F0F2F5]
                         transition-colors
                         duration-300
-                        group-hover:text-[#E5EDFF]
+                        group-hover:text-[#EAA412]/20
                       "
                     >
                       0{idx + 1}
@@ -474,11 +475,11 @@ export const WhyChooseUs: React.FC = () => {
                           justify-center
                           rounded-xl
                           bg-gradient-to-br
-                          from-[#2587FF]
-                          to-[#8B3DFF]
+                          from-[#E26D13]
+                          to-[#EAA412]
                           text-white
                           shadow-lg
-                          shadow-[#4168FF]/15
+                          shadow-[#E26D13]/15
                           transition-transform
                           duration-300
                           group-hover:scale-105
@@ -523,8 +524,8 @@ export const WhyChooseUs: React.FC = () => {
                         h-[2px]
                         w-0
                         bg-gradient-to-r
-                        from-[#2587FF]
-                        to-[#8B3DFF]
+                        from-[#E26D13]
+                        to-[#EAA412]
                         transition-all
                         duration-500
                         group-hover:w-full

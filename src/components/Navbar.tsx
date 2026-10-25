@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { navItems } from "../data";
 import {
@@ -74,10 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll,
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [location.pathname]);
 
@@ -100,8 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       langsung scroll ke section.
     */
     if (location.pathname === "/") {
-      const element =
-        document.getElementById(targetId);
+      const element = document.getElementById(targetId);
 
       if (element) {
         element.scrollIntoView({
@@ -124,8 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       kemudian scroll ke section tujuan.
     */
     setTimeout(() => {
-      const element =
-        document.getElementById(targetId);
+      const element = document.getElementById(targetId);
 
       if (element) {
         element.scrollIntoView({
@@ -185,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div
         className={`mx-auto transition-all duration-500 ${
           isScrolled
-            ? "max-w-7xl rounded-2xl border-white/15 bg-[#10204A]/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(15,35,80,0.22)]"
+            ? "max-w-7xl rounded-2xl border border-white/15 bg-[#121E36]/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(18,30,54,0.22)]"
             : "max-w-7xl"
         }`}
       >
@@ -207,7 +203,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="w-9 h-9 flex items-center justify-center">
                 <img
                   src={logo}
-                  alt="NEXORA"
+                  alt="YANKI"
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -219,7 +215,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     : "text-neutral-900"
                 }`}
               >
-                NEXORA
+                YANKI 
               </span>
             </a>
 
@@ -230,11 +226,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="hidden lg:flex items-center gap-7 xl:gap-8"
             >
               {navItems.map((item) => {
-                const targetId =
-                  item.href.replace("#", "");
-
-                const isActive =
-                  activeSection === targetId;
+                const targetId = item.href.replace("#", "");
+                const isActive = activeSection === targetId;
 
                 return (
                   <a
@@ -242,26 +235,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                     id={`nav-link-${targetId}`}
                     href={item.href}
                     onClick={(e) =>
-                      handleNavClick(
-                        e,
-                        item.href,
-                      )
+                      handleNavClick(e, item.href)
                     }
                     className={`relative text-[13px] font-bold tracking-wider transition-colors duration-300 group ${
                       isActive
                         ? isScrolled
-                          ? "text-[#5EA7FF]"
-                          : "text-[#2587FF]"
+                          ? "text-[#EAA412]"
+                          : "text-[#E26D13]"
                         : isScrolled
                           ? "text-white/75 hover:text-white"
-                          : "text-neutral-700 hover:text-[#2587FF]"
+                          : "text-neutral-700 hover:text-[#E26D13]"
                     }`}
                   >
                     {item.label}
 
                     {/* Active underline */}
                     <span
-                      className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-linear-to-r from-[#2587FF] to-[#8B3DFF] transition-all duration-300 ${
+                      className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-linear-to-r from-[#E26D13] to-[#EAA412] transition-all duration-300 ${
                         isActive
                           ? "w-full"
                           : "w-0 group-hover:w-full"
@@ -275,7 +265,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* ================= SOCIAL + CTA ================= */}
 
             <div className="hidden md:flex items-center gap-4">
-
               <div className="flex items-center gap-2">
 
                 {/* Instagram */}
@@ -288,7 +277,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isScrolled
                       ? "text-white/70 hover:text-white hover:bg-white/10"
-                      : "text-neutral-600 hover:text-[#2587FF] hover:bg-[#2587FF]/10"
+                      : "text-neutral-600 hover:text-[#1E3A5F] hover:bg-[#1E3A5F]/10"
                   }`}
                 >
                   <Instagram className="w-4 h-4" />
@@ -304,7 +293,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isScrolled
                       ? "text-white/70 hover:text-white hover:bg-white/10"
-                      : "text-neutral-600 hover:text-[#2587FF] hover:bg-[#2587FF]/10"
+                      : "text-neutral-600 hover:text-[#1E3A5F] hover:bg-[#1E3A5F]/10"
                   }`}
                 >
                   <Linkedin className="w-4 h-4" />
@@ -320,7 +309,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isScrolled
                       ? "text-white/70 hover:text-white hover:bg-white/10"
-                      : "text-neutral-600 hover:text-[#2587FF] hover:bg-[#2587FF]/10"
+                      : "text-neutral-600 hover:text-[#1E3A5F] hover:bg-[#1E3A5F]/10"
                   }`}
                 >
                   <Twitter className="w-4 h-4" />
@@ -333,29 +322,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   id="nav-contact-btn"
                   onClick={onOpenContact}
-                  className="ml-1 relative overflow-hidden group px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                  className="ml-1 relative overflow-hidden group px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#E26D13] to-[#EAA412] shadow-lg shadow-[#E26D13]/20 hover:shadow-[#EAA412]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <span className="relative z-10">
                     Let's Talk
                   </span>
 
-                  <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="absolute inset-0 bg-linear-to-r from-[#EAA412] to-[#E26D13] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               )}
-
             </div>
 
             {/* ================= MOBILE TOGGLE ================= */}
 
             <div className="flex items-center gap-2 lg:hidden">
-
               <button
                 id="mobile-menu-toggle-btn"
                 type="button"
                 onClick={() =>
-                  setMobileMenuOpen(
-                    !mobileMenuOpen,
-                  )
+                  setMobileMenuOpen(!mobileMenuOpen)
                 }
                 className={`p-2.5 rounded-xl transition-all duration-300 ${
                   isScrolled
@@ -370,7 +355,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Menu className="w-6 h-6" />
                 )}
               </button>
-
             </div>
 
           </div>
@@ -380,16 +364,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           {mobileMenuOpen && (
             <div
               id="mobile-menu-drawer"
-              className="lg:hidden mt-4 rounded-2xl border border-white/10 bg-[#18366B]/75 backdrop-blur-xl shadow-2xl overflow-hidden"
+              className="lg:hidden mt-4 rounded-2xl border border-white/10 bg-[#121E36]/90 backdrop-blur-xl shadow-2xl overflow-hidden"
             >
               <div className="p-5 space-y-1">
-
                 {navItems.map((item) => {
-                  const targetId =
-                    item.href.replace("#", "");
-
-                  const isActive =
-                    activeSection === targetId;
+                  const targetId = item.href.replace("#", "");
+                  const isActive = activeSection === targetId;
 
                   return (
                     <a
@@ -397,14 +377,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                       id={`mobile-nav-link-${targetId}`}
                       href={item.href}
                       onClick={(e) =>
-                        handleNavClick(
-                          e,
-                          item.href,
-                        )
+                        handleNavClick(e, item.href)
                       }
                       className={`block px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 ${
                         isActive
-                          ? "text-white bg-linear-to-r from-[#2587FF]/20 to-[#8B3DFF]/20 border border-[#2587FF]/20"
+                          ? "text-white bg-[#E26D13]/20 border border-[#E26D13]/30"
                           : "text-white/70 hover:text-white hover:bg-white/5"
                       }`}
                     >
@@ -414,11 +391,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 })}
 
                 {/* Mobile bottom section */}
-
                 <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between">
-
                   <div className="flex items-center gap-2">
-
                     <a
                       href="https://instagram.com/yankidigital_"
                       target="_blank"
@@ -448,7 +422,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                     >
                       <Twitter className="w-4 h-4" />
                     </a>
-
                   </div>
 
                   {onOpenContact && (
@@ -457,12 +430,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setMobileMenuOpen(false);
                         onOpenContact();
                       }}
-                      className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20"
+                      className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-[#E26D13] to-[#EAA412] shadow-lg shadow-[#E26D13]/20"
                     >
                       Let's Talk
                     </button>
                   )}
-
                 </div>
 
               </div>

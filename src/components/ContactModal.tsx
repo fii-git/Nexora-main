@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import {
   X,
@@ -160,9 +161,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             z-30
             h-1
             bg-gradient-to-r
-            from-[#2587FF]
-            via-[#4168FF]
-            to-[#8B3DFF]
+            from-[#121E36]
+            via-[#1E3A5F]
+            to-[#E26D13]
           "
         />
 
@@ -192,9 +193,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             shadow-sm
             transition-all
             duration-300
-            hover:border-[#C9D8FF]
-            hover:bg-[#F5F8FF]
-            hover:text-[#4168FF]
+            hover:border-[#E26D13]/40
+            hover:bg-[#FFF7F0]
+            hover:text-[#E26D13]
           "
         >
           <X className="h-4 w-4" />
@@ -243,8 +244,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   animate-pulse
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]/20
-                  to-[#8B3DFF]/20
+                  from-[#E26D13]/20
+                  to-[#EAA412]/20
                   blur-xl
                 "
               />
@@ -262,10 +263,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   justify-center
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   text-white
-                  shadow-[0_15px_35px_rgba(65,104,255,0.25)]
+                  shadow-[0_15px_35px_rgba(226,109,19,0.25)]
                 "
               >
                 <CheckCircle2
@@ -290,15 +291,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 gap-2
                 rounded-full
                 border
-                border-[#D9E6FF]
-                bg-[#F5F8FF]
+                border-[#E26D13]/20
+                bg-[#FFF7F0]
                 px-3
                 py-1
                 text-[10px]
                 font-bold
                 uppercase
                 tracking-[0.16em]
-                text-[#4168FF]
+                text-[#1E3A5F]
               "
             >
               <Sparkles className="h-3 w-3" />
@@ -348,18 +349,18 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 animate-[successFade_0.5s_ease-out_0.5s_both]
                 rounded-full
                 bg-gradient-to-r
-                from-[#2587FF]
-                to-[#8B3DFF]
+                from-[#E26D13]
+                to-[#EAA412]
                 px-8
                 py-2.5
                 text-sm
                 font-bold
                 text-white
-                shadow-[0_10px_25px_rgba(65,104,255,0.20)]
+                shadow-[0_10px_25px_rgba(226,109,19,0.20)]
                 transition-all
                 duration-300
                 hover:-translate-y-0.5
-                hover:shadow-[0_14px_30px_rgba(65,104,255,0.28)]
+                hover:shadow-[0_14px_30px_rgba(226,109,19,0.28)]
               "
             >
               Done
@@ -403,8 +404,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     h-[2px]
                     w-8
                     bg-gradient-to-r
-                    from-[#2587FF]
-                    to-[#8B3DFF]
+                    from-[#E26D13]
+                    to-[#EAA412]
                   "
                 />
 
@@ -414,7 +415,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     font-bold
                     uppercase
                     tracking-[0.2em]
-                    text-[#4168FF]
+                    text-[#1E3A5F]
                   "
                 >
                   Get In Touch
@@ -438,9 +439,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 <span
                   className="
                     bg-gradient-to-r
-                    from-[#2587FF]
-                    via-[#4168FF]
-                    to-[#8B3DFF]
+                    from-[#121E36]
+                    via-[#1E3A5F]
+                    to-[#E26D13]
                     bg-clip-text
                     text-transparent
                   "
@@ -521,10 +522,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       outline-none
                       transition-all
                       placeholder:text-slate-400
-                      focus:border-[#8EB7FF]
+                      focus:border-[#E26D13]
                       focus:bg-white
                       focus:ring-4
-                      focus:ring-[#2587FF]/10
+                      focus:ring-[#E26D13]/10
                     "
                   />
                 </div>
@@ -566,10 +567,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       outline-none
                       transition-all
                       placeholder:text-slate-400
-                      focus:border-[#8EB7FF]
+                      focus:border-[#E26D13]
                       focus:bg-white
                       focus:ring-4
-                      focus:ring-[#2587FF]/10
+                      focus:ring-[#E26D13]/10
                     "
                   />
                 </div>
@@ -609,10 +610,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     text-slate-800
                     outline-none
                     transition-all
-                    focus:border-[#8EB7FF]
+                    focus:border-[#E26D13]
                     focus:bg-white
                     focus:ring-4
-                    focus:ring-[#2587FF]/10
+                    focus:ring-[#E26D13]/10
                   "
                 />
               </div>
@@ -657,10 +658,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     outline-none
                     transition-all
                     placeholder:text-slate-400
-                    focus:border-[#8EB7FF]
+                    focus:border-[#E26D13]
                     focus:bg-white
                     focus:ring-4
-                    focus:ring-[#2587FF]/10
+                    focus:ring-[#E26D13]/10
                   "
                 />
               </div>
@@ -684,16 +685,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   overflow-hidden
                   rounded-full
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   text-sm
                   font-bold
                   text-white
-                  shadow-[0_10px_25px_rgba(65,104,255,0.20)]
+                  shadow-[0_10px_25px_rgba(226,109,19,0.20)]
                   transition-all
                   duration-300
                   hover:-translate-y-0.5
-                  hover:shadow-[0_14px_30px_rgba(65,104,255,0.28)]
+                  hover:shadow-[0_14px_30px_rgba(226,109,19,0.28)]
                   disabled:cursor-not-allowed
                   disabled:opacity-80
                 "

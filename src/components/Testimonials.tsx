@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { testimonialsData } from "../data";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
@@ -8,11 +9,6 @@ export const Testimonials: React.FC = () => {
 
   /*
    * Mengambil inisial dari nama client.
-   *
-   * Contoh:
-   * Andi Pratama   -> AP
-   * Sarah Wijaya   -> SW
-   * Rizky Maulana  -> RM
    */
   const getInitials = (name: string) => {
     return name
@@ -38,7 +34,6 @@ export const Testimonials: React.FC = () => {
 
   /*
    * Posisi card berdasarkan ukuran viewport.
-   *
    * Mobile  : 1 card
    * Tablet  : 2 cards
    * Desktop : 3 cards
@@ -103,11 +98,8 @@ export const Testimonials: React.FC = () => {
   }, [isPaused, totalItems]);
 
   /*
-   * Ketika mencapai duplicate section,
-   * reset ke posisi awal tanpa animasi.
-   *
-   * Karena data duplicate sama persis,
-   * user tidak akan melihat lompatan.
+   * Reset ke posisi awal tanpa animasi
+   * ketika mencapai bagian duplikat.
    */
   useEffect(() => {
     if (currentIndex >= totalItems * 2) {
@@ -134,7 +126,6 @@ export const Testimonials: React.FC = () => {
    */
   const handleNext = () => {
     setIsTransitioning(true);
-
     setCurrentIndex((prev) => prev + 1);
   };
 
@@ -143,7 +134,6 @@ export const Testimonials: React.FC = () => {
    */
   const handlePrevious = () => {
     setIsTransitioning(true);
-
     setCurrentIndex((prev) => prev - 1);
   };
 
@@ -190,13 +180,11 @@ export const Testimonials: React.FC = () => {
             transition-all
             duration-300
             hover:-translate-y-1
-            hover:border-[#C9D8FF]
-            hover:shadow-[0_20px_45px_rgba(37,99,235,0.10)]
+            hover:border-[#EAA412]/50
+            hover:shadow-[0_20px_45px_rgba(226,109,19,0.10)]
           "
         >
-          {/* =================================================
-              DECORATIVE GLOW
-          ================================================== */}
+          {/* DECORATIVE GLOW */}
 
           <div
             className="
@@ -208,8 +196,8 @@ export const Testimonials: React.FC = () => {
               w-36
               rounded-full
               bg-gradient-to-br
-              from-[#2587FF]/10
-              to-[#8B3DFF]/10
+              from-[#E26D13]/10
+              to-[#EAA412]/10
               blur-3xl
               transition-transform
               duration-700
@@ -217,9 +205,7 @@ export const Testimonials: React.FC = () => {
             "
           />
 
-          {/* =================================================
-              QUOTE ICON
-          ================================================== */}
+          {/* QUOTE ICON */}
 
           <div
             className="
@@ -233,9 +219,9 @@ export const Testimonials: React.FC = () => {
               justify-center
               rounded-full
               bg-gradient-to-br
-              from-[#2587FF]/10
-              to-[#8B3DFF]/10
-              text-[#4168FF]
+              from-[#E26D13]/10
+              to-[#EAA412]/10
+              text-[#E26D13]
             "
           >
             <Quote
@@ -244,15 +230,11 @@ export const Testimonials: React.FC = () => {
             />
           </div>
 
-          {/* =================================================
-              CLIENT
-          ================================================== */}
+          {/* CLIENT */}
 
           <div className="relative flex items-center gap-4">
-
             {/* Avatar Initial */}
             <div className="relative flex-shrink-0">
-
               {/* Avatar Glow */}
               <div
                 className="
@@ -260,8 +242,8 @@ export const Testimonials: React.FC = () => {
                   -inset-1
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   opacity-20
                   blur-sm
                 "
@@ -278,15 +260,15 @@ export const Testimonials: React.FC = () => {
                   justify-center
                   rounded-full
                   bg-gradient-to-br
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#121E36]
+                  to-[#1E3A5F]
                   text-sm
                   font-extrabold
                   tracking-wide
                   text-white
                   ring-2
                   ring-white
-                  shadow-[0_8px_20px_rgba(65,104,255,0.20)]
+                  shadow-[0_8px_20px_rgba(18,30,54,0.20)]
                   transition-transform
                   duration-300
                   group-hover:scale-105
@@ -295,18 +277,16 @@ export const Testimonials: React.FC = () => {
               >
                 {getInitials(item.name)}
               </div>
-
             </div>
 
             {/* Name */}
             <div className="min-w-0 pr-10">
-
               <h3
                 className="
                   truncate
                   text-base
                   font-bold
-                  text-slate-900
+                  text-[#121E36]
                 "
               >
                 {item.name}
@@ -322,25 +302,20 @@ export const Testimonials: React.FC = () => {
               >
                 NEXORA Client
               </p>
-
             </div>
-
           </div>
 
-          {/* =================================================
-              RATING
-          ================================================== */}
+          {/* RATING */}
 
           <div className="mt-5 flex items-center gap-1">
-
             {[...Array(item.rating)].map((_, i) => (
               <Star
                 key={i}
                 className="
                   h-4
                   w-4
-                  fill-[#FFC83D]
-                  text-[#FFC83D]
+                  fill-[#EAA412]
+                  text-[#EAA412]
                 "
               />
             ))}
@@ -355,12 +330,9 @@ export const Testimonials: React.FC = () => {
             >
               {item.rating}.0
             </span>
-
           </div>
 
-          {/* =================================================
-              COMMENT
-          ================================================== */}
+          {/* COMMENT */}
 
           <p
             className="
@@ -374,18 +346,15 @@ export const Testimonials: React.FC = () => {
             “{item.comment}”
           </p>
 
-          {/* =================================================
-              BOTTOM ACCENT
-          ================================================== */}
+          {/* BOTTOM ACCENT */}
 
           <div className="mt-5 flex items-center gap-2">
-
             <span
               className="
                 h-1.5
                 w-1.5
                 rounded-full
-                bg-[#2587FF]
+                bg-[#E26D13]
               "
             />
 
@@ -394,14 +363,12 @@ export const Testimonials: React.FC = () => {
                 h-px
                 flex-1
                 bg-gradient-to-r
-                from-[#2587FF]/20
-                via-[#8B3DFF]/10
+                from-[#E26D13]/30
+                via-[#EAA412]/20
                 to-transparent
               "
             />
-
           </div>
-
         </article>
       </div>
     );
@@ -418,10 +385,7 @@ export const Testimonials: React.FC = () => {
         lg:py-28
       "
     >
-
-      {/* =====================================================
-          BACKGROUND GLOW
-      ====================================================== */}
+      {/* BACKGROUND GLOW */}
 
       <div
         className="
@@ -432,7 +396,7 @@ export const Testimonials: React.FC = () => {
           h-72
           w-72
           rounded-full
-          bg-[#2587FF]/8
+          bg-[#E26D13]/[0.08]
           blur-3xl
         "
       />
@@ -446,16 +410,13 @@ export const Testimonials: React.FC = () => {
           h-80
           w-80
           rounded-full
-          bg-[#8B3DFF]/8
+          bg-[#1E3A5F]/[0.08]
           blur-3xl
         "
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-        {/* =================================================
-            HEADER
-        ================================================== */}
+        {/* HEADER */}
 
         <ScrollReveal
           y={25}
@@ -470,10 +431,8 @@ export const Testimonials: React.FC = () => {
               sm:mb-14
             "
           >
-
             {/* Badge */}
             <div className="mb-4 inline-flex items-center">
-
               <span
                 className="
                   inline-flex
@@ -481,15 +440,15 @@ export const Testimonials: React.FC = () => {
                   gap-2
                   rounded-full
                   border
-                  border-[#D9E6FF]
-                  bg-[#F5F8FF]
+                  border-[#EAA412]/30
+                  bg-[#F3F4F6]
                   px-4
                   py-1.5
                   text-xs
                   font-bold
                   uppercase
                   tracking-[0.12em]
-                  text-[#4168FF]
+                  text-[#1E3A5F]
                 "
               >
                 <span
@@ -498,14 +457,13 @@ export const Testimonials: React.FC = () => {
                     w-1.5
                     rounded-full
                     bg-gradient-to-r
-                    from-[#2587FF]
-                    to-[#8B3DFF]
+                    from-[#E26D13]
+                    to-[#EAA412]
                   "
                 />
 
                 Client Stories
               </span>
-
             </div>
 
             {/* Heading */}
@@ -515,7 +473,7 @@ export const Testimonials: React.FC = () => {
                 font-black
                 leading-tight
                 tracking-tight
-                text-slate-900
+                text-[#121E36]
                 sm:text-4xl
                 lg:text-[46px]
               "
@@ -525,9 +483,9 @@ export const Testimonials: React.FC = () => {
               <span
                 className="
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  via-[#5B6CFF]
-                  to-[#8B3DFF]
+                  from-[#121E36]
+                  via-[#1E3A5F]
+                  to-[#E26D13]
                   bg-clip-text
                   text-transparent
                 "
@@ -551,13 +509,10 @@ export const Testimonials: React.FC = () => {
               Pengalaman dan cerita dari mereka yang telah bekerja bersama
               NEXORA untuk membangun solusi digital yang lebih baik.
             </p>
-
           </div>
         </ScrollReveal>
 
-        {/* =================================================
-            CAROUSEL
-        ================================================== */}
+        {/* CAROUSEL */}
 
         <ScrollReveal
           delay={150}
@@ -569,7 +524,6 @@ export const Testimonials: React.FC = () => {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-
             {/* Left Arrow */}
             <button
               type="button"
@@ -591,13 +545,13 @@ export const Testimonials: React.FC = () => {
                 border
                 border-slate-200
                 bg-white
-                text-slate-600
+                text-[#1E3A5F]
                 shadow-[0_10px_25px_rgba(15,23,42,0.10)]
                 transition-all
                 duration-300
-                hover:border-[#C9D8FF]
-                hover:bg-[#F5F8FF]
-                hover:text-[#4168FF]
+                hover:border-[#EAA412]
+                hover:bg-[#F3F4F6]
+                hover:text-[#E26D13]
                 lg:flex
               "
             >
@@ -625,13 +579,13 @@ export const Testimonials: React.FC = () => {
                 border
                 border-slate-200
                 bg-white
-                text-slate-600
+                text-[#1E3A5F]
                 shadow-[0_10px_25px_rgba(15,23,42,0.10)]
                 transition-all
                 duration-300
-                hover:border-[#C9D8FF]
-                hover:bg-[#F5F8FF]
-                hover:text-[#4168FF]
+                hover:border-[#EAA412]
+                hover:bg-[#F3F4F6]
+                hover:text-[#E26D13]
                 lg:flex
               "
             >
@@ -640,7 +594,6 @@ export const Testimonials: React.FC = () => {
 
             {/* Viewport */}
             <div className="overflow-hidden px-0 sm:px-1">
-
               {/* Track */}
               <div
                 className="-mx-2 flex"
@@ -656,15 +609,11 @@ export const Testimonials: React.FC = () => {
                   renderCard(item, index)
                 )}
               </div>
-
             </div>
-
           </div>
         </ScrollReveal>
 
-        {/* =================================================
-            NAVIGATION
-        ================================================== */}
+        {/* NAVIGATION */}
 
         <ScrollReveal
           delay={250}
@@ -672,7 +621,6 @@ export const Testimonials: React.FC = () => {
           duration={1000}
         >
           <div className="mt-8 flex items-center justify-center gap-4">
-
             {/* Mobile Previous */}
             <button
               type="button"
@@ -688,12 +636,12 @@ export const Testimonials: React.FC = () => {
                 border
                 border-slate-200
                 bg-white
-                text-slate-500
+                text-[#1E3A5F]
                 shadow-sm
                 transition-all
-                hover:border-[#C9D8FF]
-                hover:bg-[#F5F8FF]
-                hover:text-[#4168FF]
+                hover:border-[#EAA412]
+                hover:bg-[#F3F4F6]
+                hover:text-[#E26D13]
                 lg:hidden
               "
             >
@@ -702,7 +650,6 @@ export const Testimonials: React.FC = () => {
 
             {/* Dots */}
             <div className="flex items-center gap-1.5">
-
               {testimonialsData.map((item, index) => (
                 <button
                   key={item.id}
@@ -720,13 +667,12 @@ export const Testimonials: React.FC = () => {
 
                     ${
                       activeDot === index
-                        ? "w-7 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]"
+                        ? "w-7 bg-gradient-to-r from-[#E26D13] to-[#EAA412]"
                         : "w-2 bg-slate-200 hover:bg-slate-300"
                     }
                   `}
                 />
               ))}
-
             </div>
 
             {/* Mobile Next */}
@@ -744,24 +690,21 @@ export const Testimonials: React.FC = () => {
                 border
                 border-slate-200
                 bg-white
-                text-slate-500
+                text-[#1E3A5F]
                 shadow-sm
                 transition-all
-                hover:border-[#C9D8FF]
-                hover:bg-[#F5F8FF]
-                hover:text-[#4168FF]
+                hover:border-[#EAA412]
+                hover:bg-[#F3F4F6]
+                hover:text-[#E26D13]
                 lg:hidden
               "
             >
               <ChevronRight className="h-4 w-4" />
             </button>
-
           </div>
         </ScrollReveal>
 
-        {/* =================================================
-            AUTO SLIDE STATUS
-        ================================================== */}
+        {/* AUTO SLIDE STATUS */}
 
         <ScrollReveal
           delay={350}
@@ -776,7 +719,6 @@ export const Testimonials: React.FC = () => {
             </span>
           </div>
         </ScrollReveal>
-
       </div>
     </section>
   );

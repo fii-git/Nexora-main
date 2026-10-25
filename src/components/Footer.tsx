@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Mail,
@@ -67,8 +68,7 @@ export const Footer: React.FC = () => {
     }
 
     /*
-      Jika sedang berada di halaman artikel
-      seperti /blog/b1, /blog/b2, /blog/b3,
+      Jika sedang berada di halaman artikel,
       kembali ke homepage dengan hash tujuan.
     */
     navigate(`/#${id}`);
@@ -116,13 +116,11 @@ export const Footer: React.FC = () => {
         className="
           relative
           overflow-hidden
-          bg-[#0B1020]
+          bg-[#121E36]
           text-white
         "
       >
-        {/* =====================================================
-            BACKGROUND GLOW
-        ====================================================== */}
+        {/* BACKGROUND GLOW */}
 
         <div
           className="
@@ -133,7 +131,7 @@ export const Footer: React.FC = () => {
             h-96
             w-96
             rounded-full
-            bg-[#2587FF]/10
+            bg-[#E26D13]/10
             blur-3xl
           "
         />
@@ -147,16 +145,13 @@ export const Footer: React.FC = () => {
             h-96
             w-96
             rounded-full
-            bg-[#8B3DFF]/10
+            bg-[#1E3A5F]/30
             blur-3xl
           "
         />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          {/* =====================================================
-              TOP CTA
-          ====================================================== */}
+          {/* TOP CTA */}
 
           <div
             className="
@@ -177,7 +172,6 @@ export const Footer: React.FC = () => {
               "
             >
               <div className="max-w-2xl">
-
                 <span
                   className="
                     inline-flex
@@ -187,10 +181,10 @@ export const Footer: React.FC = () => {
                     font-bold
                     uppercase
                     tracking-[0.2em]
-                    text-[#6EA8FF]
+                    text-[#EAA412]
                   "
                 >
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]" />
+                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#E26D13] to-[#EAA412]" />
 
                   Let's Work Together
                 </span>
@@ -209,9 +203,9 @@ export const Footer: React.FC = () => {
                   <span
                     className="
                       bg-gradient-to-r
-                      from-[#4CA0FF]
-                      via-[#6878FF]
-                      to-[#A855F7]
+                      from-[#1E3A5F]
+                      via-[#E26D13]
+                      to-[#EAA412]
                       bg-clip-text
                       text-transparent
                     "
@@ -232,7 +226,6 @@ export const Footer: React.FC = () => {
                   Punya ide, project, atau bisnis yang ingin dikembangkan
                   secara digital? Mari wujudkan bersama NEXORA.
                 </p>
-
               </div>
 
               <button
@@ -248,18 +241,18 @@ export const Footer: React.FC = () => {
                   overflow-hidden
                   rounded-full
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   px-6
                   py-3
                   text-sm
                   font-bold
                   text-white
-                  shadow-[0_12px_30px_rgba(65,104,255,0.25)]
+                  shadow-[0_12px_30px_rgba(226,109,19,0.25)]
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:shadow-[0_18px_40px_rgba(65,104,255,0.35)]
+                  hover:shadow-[0_18px_40px_rgba(226,109,19,0.35)]
                 "
               >
                 <span className="relative z-10">
@@ -271,8 +264,8 @@ export const Footer: React.FC = () => {
                     absolute
                     inset-0
                     bg-gradient-to-r
-                    from-[#8B3DFF]
-                    to-[#2587FF]
+                    from-[#EAA412]
+                    to-[#E26D13]
                     opacity-0
                     transition-opacity
                     duration-300
@@ -292,13 +285,10 @@ export const Footer: React.FC = () => {
                   "
                 />
               </button>
-
             </div>
           </div>
 
-          {/* =====================================================
-              MAIN FOOTER
-          ====================================================== */}
+          {/* MAIN FOOTER */}
 
           <div
             className="
@@ -312,14 +302,9 @@ export const Footer: React.FC = () => {
               lg:py-14
             "
           >
-
-            {/* =================================================
-                BRAND
-            ================================================== */}
+            {/* BRAND */}
 
             <div className="sm:col-span-2 lg:col-span-5">
-
-              {/* Logo */}
               <button
                 type="button"
                 onClick={scrollToTop}
@@ -358,9 +343,9 @@ export const Footer: React.FC = () => {
                 digital yang berorientasi pada pertumbuhan.
               </p>
 
-              {/* Social Media */}
-              <div className="mt-6 flex items-center gap-3">
+              {/* SOCIAL MEDIA */}
 
+              <div className="mt-6 flex items-center gap-3">
                 {/* Instagram */}
                 <a
                   href="https://instagram.com/yankidigital_"
@@ -381,8 +366,8 @@ export const Footer: React.FC = () => {
                     transition-all
                     duration-300
                     hover:-translate-y-1
-                    hover:border-[#2587FF]/40
-                    hover:bg-[#2587FF]/10
+                    hover:border-[#E26D13]/40
+                    hover:bg-[#E26D13]/10
                     hover:text-white
                   "
                 >
@@ -409,8 +394,8 @@ export const Footer: React.FC = () => {
                     transition-all
                     duration-300
                     hover:-translate-y-1
-                    hover:border-[#2587FF]/40
-                    hover:bg-[#2587FF]/10
+                    hover:border-[#E26D13]/40
+                    hover:bg-[#E26D13]/10
                     hover:text-white
                   "
                 >
@@ -437,35 +422,29 @@ export const Footer: React.FC = () => {
                     transition-all
                     duration-300
                     hover:-translate-y-1
-                    hover:border-[#2587FF]/40
-                    hover:bg-[#2587FF]/10
+                    hover:border-[#E26D13]/40
+                    hover:bg-[#E26D13]/10
                     hover:text-white
                   "
                 >
                   <Twitter className="h-4 w-4" />
                 </a>
-
               </div>
-
             </div>
 
-            {/* =================================================
-                COMPANY
-            ================================================== */}
+            {/* COMPANY */}
 
             <div className="lg:col-span-2">
-
               <h3 className="text-sm font-bold text-white">
                 Company
               </h3>
 
               <ul className="mt-5 space-y-3 text-sm text-slate-400">
-
                 <li>
                   <button
                     type="button"
                     onClick={() => scrollToSection("about")}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-[#EAA412]"
                   >
                     About Us
                   </button>
@@ -475,7 +454,7 @@ export const Footer: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => scrollToSection("why-us")}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-[#EAA412]"
                   >
                     Why NEXORA
                   </button>
@@ -485,7 +464,7 @@ export const Footer: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => scrollToSection("projects")}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-[#EAA412]"
                   >
                     Projects
                   </button>
@@ -495,28 +474,22 @@ export const Footer: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => scrollToSection("blog")}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-[#EAA412]"
                   >
                     Blog
                   </button>
                 </li>
-
               </ul>
-
             </div>
 
-            {/* =================================================
-                SERVICES
-            ================================================== */}
+            {/* SERVICES */}
 
             <div className="lg:col-span-2">
-
               <h3 className="text-sm font-bold text-white">
                 Services
               </h3>
 
               <ul className="mt-5 space-y-3 text-sm text-slate-400">
-
                 <li>
                   <button
                     type="button"
@@ -524,7 +497,7 @@ export const Footer: React.FC = () => {
                     className="
                       text-left
                       transition-colors
-                      hover:text-white
+                      hover:text-[#EAA412]
                     "
                   >
                     Web Development
@@ -538,7 +511,7 @@ export const Footer: React.FC = () => {
                     className="
                       text-left
                       transition-colors
-                      hover:text-white
+                      hover:text-[#EAA412]
                     "
                   >
                     Digital Marketing
@@ -552,7 +525,7 @@ export const Footer: React.FC = () => {
                     className="
                       text-left
                       transition-colors
-                      hover:text-white
+                      hover:text-[#EAA412]
                     "
                   >
                     Content Writing
@@ -566,32 +539,25 @@ export const Footer: React.FC = () => {
                     className="
                       text-left
                       transition-colors
-                      hover:text-white
+                      hover:text-[#EAA412]
                     "
                   >
                     SEO Management
                   </button>
                 </li>
-
               </ul>
-
             </div>
 
-            {/* =================================================
-                CONTACT
-            ================================================== */}
+            {/* CONTACT */}
 
             <div className="lg:col-span-3">
-
               <h3 className="text-sm font-bold text-white">
                 Get In Touch
               </h3>
 
               <ul className="mt-5 space-y-4 text-sm text-slate-400">
-
                 {/* Email */}
                 <li className="flex items-start gap-3">
-
                   <span
                     className="
                       mt-0.5
@@ -602,8 +568,8 @@ export const Footer: React.FC = () => {
                       items-center
                       justify-center
                       rounded-lg
-                      bg-[#2587FF]/10
-                      text-[#6EA8FF]
+                      bg-[#E26D13]/10
+                      text-[#EAA412]
                     "
                   >
                     <Mail className="h-4 w-4" />
@@ -620,18 +586,16 @@ export const Footer: React.FC = () => {
                         mt-0.5
                         block
                         transition-colors
-                        hover:text-white
+                        hover:text-[#EAA412]
                       "
                     >
                       hello@nexora.id
                     </a>
                   </div>
-
                 </li>
 
                 {/* Phone */}
                 <li className="flex items-start gap-3">
-
                   <span
                     className="
                       mt-0.5
@@ -642,8 +606,8 @@ export const Footer: React.FC = () => {
                       items-center
                       justify-center
                       rounded-lg
-                      bg-[#8B3DFF]/10
-                      text-[#A855F7]
+                      bg-[#1E3A5F]/50
+                      text-[#EAA412]
                     "
                   >
                     <Phone className="h-4 w-4" />
@@ -660,18 +624,16 @@ export const Footer: React.FC = () => {
                         mt-0.5
                         block
                         transition-colors
-                        hover:text-white
+                        hover:text-[#EAA412]
                       "
                     >
                       +62 852 2052 6112
                     </a>
                   </div>
-
                 </li>
 
                 {/* Location */}
                 <li className="flex items-start gap-3">
-
                   <span
                     className="
                       mt-0.5
@@ -682,8 +644,8 @@ export const Footer: React.FC = () => {
                       items-center
                       justify-center
                       rounded-lg
-                      bg-[#2587FF]/10
-                      text-[#6EA8FF]
+                      bg-[#E26D13]/10
+                      text-[#EAA412]
                     "
                   >
                     <MapPin className="h-4 w-4" />
@@ -698,18 +660,12 @@ export const Footer: React.FC = () => {
                       Indonesia
                     </span>
                   </div>
-
                 </li>
-
               </ul>
-
             </div>
-
           </div>
 
-          {/* =================================================
-              BOTTOM BAR
-          ================================================== */}
+          {/* BOTTOM BAR */}
 
           <div
             className="
@@ -726,21 +682,19 @@ export const Footer: React.FC = () => {
               sm:justify-between
             "
           >
-
             <p>
               © {new Date().getFullYear()} NEXORA Digital Agency. All rights
               reserved.
             </p>
 
             <div className="flex items-center gap-5">
-
               {/* Privacy Policy */}
               <button
                 type="button"
                 onClick={openPrivacyPolicy}
                 className="
                   transition-colors
-                  hover:text-white
+                  hover:text-[#EAA412]
                 "
               >
                 Privacy Policy
@@ -752,7 +706,7 @@ export const Footer: React.FC = () => {
                 onClick={openTerms}
                 className="
                   transition-colors
-                  hover:text-white
+                  hover:text-[#EAA412]
                 "
               >
                 Terms
@@ -769,7 +723,7 @@ export const Footer: React.FC = () => {
                   gap-2
                   text-slate-400
                   transition-colors
-                  hover:text-white
+                  hover:text-[#EAA412]
                 "
               >
                 <span>Back to top</span>
@@ -787,8 +741,8 @@ export const Footer: React.FC = () => {
                     bg-white/[0.04]
                     transition-all
                     duration-300
-                    group-hover:border-[#2587FF]/40
-                    group-hover:bg-[#2587FF]/10
+                    group-hover:border-[#E26D13]/40
+                    group-hover:bg-[#E26D13]/10
                   "
                 >
                   <ArrowUp
@@ -802,16 +756,12 @@ export const Footer: React.FC = () => {
                   />
                 </span>
               </button>
-
             </div>
           </div>
-
         </div>
       </footer>
 
-      {/* =======================================================
-          LEGAL MODAL
-      ======================================================== */}
+      {/* LEGAL MODAL */}
 
       {activeLegalPage && (
         <div
@@ -830,7 +780,6 @@ export const Footer: React.FC = () => {
           "
           onClick={closeLegalModal}
         >
-
           <div
             className="
               relative
@@ -848,8 +797,8 @@ export const Footer: React.FC = () => {
             "
             onClick={(event) => event.stopPropagation()}
           >
+            {/* MODAL HEADER */}
 
-            {/* Modal Header */}
             <div
               className="
                 flex
@@ -858,22 +807,20 @@ export const Footer: React.FC = () => {
                 justify-between
                 border-b
                 border-slate-100
-                bg-[#F8FAFF]
+                bg-[#F3F4F6]
                 px-6
                 py-5
                 sm:px-7
               "
             >
-
               <div>
-
                 <span
                   className="
                     text-[10px]
                     font-bold
                     uppercase
                     tracking-[0.18em]
-                    text-[#4168FF]
+                    text-[#E26D13]
                   "
                 >
                   NEXORA Digital Agency
@@ -885,7 +832,7 @@ export const Footer: React.FC = () => {
                     text-xl
                     font-black
                     tracking-tight
-                    text-slate-900
+                    text-[#121E36]
                     sm:text-2xl
                   "
                 >
@@ -893,7 +840,6 @@ export const Footer: React.FC = () => {
                     ? "Privacy Policy"
                     : "Terms & Conditions"}
                 </h2>
-
               </div>
 
               <button
@@ -914,17 +860,17 @@ export const Footer: React.FC = () => {
                   text-slate-500
                   transition-all
                   duration-300
-                  hover:border-[#C9D8FF]
-                  hover:bg-[#F5F8FF]
-                  hover:text-[#4168FF]
+                  hover:border-[#EAA412]
+                  hover:bg-[#F3F4F6]
+                  hover:text-[#E26D13]
                 "
               >
                 <X className="h-5 w-5" />
               </button>
-
             </div>
 
-            {/* Modal Content */}
+            {/* MODAL CONTENT */}
+
             <div
               className="
                 min-h-0
@@ -938,10 +884,9 @@ export const Footer: React.FC = () => {
                 sm:px-7
               "
             >
-
               {activeLegalPage === "privacy" ? (
                 <>
-                  <h3 className="text-base font-bold text-slate-900">
+                  <h3 className="text-base font-bold text-[#121E36]">
                     Privacy Policy
                   </h3>
 
@@ -951,7 +896,7 @@ export const Footer: React.FC = () => {
                     melalui website ini.
                   </p>
 
-                  <h3 className="mt-6 text-base font-bold text-slate-900">
+                  <h3 className="mt-6 text-base font-bold text-[#121E36]">
                     Informasi yang Kami Kumpulkan
                   </h3>
 
@@ -961,7 +906,7 @@ export const Footer: React.FC = () => {
                     tersedia melalui website.
                   </p>
 
-                  <h3 className="mt-6 text-base font-bold text-slate-900">
+                  <h3 className="mt-6 text-base font-bold text-[#121E36]">
                     Penggunaan Informasi
                   </h3>
 
@@ -971,7 +916,7 @@ export const Footer: React.FC = () => {
                     pelayanan, dan berkomunikasi mengenai layanan NEXORA.
                   </p>
 
-                  <h3 className="mt-6 text-base font-bold text-slate-900">
+                  <h3 className="mt-6 text-base font-bold text-[#121E36]">
                     Perlindungan Data
                   </h3>
 
@@ -988,7 +933,7 @@ export const Footer: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <h3 className="text-base font-bold text-slate-900">
+                  <h3 className="text-base font-bold text-[#121E36]">
                     Terms & Conditions
                   </h3>
 
@@ -998,7 +943,7 @@ export const Footer: React.FC = () => {
                     pada website ini.
                   </p>
 
-                  <h3 className="mt-6 text-base font-bold text-slate-900">
+                  <h3 className="mt-6 text-base font-bold text-[#121E36]">
                     Penggunaan Website
                   </h3>
 
@@ -1008,7 +953,7 @@ export const Footer: React.FC = () => {
                     kemampuan NEXORA Digital Agency.
                   </p>
 
-                  <h3 className="mt-6 text-base font-bold text-slate-900">
+                  <h3 className="mt-6 text-base font-bold text-[#121E36]">
                     Layanan dan Project
                   </h3>
 
@@ -1018,7 +963,7 @@ export const Footer: React.FC = () => {
                     dimulai.
                   </p>
 
-                  <h3 className="mt-6 text-base font-bold text-slate-900">
+                  <h3 className="mt-6 text-base font-bold text-[#121E36]">
                     Konten Website
                   </h3>
 
@@ -1035,10 +980,10 @@ export const Footer: React.FC = () => {
                   </p>
                 </>
               )}
-
             </div>
 
-            {/* Modal Footer */}
+            {/* MODAL FOOTER */}
+
             <div
               className="
                 flex
@@ -1058,24 +1003,23 @@ export const Footer: React.FC = () => {
                 className="
                   rounded-full
                   bg-gradient-to-r
-                  from-[#2587FF]
-                  to-[#8B3DFF]
+                  from-[#E26D13]
+                  to-[#EAA412]
                   px-5
                   py-2.5
                   text-xs
                   font-bold
                   text-white
-                  shadow-[0_8px_20px_rgba(65,104,255,0.20)]
+                  shadow-[0_8px_20px_rgba(226,109,19,0.20)]
                   transition-all
                   duration-300
                   hover:-translate-y-0.5
-                  hover:shadow-[0_12px_25px_rgba(65,104,255,0.30)]
+                  hover:shadow-[0_12px_25px_rgba(226,109,19,0.30)]
                 "
               >
                 Close
               </button>
             </div>
-
           </div>
         </div>
       )}

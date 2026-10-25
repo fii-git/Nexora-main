@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Play, ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
@@ -20,9 +21,9 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
           BACKGROUND DECORATION
       ====================================================== */}
 
-      <div className="absolute -top-32 right-[-150px] w-[450px] h-[450px] rounded-full bg-blue-50/70 blur-[100px] pointer-events-none" />
+      <div className="absolute -top-32 right-[-150px] w-[450px] h-[450px] rounded-full bg-[#1E3A5F]/10 blur-[100px] pointer-events-none" />
 
-      <div className="absolute bottom-[-200px] left-[-150px] w-[450px] h-[450px] rounded-full bg-purple-50/60 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[-200px] left-[-150px] w-[450px] h-[450px] rounded-full bg-[#E26D13]/10 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
         {/* =================================================
@@ -36,10 +37,10 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
             {/* Small label */}
 
             <div className="flex items-center gap-3 mb-5">
-              <span className="w-8 h-[2px] bg-gradient-to-r from-[#2587FF] to-[#8B3DFF]" />
+              <span className="w-8 h-[2px] bg-gradient-to-r from-[#E26D13] to-[#EAA412]" />
 
-              <span className="text-xs font-bold tracking-[0.18em] uppercase text-[#2587FF]">
-                About NEXORA
+              <span className="text-xs font-bold tracking-[0.18em] uppercase text-[#1E3A5F]">
+                About YANKI
               </span>
             </div>
 
@@ -50,7 +51,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
               className="text-4xl sm:text-5xl lg:text-[52px] font-black text-[#111114] tracking-[-0.035em] leading-[1.05]"
             >
               We Turn Ideas Into{" "}
-              <span className="bg-gradient-to-r from-[#168DFF] via-[#4265FF] to-[#A52BFF] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#121E36] via-[#1E3A5F] to-[#E26D13] bg-clip-text text-transparent">
                 Digital Experiences.
               </span>
             </h2>
@@ -64,7 +65,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
             y={25}
           >
             <p className="text-slate-500 text-sm sm:text-base leading-7">
-              NEXORA is a digital agency focused on creating meaningful digital
+              YANKI is a digital agency focused on creating meaningful digital
               experiences through strategy, design, and technology. We help
               businesses turn ideas into digital products that are useful,
               memorable, and built for what's next.
@@ -76,11 +77,11 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
               id="our-story-btn"
               type="button"
               onClick={onOurStory}
-              className="overflow-hidden group mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-full text-white bg-linear-to-r from-[#2587FF] to-[#8B3DFF] shadow-lg shadow-[#2587FF]/20 hover:shadow-[#8B3DFF]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+              className="overflow-hidden group mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-full text-white bg-linear-to-r from-[#E26D13] to-[#EAA412] shadow-lg shadow-[#E26D13]/20 hover:shadow-[#EAA412]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
             >
               <span className="relative z-10">Our Story</span>
 
-              <span className="absolute inset-0 bg-linear-to-r from-[#8B3DFF] to-[#2587FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute inset-0 bg-linear-to-r from-[#EAA412] to-[#E26D13] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <span className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
                 <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
@@ -103,22 +104,22 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
             <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full bg-slate-900 overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1800&auto=format&fit=crop"
-                alt="NEXORA team collaborating"
+                alt="YANKI team collaborating"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
 
-              {/* Navy / blue overlay */}
+              {/* Navy / brand overlay */}
 
-              <div className="absolute inset-0 bg-gradient-to-r from-[#07152F]/60 via-[#07152F]/20 to-[#3D2A70]/30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#121E36]/60 via-[#121E36]/20 to-[#1E3A5F]/30" />
 
               {/* Bottom dark gradient */}
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-              {/* Subtle blue glow */}
+              {/* Subtle brand glow */}
 
-              <div className="absolute inset-0 bg-[#2587FF]/5 mix-blend-screen" />
+              <div className="absolute inset-0 bg-[#E26D13]/5 mix-blend-screen" />
             </div>
 
             {/* =================================================
@@ -130,10 +131,10 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
                 id="banner-play-video-btn"
                 type="button"
                 onClick={onPlayVideo}
-                aria-label="Play NEXORA presentation video"
-                className="group/play w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/95 hover:bg-white text-[#2587FF] flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer"
+                aria-label="Play YANKI presentation video"
+                className="group/play w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/95 hover:bg-white text-[#E26D13] flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer"
               >
-                <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-[#2587FF] text-[#2587FF] translate-x-0.5" />
+                <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-[#E26D13] text-[#E26D13] translate-x-0.5" />
               </button>
             </div>
 
@@ -142,8 +143,8 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
             ================================================== */}
 
             <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8">
-              <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-blue-200">
-                NEXORA DIGITAL AGENCY
+              <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-[#EAA412]">
+                YANKI DIGITAL AGENCY
               </p>
 
               <p className="mt-1 text-lg sm:text-2xl font-bold text-white">
