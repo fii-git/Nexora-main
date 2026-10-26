@@ -179,7 +179,7 @@ export const testimonialsData: TestimonialItem[] = [
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
     rating: 5,
-    comment: "Konsep desain yang diberikan NEXORA terasa modern dan sesuai dengan karakter brand kami. Timnya juga sangat terbuka terhadap feedback selama proses pengerjaan.",
+    comment: "Konsep desain yang diberikan YANKI terasa modern dan sesuai dengan karakter brand kami. Timnya juga sangat terbuka terhadap feedback selama proses pengerjaan.",
   },
   {
     id: "t2",
@@ -188,7 +188,7 @@ export const testimonialsData: TestimonialItem[] = [
     avatar:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
     rating: 5,
-    comment: "NEXORA membantu kami membangun website yang jauh lebih profesional dan mudah digunakan. Proses komunikasinya jelas, dan hasil akhirnya sesuai dengan yang kami harapkan.",
+    comment: "YANKI membantu kami membangun website yang jauh lebih profesional dan mudah digunakan. Proses komunikasinya jelas, dan hasil akhirnya sesuai dengan yang kami harapkan.",
   },
   {
     id: "t3",
@@ -197,7 +197,7 @@ export const testimonialsData: TestimonialItem[] = [
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
     rating: 5,
-    comment: "Kami mendapatkan strategi digital yang lebih terarah setelah bekerja sama dengan NEXORA. Timnya tidak hanya fokus pada tampilan, tetapi juga memahami kebutuhan bisnis kami.",
+    comment: "Kami mendapatkan strategi digital yang lebih terarah setelah bekerja sama dengan YANKI. Timnya tidak hanya fokus pada tampilan, tetapi juga memahami kebutuhan bisnis kami.",
   },
   {
     id: "t4",
@@ -215,7 +215,7 @@ export const testimonialsData: TestimonialItem[] = [
     avatar:
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop",
     rating: 5,
-    comment: "Pelayanan disini sangat bagus, bisa request sesuai permintaan kami dan custom. Kemarin kirim draft lalu di realisasikan. Terima kasih NEXORA Agency.",
+    comment: "Pelayanan disini sangat bagus, bisa request sesuai permintaan kami dan custom. Kemarin kirim draft lalu di realisasikan. Terima kasih YANKI Agency.",
   },
 ];
 

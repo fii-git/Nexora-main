@@ -5,11 +5,10 @@ import {
   Phone,
   MapPin,
   Instagram,
-  Linkedin,
-  Twitter,
   ArrowUp,
   ArrowRight,
   X,
+  Facebook,
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -224,7 +223,7 @@ export const Footer: React.FC = () => {
                   "
                 >
                   Punya ide, project, atau bisnis yang ingin dikembangkan
-                  secara digital? Mari wujudkan bersama NEXORA.
+                  secara digital? Mari wujudkan bersama YANKI.
                 </p>
               </div>
 
@@ -317,7 +316,7 @@ export const Footer: React.FC = () => {
               >
                 <img
                   src="/src/assets/LOGO3.png"
-                  alt="NEXORA Digital Agency"
+                  alt="YANKI Digital Agency"
                   className="
                     h-10
                     w-auto
@@ -338,7 +337,7 @@ export const Footer: React.FC = () => {
                   text-slate-400
                 "
               >
-                NEXORA Digital Agency membantu bisnis membangun digital
+                YANKI Digital Agency membantu bisnis membangun digital
                 presence melalui strategi, desain, teknologi, dan solusi
                 digital yang berorientasi pada pertumbuhan.
               </p>
@@ -348,7 +347,7 @@ export const Footer: React.FC = () => {
               <div className="mt-6 flex items-center gap-3">
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com/yankidigital_"
+                  href="https://instagram.com/yanki.digital"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -374,12 +373,12 @@ export const Footer: React.FC = () => {
                   <Instagram className="h-4 w-4" />
                 </a>
 
-                {/* LinkedIn */}
+                {/* Facebook */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://facebook.com/"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="LinkedIn"
+                  aria-label="Facebook"
                   className="
                     flex
                     h-10
@@ -399,35 +398,7 @@ export const Footer: React.FC = () => {
                     hover:text-white
                   "
                 >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-
-                {/* Twitter / X */}
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Twitter"
-                  className="
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-white/[0.04]
-                    text-slate-400
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    hover:border-[#E26D13]/40
-                    hover:bg-[#E26D13]/10
-                    hover:text-white
-                  "
-                >
-                  <Twitter className="h-4 w-4" />
+                  <Facebook className="h-4 w-4" />
                 </a>
               </div>
             </div>
@@ -456,7 +427,7 @@ export const Footer: React.FC = () => {
                     onClick={() => scrollToSection("why-us")}
                     className="transition-colors hover:text-[#EAA412]"
                   >
-                    Why NEXORA
+                    Why YANKI
                   </button>
                 </li>
 
@@ -581,7 +552,7 @@ export const Footer: React.FC = () => {
                     </span>
 
                     <a
-                      href="mailto:hello@nexora.id"
+                      href="mailto:hello@yanki.id"
                       className="
                         mt-0.5
                         block
@@ -589,7 +560,7 @@ export const Footer: React.FC = () => {
                         hover:text-[#EAA412]
                       "
                     >
-                      hello@nexora.id
+                      hello@yanki.id
                     </a>
                   </div>
                 </li>
@@ -615,11 +586,14 @@ export const Footer: React.FC = () => {
 
                   <div>
                     <span className="block text-xs text-slate-500">
-                      Phone
+                      Phone/WhatsApp 
                     </span>
 
                     <a
-                      href="tel:+6285220526112"
+                      href="https://wa.me/6285220526112"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Hubungi YANKI melalui WhatsApp"
                       className="
                         mt-0.5
                         block
@@ -683,7 +657,7 @@ export const Footer: React.FC = () => {
             "
           >
             <p>
-              © {new Date().getFullYear()} NEXORA Digital Agency. All rights
+              © {new Date().getFullYear()} YANKI Digital Agency. All rights
               reserved.
             </p>
 
@@ -823,7 +797,7 @@ export const Footer: React.FC = () => {
                     text-[#E26D13]
                   "
                 >
-                  NEXORA Digital Agency
+                  YANKI Digital Agency
                 </span>
 
                 <h2
@@ -891,7 +865,7 @@ export const Footer: React.FC = () => {
                   </h3>
 
                   <p className="mt-3">
-                    NEXORA Digital Agency menghargai privasi setiap pengunjung
+                    YANKI Digital Agency menghargai privasi setiap pengunjung
                     dan berkomitmen untuk menjaga informasi yang diberikan
                     melalui website ini.
                   </p>
@@ -901,7 +875,7 @@ export const Footer: React.FC = () => {
                   </h3>
 
                   <p className="mt-3">
-                    Informasi dapat dikumpulkan ketika Anda menghubungi NEXORA,
+                    Informasi dapat dikumpulkan ketika Anda menghubungi YANKI,
                     mengirimkan pertanyaan, atau menggunakan layanan yang
                     tersedia melalui website.
                   </p>
@@ -913,7 +887,7 @@ export const Footer: React.FC = () => {
                   <p className="mt-3">
                     Informasi yang diberikan digunakan untuk memberikan
                     tanggapan, memahami kebutuhan project, meningkatkan
-                    pelayanan, dan berkomunikasi mengenai layanan NEXORA.
+                    pelayanan, dan berkomunikasi mengenai layanan YANKI.
                   </p>
 
                   <h3 className="mt-6 text-base font-bold text-[#121E36]">
@@ -928,7 +902,7 @@ export const Footer: React.FC = () => {
                   <p className="mt-6 text-xs text-slate-400">
                     Privacy Policy ini merupakan konten awal dan dapat
                     disesuaikan kembali dengan kebijakan serta kebutuhan bisnis
-                    NEXORA.
+                    YANKI.
                   </p>
                 </>
               ) : (
@@ -938,7 +912,7 @@ export const Footer: React.FC = () => {
                   </h3>
 
                   <p className="mt-3">
-                    Dengan menggunakan website NEXORA Digital Agency, Anda
+                    Dengan menggunakan website YANKI Digital Agency, Anda
                     memahami dan menyetujui ketentuan penggunaan yang berlaku
                     pada website ini.
                   </p>
@@ -950,7 +924,7 @@ export const Footer: React.FC = () => {
                   <p className="mt-3">
                     Konten yang tersedia pada website digunakan untuk
                     memberikan informasi mengenai layanan, project, dan
-                    kemampuan NEXORA Digital Agency.
+                    kemampuan YANKI Digital Agency.
                   </p>
 
                   <h3 className="mt-6 text-base font-bold text-[#121E36]">
@@ -969,14 +943,14 @@ export const Footer: React.FC = () => {
 
                   <p className="mt-3">
                     Materi, desain, logo, dan konten yang ditampilkan pada
-                    website NEXORA dapat merupakan milik NEXORA atau pihak yang
+                    website YANKI dapat merupakan milik YANKI atau pihak yang
                     memiliki hak atas materi tersebut.
                   </p>
 
                   <p className="mt-6 text-xs text-slate-400">
                     Terms & Conditions ini merupakan konten awal dan dapat
                     disesuaikan kembali berdasarkan kebutuhan operasional dan
-                    legal NEXORA.
+                    legal YANKI.
                   </p>
                 </>
               )}

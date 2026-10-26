@@ -146,7 +146,7 @@ export const WhyChooseUs: React.FC = () => {
                 >
                   <img
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
-                    alt="NEXORA team collaborating on digital strategy"
+                    alt="YANKI team collaborating on digital strategy"
                     className="
                       h-full
                       w-full
@@ -205,7 +205,7 @@ export const WhyChooseUs: React.FC = () => {
 
                       <div>
                         <p className="text-xs font-semibold text-white/70">
-                          NEXORA DIGITAL AGENCY
+                          YANKI DIGITAL AGENCY
                         </p>
 
                         <p className="mt-0.5 text-sm font-bold text-white">
@@ -351,7 +351,7 @@ export const WhyChooseUs: React.FC = () => {
                     sm:text-sm
                   "
                 >
-                  Why Choose NEXORA
+                  Why Choose YANKI
                 </span>
               </div>
             </ScrollReveal>

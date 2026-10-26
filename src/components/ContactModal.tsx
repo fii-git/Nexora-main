@@ -303,7 +303,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               "
             >
               <Sparkles className="h-3 w-3" />
-              NEXORA
+              Success
             </div>
 
             {/* Success Heading */}
@@ -334,7 +334,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 text-slate-500
               "
             >
-              Terima kasih telah menghubungi NEXORA.
+              Terima kasih telah menghubungi YANKI.
               Kami akan segera merespons pesan dan
               kebutuhan project Anda.
             </p>
@@ -463,7 +463,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 "
               >
                 Ceritakan tentang project, kebutuhan, atau ide
-                digital yang ingin Anda kembangkan bersama NEXORA.
+                digital yang ingin Anda kembangkan bersama YANKI.
               </p>
             </div>
 

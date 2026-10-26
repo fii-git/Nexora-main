@@ -300,7 +300,7 @@ export const Testimonials: React.FC = () => {
                   text-slate-400
                 "
               >
-                NEXORA Client
+                YANKI Client
               </p>
             </div>
           </div>
@@ -507,7 +507,7 @@ export const Testimonials: React.FC = () => {
               "
             >
               Pengalaman dan cerita dari mereka yang telah bekerja bersama
-              NEXORA untuk membangun solusi digital yang lebih baik.
+              YANKI untuk membangun solusi digital yang lebih baik.
             </p>
           </div>
         </ScrollReveal>

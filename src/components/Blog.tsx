@@ -385,7 +385,7 @@ export const Blog: React.FC = () => {
                       mt-6
                     "
                   >
-                    {/* NEXORA */}
+                    {/* YANKI */}
                     <div className="flex items-center gap-2">
                       <div
                         className="
@@ -413,7 +413,7 @@ export const Blog: React.FC = () => {
                           text-[#98A2B3]
                         "
                       >
-                        NEXORA
+                        YANKI 
                       </span>
                     </div>
 

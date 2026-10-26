@@ -251,7 +251,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     text-[#98A2B3]
                   "
                 >
-                  NEXORA
+                  YANKI 
                 </span>
 
                 <span

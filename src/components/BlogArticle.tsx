@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -24,6 +24,14 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
+  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant",
+  });
+  }, [id]);
+
   const postIndex = blogPostsData.findIndex((post) => post.id === id);
   const post = postIndex !== -1 ? blogPostsData[postIndex] : null;
 
@@ -31,13 +39,13 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
      SEO DATA
   ========================================================== */
 
-  const siteUrl = "https://nexora.id";
+  const siteUrl = "https://yanki.id";
 
-  const seoTitle = `${post?.title ?? "Blog"} | NEXORA Digital Agency`;
+  const seoTitle = `${post?.title ?? "Blog"} | YANKI Digital Agency`;
 
   const seoDescription =
     post?.excerpt ??
-    "Insight tentang digital strategy, technology, branding, dan digital experience dari NEXORA Digital Agency.";
+    "Insight tentang digital strategy, technology, branding, dan digital experience dari YANKI Digital Agency.";
 
   const seoImage = post?.image ?? "";
 
@@ -56,11 +64,11 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
 
         <main className="flex min-h-[70vh] items-center justify-center px-6 pt-32">
           <div className="mx-auto max-w-xl text-center">
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
-              <Sparkles className="h-7 w-7 text-[#2587FF]" />
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F3F4F6]">
+              <Sparkles className="h-7 w-7 text-[#E26D13]" />
             </div>
 
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#2587FF]">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#E26D13]">
               Article Not Found
             </p>
 
@@ -75,7 +83,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
 
             <Link
               to="/"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#111114] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#2587FF]"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#121E36] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#E26D13]"
             >
               <ArrowLeft className="h-4 w-4" />
               Kembali ke Beranda
@@ -114,111 +122,40 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
 
   return (
     <>
-      {/* =====================================================
-          SEO / META DATA
-      ====================================================== */}
-
+      {/* SEO / META DATA */}
       <Helmet>
         <title>{seoTitle}</title>
 
-        <meta
-          name="description"
-          content={seoDescription}
-        />
+        <meta name="description" content={seoDescription} />
+        <meta name="robots" content="index, follow" />
 
-        <meta
-          name="robots"
-          content="index, follow"
-        />
+        {/* OPEN GRAPH */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={seoImage} />
+        <meta property="og:url" content={seoUrl} />
+        <meta property="og:site_name" content="YANKI Digital Agency" />
 
-        {/* =================================================
-            OPEN GRAPH
-        ================================================== */}
+        {/* TWITTER / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content={seoImage} />
 
-        <meta
-          property="og:type"
-          content="article"
-        />
-
-        <meta
-          property="og:title"
-          content={post.title}
-        />
-
-        <meta
-          property="og:description"
-          content={seoDescription}
-        />
-
-        <meta
-          property="og:image"
-          content={seoImage}
-        />
-
-        <meta
-          property="og:url"
-          content={seoUrl}
-        />
-
-        <meta
-          property="og:site_name"
-          content="NEXORA Digital Agency"
-        />
-
-        {/* =================================================
-            TWITTER / X
-        ================================================== */}
-
-        <meta
-          name="twitter:card"
-          content="summary_large_image"
-        />
-
-        <meta
-          name="twitter:title"
-          content={post.title}
-        />
-
-        <meta
-          name="twitter:description"
-          content={seoDescription}
-        />
-
-        <meta
-          name="twitter:image"
-          content={seoImage}
-        />
-
-        {/* =================================================
-            ARTICLE METADATA
-        ================================================== */}
-
-        <meta
-          property="article:section"
-          content={post.category}
-        />
-
-        <meta
-          property="article:published_time"
-          content={post.date}
-        />
+        {/* ARTICLE METADATA */}
+        <meta property="article:section" content={post.category} />
+        <meta property="article:published_time" content={post.date} />
       </Helmet>
-
-      {/* =====================================================
-          ARTICLE PAGE
-      ====================================================== */}
 
       <div className="min-h-screen bg-white">
         <Navbar onOpenContact={onOpenContact} />
 
         <main>
-          {/* =================================================
-              ARTICLE HEADER
-          ================================================== */}
-
-          <section className="relative overflow-hidden bg-[#F8FAFF] px-6 pb-14 pt-36 sm:pb-20 sm:pt-40">
+          {/* ARTICLE HEADER */}
+          <section className="relative overflow-hidden bg-[#F3F4F6] px-6 pb-14 pt-36 sm:pb-20 sm:pt-40">
             {/* Decorative background */}
-            <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
+            <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[#1E3A5F]/10 blur-3xl" />
 
             <div className="relative mx-auto max-w-5xl">
               {/* Back to blog */}
@@ -226,7 +163,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                 <button
                   type="button"
                   onClick={() => navigate("/#blog")}
-                  className="group mb-10 inline-flex items-center gap-2 text-sm font-bold text-neutral-500 transition hover:text-[#2587FF]"
+                  className="group mb-10 inline-flex items-center gap-2 text-sm font-bold text-neutral-500 transition hover:text-[#E26D13]"
                 >
                   <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                   Kembali ke Blog
@@ -236,7 +173,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
               {/* Meta */}
               <ScrollReveal y={25} delay={100}>
                 <div className="mb-6 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#2587FF]/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#2587FF]">
+                  <span className="rounded-full bg-[#E26D13]/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#E26D13]">
                     {post.category}
                   </span>
 
@@ -266,13 +203,13 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
               {/* Author / Brand */}
               <ScrollReveal y={20} delay={350}>
                 <div className="mt-8 flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#2587FF] to-[#8B3DFF] text-sm font-black text-white">
-                    N
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#121E36] via-[#1E3A5F] to-[#E26D13] text-sm font-black text-white">
+                    Y
                   </div>
 
                   <div>
                     <p className="text-sm font-bold text-[#111114]">
-                      NEXORA Digital Agency
+                      YANKI Digital Agency
                     </p>
 
                     <p className="text-xs text-neutral-500">
@@ -284,10 +221,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
             </div>
           </section>
 
-          {/* =================================================
-              FEATURED IMAGE
-          ================================================== */}
-
+          {/* FEATURED IMAGE */}
           <section className="px-6">
             <ScrollReveal y={35}>
               <div className="relative mx-auto -mt-6 max-w-6xl sm:-mt-10">
@@ -299,24 +233,21 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                   />
                 </div>
 
-                {/* NEXORA Badge */}
+                {/* Brand Badge */}
                 <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-white/30 bg-white/90 px-4 py-2.5 shadow-lg backdrop-blur-xl sm:bottom-6 sm:left-6">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#2587FF] to-[#8B3DFF] text-[10px] font-black text-white">
-                    N
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#121E36] via-[#1E3A5F] to-[#E26D13] text-[10px] font-black text-white">
+                    Y 
                   </div>
 
                   <span className="text-xs font-extrabold text-[#111114]">
-                    NEXORA
+                    YANKI
                   </span>
                 </div>
               </div>
             </ScrollReveal>
           </section>
 
-          {/* =================================================
-              ARTICLE CONTENT
-          ================================================== */}
-
+          {/* ARTICLE CONTENT */}
           <section className="px-6 py-16 sm:py-20 lg:py-24">
             <div className="mx-auto max-w-4xl">
               <ScrollReveal y={25}>
@@ -328,10 +259,6 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
 
                   {/* Dynamic Sections */}
                   {post.sections?.map((section, index) => {
-                    /* =========================================
-                       HEADING
-                    ========================================== */
-
                     if (section.type === "heading") {
                       return (
                         <ScrollReveal
@@ -346,10 +273,6 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                       );
                     }
 
-                    /* =========================================
-                       PARAGRAPH
-                    ========================================== */
-
                     if (section.type === "paragraph") {
                       return (
                         <p
@@ -361,15 +284,11 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                       );
                     }
 
-                    /* =========================================
-                       LIST
-                    ========================================== */
-
                     if (section.type === "list") {
                       return (
                         <div
                           key={`${post.id}-list-${index}`}
-                          className="my-8 rounded-3xl border border-blue-100 bg-[#F8FAFF] p-6 sm:p-8"
+                          className="my-8 rounded-3xl border border-[#1E3A5F]/15 bg-[#F3F4F6] p-6 sm:p-8"
                         >
                           <p className="mb-5 text-base font-bold leading-7 text-[#111114] sm:text-lg">
                             {section.content}
@@ -381,8 +300,8 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                                 key={`${post.id}-list-${index}-${itemIndex}`}
                                 className="flex items-start gap-3 text-base leading-7 text-neutral-600"
                               >
-                                <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#2587FF]/10">
-                                  <Check className="h-3 w-3 text-[#2587FF]" />
+                                <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E26D13]/10">
+                                  <Check className="h-3 w-3 text-[#E26D13]" />
                                 </span>
 
                                 <span>{item}</span>
@@ -393,22 +312,18 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                       );
                     }
 
-                    /* =========================================
-                       QUOTE
-                    ========================================== */
-
                     if (section.type === "quote") {
                       return (
                         <blockquote
                           key={`${post.id}-quote-${index}`}
-                          className="my-10 rounded-3xl border-l-4 border-[#2587FF] bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-7 sm:px-8 sm:py-9"
+                          className="my-10 rounded-3xl border-l-4 border-[#E26D13] bg-gradient-to-r from-[#F3F4F6] to-[#EAA412]/10 px-6 py-7 sm:px-8 sm:py-9"
                         >
                           <p className="text-xl font-bold leading-8 tracking-tight text-[#111114] sm:text-2xl sm:leading-9">
                             “{section.content}”
                           </p>
 
-                          <footer className="mt-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#2587FF]">
-                            NEXORA Digital Agency
+                          <footer className="mt-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#E26D13]">
+                            YANKI Digital Agency
                           </footer>
                         </blockquote>
                       );
@@ -421,18 +336,15 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
             </div>
           </section>
 
-          {/* =================================================
-              PREVIOUS / NEXT ARTICLE
-          ================================================== */}
-
+          {/* PREVIOUS / NEXT ARTICLE */}
           {(previousPost || nextPost) && (
-            <section className="border-y border-neutral-100 bg-[#FAFBFF] px-6 py-12 sm:py-16">
+            <section className="border-y border-neutral-100 bg-[#F3F4F6] px-6 py-12 sm:py-16">
               <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
                 {/* Previous */}
                 {previousPost ? (
                   <Link
                     to={`/blog/${previousPost.id}`}
-                    className="group rounded-3xl border border-neutral-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/40"
+                    className="group rounded-3xl border border-neutral-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#E26D13]/40 hover:shadow-xl hover:shadow-[#E26D13]/10"
                   >
                     <div className="mb-5 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] text-neutral-400">
                       <ArrowLeft className="h-4 w-4" />
@@ -447,11 +359,11 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                       />
 
                       <div>
-                        <span className="text-xs font-bold text-[#2587FF]">
+                        <span className="text-xs font-bold text-[#E26D13]">
                           {previousPost.category}
                         </span>
 
-                        <h3 className="mt-1 line-clamp-2 text-base font-black leading-6 text-[#111114] transition group-hover:text-[#2587FF]">
+                        <h3 className="mt-1 line-clamp-2 text-base font-black leading-6 text-[#111114] transition group-hover:text-[#E26D13]">
                           {previousPost.title}
                         </h3>
                       </div>
@@ -465,7 +377,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                 {nextPost ? (
                   <Link
                     to={`/blog/${nextPost.id}`}
-                    className="group rounded-3xl border border-neutral-200 bg-white p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/40 md:text-right"
+                    className="group rounded-3xl border border-neutral-200 bg-white p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-[#E26D13]/40 hover:shadow-xl hover:shadow-[#E26D13]/10 md:text-right"
                   >
                     <div className="mb-5 flex items-center justify-end gap-2 text-xs font-extrabold uppercase tracking-[0.16em] text-neutral-400">
                       Artikel Berikutnya
@@ -480,11 +392,11 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                       />
 
                       <div className="flex-1">
-                        <span className="text-xs font-bold text-[#2587FF]">
+                        <span className="text-xs font-bold text-[#E26D13]">
                           {nextPost.category}
                         </span>
 
-                        <h3 className="mt-1 line-clamp-2 text-base font-black leading-6 text-[#111114] transition group-hover:text-[#2587FF]">
+                        <h3 className="mt-1 line-clamp-2 text-base font-black leading-6 text-[#111114] transition group-hover:text-[#E26D13]">
                           {nextPost.title}
                         </h3>
                       </div>
@@ -495,16 +407,13 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
             </section>
           )}
 
-          {/* =================================================
-              MORE ARTICLES
-          ================================================== */}
-
+          {/* MORE ARTICLES */}
           <section className="px-6 py-20 sm:py-24">
             <div className="mx-auto max-w-6xl">
               <ScrollReveal y={25}>
                 <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
                   <div>
-                    <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[#2587FF]">
+                    <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[#E26D13]">
                       Keep Exploring
                     </p>
 
@@ -515,7 +424,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
 
                   <Link
                     to="/#blog"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-neutral-500 transition hover:text-[#2587FF]"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-neutral-500 transition hover:text-[#E26D13]"
                   >
                     Lihat Semua
                     <ArrowRight className="h-4 w-4" />
@@ -532,7 +441,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                   >
                     <Link
                       to={`/blog/${relatedPost.id}`}
-                      className="group block overflow-hidden rounded-[28px] border border-neutral-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-100/40"
+                      className="group block overflow-hidden rounded-[28px] border border-neutral-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-[#E26D13]/40 hover:shadow-2xl hover:shadow-[#E26D13]/10"
                     >
                       <div className="relative overflow-hidden">
                         <img
@@ -541,7 +450,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                           className="aspect-[16/8] w-full object-cover transition duration-700 group-hover:scale-105"
                         />
 
-                        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#2587FF] shadow-sm backdrop-blur">
+                        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#E26D13] shadow-sm backdrop-blur">
                           {relatedPost.category}
                         </span>
                       </div>
@@ -552,7 +461,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                           {relatedPost.date}
                         </div>
 
-                        <h3 className="line-clamp-2 text-xl font-black leading-7 tracking-tight text-[#111114] transition group-hover:text-[#2587FF]">
+                        <h3 className="line-clamp-2 text-xl font-black leading-7 tracking-tight text-[#111114] transition group-hover:text-[#E26D13]">
                           {relatedPost.title}
                         </h3>
 
@@ -560,7 +469,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
                           {relatedPost.excerpt}
                         </p>
 
-                        <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#2587FF]">
+                        <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#E26D13]">
                           Baca Artikel
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </div>

@@ -5,8 +5,7 @@ import {
   Menu,
   X,
   Instagram,
-  Linkedin,
-  Twitter,
+  Facebook,
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/LOGO3.png";
@@ -270,7 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {/* Instagram */}
                 <a
                   id="social-instagram-nav"
-                  href="https://instagram.com/yankidigital_"
+                  href="https://instagram.com/yanki.digital"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -282,37 +281,22 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
-
-                {/* LinkedIn */}
+                
+                
+                {/* Facebook */}
                 <a
-                  id="social-linkedin-nav"
-                  href="https://linkedin.com"
+                  id="social-facebook-nav"
+                  href="https://facebook.com/"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="LinkedIn"
+                  aria-label="Facebook"
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isScrolled
                       ? "text-white/70 hover:text-white hover:bg-white/10"
                       : "text-neutral-600 hover:text-[#1E3A5F] hover:bg-[#1E3A5F]/10"
                   }`}
                 >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-
-                {/* Twitter */}
-                <a
-                  id="social-twitter-nav"
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Twitter"
-                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    isScrolled
-                      ? "text-white/70 hover:text-white hover:bg-white/10"
-                      : "text-neutral-600 hover:text-[#1E3A5F] hover:bg-[#1E3A5F]/10"
-                  }`}
-                >
-                  <Twitter className="w-4 h-4" />
+                  <Facebook className="w-4 h-4" />
                 </a>
 
               </div>
@@ -394,7 +378,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <a
-                      href="https://instagram.com/yankidigital_"
+                      href="https://instagram.com/yanki.digital"
                       target="_blank"
                       rel="noreferrer"
                       aria-label="Instagram"
@@ -403,25 +387,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <Instagram className="w-4 h-4" />
                     </a>
 
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="LinkedIn"
-                      className="w-9 h-9 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
 
                     <a
-                      href="https://twitter.com"
+                      href="https://facebook.com/"
                       target="_blank"
                       rel="noreferrer"
-                      aria-label="Twitter"
+                      aria-label="Facebook"
                       className="w-9 h-9 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
                     >
-                      <Twitter className="w-4 h-4" />
+                      <Facebook className="w-4 h-4" />
                     </a>
+
                   </div>
 
                   {onOpenContact && (

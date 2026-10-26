@@ -200,7 +200,7 @@ export const Services: React.FC<ServicesProps> = ({
                 sm:text-base
               "
             >
-              Dari website hingga strategi digital, NEXORA membantu bisnis
+              Dari website hingga strategi digital, YANKI membantu bisnis
               membangun pengalaman digital yang modern, efektif, dan siap
               berkembang.
             </p>
@@ -542,7 +542,7 @@ export const Services: React.FC<ServicesProps> = ({
                     sm:text-sm
                   "
                 >
-                  Mari diskusikan bagaimana NEXORA bisa membantu.
+                  Mari diskusikan bagaimana kami bisa membantu.
                 </p>
               </div>
             </div>
