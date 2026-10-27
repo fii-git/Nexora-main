@@ -35,7 +35,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
           <iframe
             className="w-full h-full"
             src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=1"
-            title="Lumos Agency Showreel"
+            title="YANKI Agency Showreel"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -44,7 +44,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
         {/* Modal Footer info */}
         <div className="p-5 bg-neutral-900 border-t border-white/5 flex items-center justify-between text-white">
           <div>
-            <h4 className="font-bold text-sm">Lumos Digital Product Agency Showreel</h4>
+            <h4 className="font-bold text-sm">YANKI Digital Product Agency Showreel</h4>
             <p className="text-xs text-neutral-400">Discover how we help brands scale through design & engineering.</p>
           </div>
           <button

@@ -136,7 +136,7 @@ export const Blog: React.FC = () => {
                 lg:text-[52px]
               "
             >
-              Ideas, Insights &
+              Ideas, Insights &{" "}
               <br className="hidden sm:block" />
 
               <span

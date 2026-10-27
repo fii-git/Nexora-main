@@ -149,7 +149,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({
 
             <span className="flex items-center gap-1.5">
               <Tag className="h-3.5 w-3.5" />
-              Lumos Insights
+              YANKI Insights
             </span>
           </div>
 

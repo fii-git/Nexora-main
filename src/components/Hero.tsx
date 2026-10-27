@@ -63,9 +63,9 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Description */}
             <p className="mt-7 max-w-170 text-base sm:text-lg leading-8 text-slate-500">
-              YANKI is a digital agency focused on creating modern websites,
-              digital products, and experiences that help ambitious brands move
-              forward.
+              YANKI adalah agensi digital yang berfokus pada pembuatan situs web modern,
+              produk digital, dan pengalaman yang membantu sebuah brands ambisius
+              untuk terus maju.
             </p>
 
             {/* CTA */}

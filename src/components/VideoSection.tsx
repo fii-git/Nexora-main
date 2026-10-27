@@ -65,10 +65,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
             y={25}
           >
             <p className="text-slate-500 text-sm sm:text-base leading-7">
-              YANKI is a digital agency focused on creating meaningful digital
-              experiences through strategy, design, and technology. We help
-              businesses turn ideas into digital products that are useful,
-              memorable, and built for what's next.
+              Kami percaya setiap ide memiliki potensi untuk menjadi sesuatu yang luar biasa. YANKI menggabungkan kreativitas, strategi, dan teknologi untuk membangun solusi digital yang memperkuat brand, mendorong pertumbuhan bisnis, dan menciptakan masa depan yang lebih baik.
             </p>
 
             {/* Our Story */}
@@ -180,8 +177,8 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
               </p>
 
               <p className="mt-2 text-sm leading-6 text-slate-500">
-                We start by understanding your goals, audience, and
-                opportunities.
+                Kami mulai dengan memahami tujuan, audiens, dan
+                peluang Anda.
               </p>
             </div>
           </ScrollReveal>
@@ -195,8 +192,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
               </p>
 
               <p className="mt-2 text-sm leading-6 text-slate-500">
-                We create intuitive and memorable experiences around your
-                brand.
+                Kami menciptakan pengalaman yang intuitif dan berkesan mengenai brands Anda.
               </p>
             </div>
           </ScrollReveal>
@@ -210,8 +206,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
               </p>
 
               <p className="mt-2 text-sm leading-6 text-slate-500">
-                We turn ideas into fast, responsive, and scalable digital
-                products.
+                Kami mengubah ide menjadi produk digital yang cepat, responsive, dan scalable.
               </p>
             </div>
           </ScrollReveal>

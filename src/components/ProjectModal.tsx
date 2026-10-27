@@ -191,8 +191,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               text-[#98A2B3]
             "
           >
-            Designed and engineered for optimum user retention, brand
-            resonance, and flawless cross-device performance.
+            Dirancang dan direkayasa untuk mengoptimalkan retensi pengguna, resonansi brand, serta performa yang baik di berbagai perangkat.
           </p>
 
           {/* =================================================

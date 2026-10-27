@@ -186,23 +186,6 @@ export const WhyChooseUs: React.FC = () => {
                     "
                   >
                     <div className="flex items-center gap-3">
-                      <div
-                        className="
-                          flex
-                          h-10
-                          w-10
-                          items-center
-                          justify-center
-                          rounded-full
-                          bg-gradient-to-br
-                          from-[#E26D13]
-                          to-[#EAA412]
-                          text-white
-                        "
-                      >
-                        <Sparkles className="h-5 w-5" />
-                      </div>
-
                       <div>
                         <p className="text-xs font-semibold text-white/70">
                           YANKI DIGITAL AGENCY
@@ -375,7 +358,7 @@ export const WhyChooseUs: React.FC = () => {
                   lg:text-[50px]
                 "
               >
-                More Than Just
+                More Than Just{" "}
                 <br className="hidden sm:block" />
 
                 <span

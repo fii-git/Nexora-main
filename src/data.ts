@@ -230,7 +230,7 @@ export const blogPostsData: BlogPost[] = [
     date: "Sep 18, 2026",
     category: "E-commerce",
     image:
-      "https://images.unsplash.com/photo-1556742049-0a67e557224c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.pexels.com/photos/29502362/pexels-photo-29502362.jpeg?auto=compress&cs=tinysrgb&w=1200",
 
     sections: [
       {

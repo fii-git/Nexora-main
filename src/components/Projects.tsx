@@ -5,6 +5,7 @@ import { ProjectItem } from '../types';
 import {
   ArrowUpRight,
   ArrowRight,
+  MessageCircle,
   Sparkles,
 } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
@@ -215,7 +216,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                 lg:text-[52px]
               "
             >
-              Work That Speaks
+              Work That Speaks{" "}
 
               <br className="hidden sm:block" />
 
@@ -655,7 +656,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                   sm:w-11
                 "
               >
-                <Sparkles className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </div>
 
               <div>

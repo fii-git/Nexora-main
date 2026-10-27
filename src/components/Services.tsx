@@ -7,6 +7,7 @@ import {
   PenLine,
   Search,
   ArrowRight,
+  MessageCircle,
   Sparkles,
 } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
@@ -165,7 +166,7 @@ export const Services: React.FC<ServicesProps> = ({
                 lg:text-[52px]
               "
             >
-              Digital Solutions
+              Digital Solutions{" "}
               <br className="hidden sm:block" />
 
               <span
@@ -519,7 +520,7 @@ export const Services: React.FC<ServicesProps> = ({
                   text-white
                 "
               >
-                <Sparkles className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </div>
 
               <div>
