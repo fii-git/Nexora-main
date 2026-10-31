@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { blogPostsData } from '../data';
 import {
@@ -10,6 +9,23 @@ import {
 import { ScrollReveal } from './ScrollReveal';
 
 export const Blog: React.FC = () => {
+
+  const [activeCategory, setActiveCategory] = useState("All Articles");
+
+  const categories = [
+    "All Articles",
+    ...Array.from(
+      new Set(blogPostsData.map((post) => post.category))
+    ),
+  ];
+
+  const filteredPosts =
+    activeCategory === "All Articles"
+      ? blogPostsData
+      : blogPostsData.filter(
+          (post) => post.category === activeCategory
+        );
+
   return (
     <section
       id="blog"
@@ -180,6 +196,70 @@ export const Blog: React.FC = () => {
           </ScrollReveal>
         </div>
 
+        
+        
+        {/* =====================================================
+            CATEGORY FILTER
+        ====================================================== */}
+
+        <ScrollReveal
+          delay={100}
+          y={15}
+          duration={800}
+          className="mb-8"
+        >
+          <div className="flex w-full flex-nowrap items-center gap-3 overflow-x-auto overflow-y-hidden pb-3 sm:flex-wrap sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {categories.map((category) => {
+              const isActive = activeCategory === category;
+
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                  className={`
+                    flex
+                    shrink-0
+                    cursor-pointer
+                    items-center
+                    justify-center
+                    whitespace-nowrap
+                    rounded-full
+                    px-5
+                    py-2.5
+                    text-xs
+                    font-bold
+                    transition-all
+                    duration-300
+                    sm:text-sm
+                    ${
+                      isActive
+                      ? `
+                       bg-[#121E36]
+                       text-white
+                       shadow-lg
+                       shadow-[#121E36]/10
+                       `
+                       : `
+                       border
+                       border-[#DFE7F4]
+                       bg-white
+                       text-[#667085]
+                       hover:border-[#E26D13]/40
+                       hover:bg-[#FFF7F0]
+                       hover:text-[#E26D13]
+                       `
+                    }
+                  `}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+        </ScrollReveal>
+
+        
         {/* =====================================================
             BLOG GRID
         ====================================================== */}
@@ -192,7 +272,8 @@ export const Blog: React.FC = () => {
             md:grid-cols-3
           "
         >
-          {blogPostsData.map((post, index) => (
+          {filteredPosts.length > 0 ? (
+           filteredPosts.map((post, index) => (
             <ScrollReveal
               key={post.id}
               delay={index * 150}
@@ -448,7 +529,18 @@ export const Blog: React.FC = () => {
                 </div>
               </Link>
             </ScrollReveal>
-          ))}
+          ))
+        ) : (
+          <div className="col-span-full py-16 text-center">
+            <p className="text-lg font-bold text-[#121E36]">
+              Belum ada artikel dalam kategori ini.
+            </p>
+
+            <p className="mt-2 text-sm text-[#737B8C]">
+              Silakan pilih kategori lainnya.
+            </p>
+          </div>
+        )}
         </div>
 
         {/* =====================================================

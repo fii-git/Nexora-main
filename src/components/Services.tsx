@@ -6,6 +6,9 @@ import {
   Instagram,
   PenLine,
   Search,
+  PenTool,
+  Share2,
+  Megaphone,
   ArrowRight,
   MessageCircle,
   Sparkles,
@@ -30,14 +33,14 @@ export const Services: React.FC<ServicesProps> = ({
       case "Laptop":
         return <Laptop className={iconClass} />;
 
+      case "Megaphone":
+        return <Megaphone className={iconClass} />;
+
       case "Instagram":
         return <Instagram className={iconClass} />;
 
-      case "PenLine":
-        return <PenLine className={iconClass} />;
-
-      case "Search":
-        return <Search className={iconClass} />;
+      case "PenTool":
+        return <PenTool className={iconClass} />;
 
       default:
         return <Laptop className={iconClass} />;

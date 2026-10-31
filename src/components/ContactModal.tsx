@@ -5,6 +5,7 @@ import {
   Send,
   CheckCircle2,
   Sparkles,
+  MessageCircle,
 } from 'lucide-react';
 
 interface ContactModalProps {
@@ -20,6 +21,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 }) => {
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   const [formData, setFormData] = useState({
     name: '',
@@ -53,25 +55,44 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   // HANDLE FORM SUBMIT
   // =========================================================
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (isSending) {
-      return;
-    }
+  if (isSending) {
+    return;
+  }
 
-    setIsSending(true);
+  setIsSending(true);
 
-    /*
-     * Simulasi proses pengiriman.
-     * Nanti dapat diganti dengan API / Email / WhatsApp.
-     */
+  const whatsappMessage = [
+    "Halo YANKI Digital Agency!",
+    "",
+    "Saya ingin berkonsultasi mengenai layanan digital YANKI.",
+    "",
+    "INFORMASI KLIEN",
+    `Nama: ${formData.name}`,
+    `Email: ${formData.email}`,
+    `Layanan: ${formData.subject}`,
+    "",
+    "DETAIL PROYEK",
+    formData.message,
+    "",
+    "Mohon informasi lebih lanjut mengenai layanan dan penawarannya.",
+    "Terima kasih!"
+  ].join("\n");
 
-    setTimeout(() => {
-      setIsSending(false);
-      setSubmitted(true);
-    }, 900);
-  };
+  const phoneNumber = "6285220526112";
+
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
+  setWhatsappUrl(url);
+  setIsSending(false);
+  setSubmitted(true);
+};
+
 
   // =========================================================
   // HANDLE INPUT
@@ -97,6 +118,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   const handleResetAndClose = () => {
     setSubmitted(false);
     setIsSending(false);
+    setWhatsappUrl("");
 
     setFormData({
       name: '',
@@ -302,7 +324,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 text-[#1E3A5F]
               "
             >
-              <Sparkles className="h-3 w-3" />
               Success
             </div>
 
@@ -319,7 +340,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 sm:text-3xl
               "
             >
-              Message Sent!
+              Message Prepared!
             </h2>
 
             {/* Success Description */}
@@ -334,36 +355,51 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 text-slate-500
               "
             >
-              Terima kasih telah menghubungi YANKI.
-              Kami akan segera merespons pesan dan
-              kebutuhan project Anda.
+              Pesan Anda telah disiapkan. Terima kasih telah
+              menghubungi YANKI. Silakan lanjutkan ke WhatsApp
+              untuk mengirimkan inquiry Anda.
             </p>
 
             {/* Done Button */}
-
+        
             <button
               type="button"
-              onClick={handleResetAndClose}
+              onClick={() => {
+                if (whatsappUrl) {
+                  window.open(
+                    whatsappUrl,
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                }
+              }}
+              disabled={!whatsappUrl}
               className="
-                mt-7
-                animate-[successFade_0.5s_ease-out_0.5s_both]
-                rounded-full
-                bg-gradient-to-r
-                from-[#E26D13]
-                to-[#EAA412]
-                px-8
-                py-2.5
-                text-sm
-                font-bold
-                text-white
-                shadow-[0_10px_25px_rgba(226,109,19,0.20)]
-                transition-all
-                duration-300
-                hover:-translate-y-0.5
-                hover:shadow-[0_14px_30px_rgba(226,109,19,0.28)]
+              mt-7
+              inline-flex
+              items-center
+              justify-center
+              gap-2
+              animate-[successFade_0.5s_ease-out_0.5s_both]
+              rounded-full
+              bg-gradient-to-r
+            from-[#E26D13]
+            to-[#EAA412]
+              px-8
+              py-3
+              text-sm
+              font-bold
+            text-white
+              shadow-[0_10px_25px_rgba(226,109,19,0.20)]
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:shadow-[0_14px_30px_rgba(226,109,19,0.28)]
+              disabled:opacity-50
               "
             >
-              Done
+              Continue to WhatsApp
+              <MessageCircle className="h-4 w-4" />
             </button>
           </div>
         ) : (
