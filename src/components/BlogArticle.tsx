@@ -247,94 +247,91 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
             </ScrollReveal>
           </section>
 
+
           {/* ARTICLE CONTENT */}
           <section className="px-6 py-16 sm:py-20 lg:py-24">
             <div className="mx-auto max-w-4xl">
-              <ScrollReveal y={25}>
-                <article className="text-neutral-700">
-                  {/* Intro */}
-                  <p className="mb-10 text-lg font-medium leading-8 text-neutral-600 sm:text-xl sm:leading-9">
-                    {post.content}
-                  </p>
+              <article className="text-neutral-700">
+                {/* Intro */}
+                <p className="mb-10 text-lg font-medium leading-8 text-neutral-600 sm:text-xl sm:leading-9">
+                  {post.content}
+                </p>
 
-                  {/* Dynamic Sections */}
-                  {post.sections?.map((section, index) => {
-                    if (section.type === "heading") {
-                      return (
-                        <ScrollReveal
-                          key={`${post.id}-heading-${index}`}
-                          y={20}
-                          delay={index * 30}
-                        >
-                          <h2 className="mb-5 mt-12 text-2xl font-black tracking-tight text-[#111114] sm:text-3xl">
-                            {section.content}
-                          </h2>
-                        </ScrollReveal>
-                      );
-                    }
+                {/* Dynamic Sections */}
+                {post.sections?.map((section, index) => {
+                  if (section.type === "heading") {
+                    return (
+                      <h2
+                        key={`${post.id}-heading-${index}`}
+                        className="mb-5 mt-12 text-2xl font-black tracking-tight text-[#111114] sm:text-3xl"
+                      >
+                        {section.content}
+                      </h2>
+                    );
+                  }
 
-                    if (section.type === "paragraph") {
-                      return (
-                        <p
-                          key={`${post.id}-paragraph-${index}`}
-                          className="mb-7 text-base leading-8 text-neutral-600 sm:text-lg sm:leading-9"
-                        >
-                          {section.content}
-                        </p>
-                      );
-                    }
+                  if (section.type === "paragraph") {
+                    return (
+                      <p
+                        key={`${post.id}-paragraph-${index}`}
+                        className="mb-7 text-base leading-8 text-neutral-600 sm:text-lg sm:leading-9"
+                      >
+                        {section.content}
+                      </p>
+                    );
+                  }
 
-                    if (section.type === "list") {
-                      return (
-                        <div
-                          key={`${post.id}-list-${index}`}
-                          className="my-8 rounded-3xl border border-[#1E3A5F]/15 bg-[#F3F4F6] p-6 sm:p-8"
-                        >
-                          <p className="mb-5 text-base font-bold leading-7 text-[#111114] sm:text-lg">
-                            {section.content}
-                          </p>
+                  if (section.type === "list") {
+                    return (
+                      <div
+                        key={`${post.id}-list-${index}`}
+                        className="my-8 rounded-3xl border border-[#1E3A5F]/15 bg-[#F3F4F6] p-6 sm:p-8"
+                      >
+                      <p className="mb-5 text-base font-bold leading-7 text-[#111114] sm:text-lg">
+                        {section.content}
+                      </p>
 
-                          <ul className="space-y-4">
-                            {section.items?.map((item, itemIndex) => (
-                              <li
-                                key={`${post.id}-list-${index}-${itemIndex}`}
-                                className="flex items-start gap-3 text-base leading-7 text-neutral-600"
-                              >
-                                <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E26D13]/10">
-                                  <Check className="h-3 w-3 text-[#E26D13]" />
-                                </span>
+                      <ul className="space-y-4">
+                        {section.items?.map((item, itemIndex) => (
+                      <li
+                        key={`${post.id}-list-${index}-${itemIndex}`}
+                        className="flex items-start gap-3 text-base leading-7 text-neutral-600"
+                      >
+                      <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E26D13]/10">
+                        <Check className="h-3 w-3 text-[#E26D13]" />
+                      </span>
 
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    }
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          }
 
-                    if (section.type === "quote") {
-                      return (
-                        <blockquote
-                          key={`${post.id}-quote-${index}`}
-                          className="my-10 rounded-3xl border-l-4 border-[#E26D13] bg-gradient-to-r from-[#F3F4F6] to-[#EAA412]/10 px-6 py-7 sm:px-8 sm:py-9"
-                        >
-                          <p className="text-xl font-bold leading-8 tracking-tight text-[#111114] sm:text-2xl sm:leading-9">
-                            “{section.content}”
-                          </p>
+          if (section.type === "quote") {
+            return (
+              <blockquote
+                key={`${post.id}-quote-${index}`}
+                className="my-10 rounded-3xl border-l-4 border-[#E26D13] bg-gradient-to-r from-[#F3F4F6] to-[#EAA412]/10 px-6 py-7 sm:px-8 sm:py-9"
+              >
+                <p className="text-xl font-bold leading-8 tracking-tight text-[#111114] sm:text-2xl sm:leading-9">
+                  “{section.content}”
+                </p>
 
-                          <footer className="mt-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#E26D13]">
-                            YANKI Digital Agency
-                          </footer>
-                        </blockquote>
-                      );
-                    }
+                <footer className="mt-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#E26D13]">
+                  YANKI Digital Agency
+                </footer>
+              </blockquote>
+            );
+          }
 
-                    return null;
-                  })}
-                </article>
-              </ScrollReveal>
-            </div>
-          </section>
+          return null;
+        })}
+      </article>
+    </div>
+  </section>
+
 
           {/* PREVIOUS / NEXT ARTICLE */}
           {(previousPost || nextPost) && (
